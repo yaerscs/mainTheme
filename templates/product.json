@@ -1,8 +1,32 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "main-product",
       "blocks": {
+        "a6eb81db-40e4-43e0-972f-32db010a4a56": {
+          "type": "rating_stars",
+          "settings": {
+            "rating": 4.8,
+            "star_color": "#ffcc00",
+            "bg_stars_style": "full",
+            "bg_star_color": "#ececec",
+            "label": "Rated <strong>4.8 Excellent </strong>5273+ Reviews",
+            "size": 14,
+            "alignment": "flex-start",
+            "scroll_id": "",
+            "margin_top": 0,
+            "margin_bottom": 9
+          }
+        },
         "title": {
           "type": "title",
           "settings": {
@@ -13,39 +37,39 @@
             "margin_bottom": 0
           }
         },
-        "a6eb81db-40e4-43e0-972f-32db010a4a56": {
-          "type": "rating_stars",
+        "text_d7VUAy": {
+          "type": "text",
           "settings": {
-            "rating": 4.4,
-            "star_color": "#ffcc00",
-            "bg_stars_style": "full",
-            "bg_star_color": "#ececec",
-            "label": "(xxxx Reviews)",
-            "size": 16,
-            "alignment": "flex-start",
-            "scroll_id": "",
-            "margin_top": 0,
-            "margin_bottom": 9
-          }
-        },
-        "price": {
-          "type": "price",
-          "settings": {
-            "price_layout": "price-first",
-            "price_color": "accent-1",
-            "compare_price_color": "text",
-            "regular_price_size": 25,
-            "sale_price_size": 20,
-            "compare_price_size": 16,
-            "displayed_badge": "sale",
-            "icon_scale": 140,
-            "sale_badge_color": "accent-2",
-            "custom_badge_text": "[icon_1] SPECIAL OFFER",
-            "icon_1": "redeem",
-            "filled_icon_1": false,
+            "mobile_text_size": 14,
+            "desktop_text_size": 16,
+            "alignment": "left",
+            "text_color": "#2e2a39",
+            "icon_scale": 120,
+            "icon_color": "#d58f26",
+            "width": "100%",
+            "direction": "vertical",
+            "column_gap": 3,
+            "styling_container": "container",
+            "enable_bg": false,
+            "bg_color": "#f3f3f3",
+            "corner_radius": 40,
+            "padding": 3,
+            "border_size": 0,
+            "border_style": "solid",
+            "border_color": "#b7b7b7",
+            "text_1": "Promotes Prostate Health",
+            "icon_1": "check_circle",
+            "filled_icon_1": true,
+            "text_2": "Free From Side Effects",
             "icon_2": "check_circle",
-            "filled_icon_2": false,
-            "margin_top": 9,
+            "filled_icon_2": true,
+            "text_3": "Made With Highly Concentrated Extracts",
+            "icon_3": "check_circle",
+            "filled_icon_3": true,
+            "text_4": "",
+            "icon_4": "check_circle",
+            "filled_icon_4": false,
+            "margin_top": 15,
             "margin_bottom": 15
           }
         },
@@ -95,50 +119,17 @@
             "uppercase_text": true,
             "icon_scale": 120,
             "icon_spacing": 10,
-            "atc_custom_label": "",
+            "atc_custom_label": "Pre-Order Now",
             "display_price": false,
             "price_position": "left",
-            "price_separator": "\u00e2\u20ac\u00a2",
+            "price_separator": "â€¢",
             "enable_custom_color": false,
             "custom_color": "#53af01",
             "custom_text_color": "#ffffff",
-            "enable_secondary_btn": true,
+            "enable_secondary_btn": false,
             "secondary_btn_label": "Buy It Now",
             "secondary_btn_enable_custom_color": false,
             "secondary_btn_custom_color": "#dd1d1d",
-            "margin_top": 24,
-            "margin_bottom": 24
-          }
-        },
-        "e0a0b690-50df-4ca4-acfd-ce2980696cce": {
-          "type": "shipping_checkpoints",
-          "settings": {
-            "icon_1": "add_shopping_cart",
-            "filled_icon_1": false,
-            "top_text_1": "<strong>[start_date]</strong>",
-            "bottom_text_1": "Ordered",
-            "min_days_1": 0,
-            "max_days_1": 0,
-            "icon_2": "local_shipping",
-            "filled_icon_2": false,
-            "top_text_2": "<strong>[start_date] - [end_date]</strong>",
-            "bottom_text_2": "Order Ready",
-            "min_days_2": 1,
-            "max_days_2": 2,
-            "icon_3": "redeem",
-            "filled_icon_3": false,
-            "top_text_3": "<strong>[start_date] - [end_date]</strong>",
-            "bottom_text_3": "Delivered",
-            "min_days_3": 10,
-            "max_days_3": 12,
-            "icon_4": "",
-            "filled_icon_4": false,
-            "top_text_4": "",
-            "bottom_text_4": "",
-            "date_format": "mm_dd",
-            "days_labels": "Mon, Tue, Wed, Thu, Fri, Sat, Sun",
-            "months_labels": "Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec",
-            "color_scheme": "inverse",
             "margin_top": 24,
             "margin_bottom": 24
           }
@@ -180,88 +171,6 @@
           "settings": {
             "margin_top": 24,
             "margin_bottom": 24
-          }
-        },
-        "reviews_8UgFbe": {
-          "type": "reviews",
-          "settings": {
-            "color_scheme": "background-1",
-            "show_custom_bg": false,
-            "custom_bg_color": "#f2f2f2",
-            "corner_radius": 12,
-            "border_width": 0,
-            "border_color": "#b7b7b7",
-            "avatar_alignment": "top",
-            "avatar_corner_radius": 40,
-            "star_color": "#ffcc00",
-            "stars_translate": 0,
-            "checkmark_color": "#6d388b",
-            "checkmark_icon_color": "#ffffff",
-            "slider_type": "slide",
-            "autoplay": false,
-            "autoplay_speed": 5,
-            "display_arrows": false,
-            "display_dots": true,
-            "author_1": "<em>Author</em> [stars]",
-            "text_1": "<p>Share positive thoughts and feedback from your customer.</p>",
-            "author_2": "<em>Author</em> [stars]",
-            "text_2": "<p>Share positive thoughts and feedback from your customer.</p>",
-            "author_3": "<em>Author</em> [stars]",
-            "text_3": "<p>Share positive thoughts and feedback from your customer.</p>",
-            "margin_top": 24,
-            "margin_bottom": 24
-          }
-        },
-        "de158e68-5d0d-4819-a625-e2dabdff87d1": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Collapsible row",
-            "heading_size": "medium",
-            "icon": "check_box",
-            "filled_icon": false,
-            "collapse_icon": "carret",
-            "display_top_border": true,
-            "open": false,
-            "content": "",
-            "page": "",
-            "margin_top": 24,
-            "margin_bottom": 0
-          }
-        },
-        "text_d7VUAy": {
-          "type": "text",
-          "settings": {
-            "mobile_text_size": 14,
-            "desktop_text_size": 16,
-            "alignment": "left",
-            "text_color": "#2e2a39",
-            "icon_scale": 120,
-            "icon_color": "#d58f26",
-            "width": "100%",
-            "direction": "vertical",
-            "column_gap": 3,
-            "styling_container": "container",
-            "enable_bg": false,
-            "bg_color": "#f3f3f3",
-            "corner_radius": 40,
-            "padding": 3,
-            "border_size": 0,
-            "border_style": "solid",
-            "border_color": "#b7b7b7",
-            "text_1": "Promotes Prostate Health",
-            "icon_1": "check_circle",
-            "filled_icon_1": true,
-            "text_2": "Free From Side Effects",
-            "icon_2": "check_circle",
-            "filled_icon_2": true,
-            "text_3": "Made With Highly Concentrated Extracts",
-            "icon_3": "check_circle",
-            "filled_icon_3": true,
-            "text_4": "",
-            "icon_4": "check_circle",
-            "filled_icon_4": false,
-            "margin_top": 15,
-            "margin_bottom": 15
           }
         },
         "text_iBA3k9": {
@@ -359,7 +268,7 @@
             "question_2": "Why MeridEase's Pumpkin Seed oil?",
             "answer_2": "<p>Our daily formula, made with highly concentrated extracts, supports your prostate health, comfort, and normal urinary flow. </p><p>Backed by modern science, pumpkin seed oil and saw palmetto are able refresh your world again. </p><p><strong>Our product is not the same as regular pumpkin seeds and saw palmetto. Our softgels are</strong> <strong>standardized, concentrated and cold-pressed, ensuring correct lab-grade ingredients. </strong></p>",
             "question_3": "Benefits",
-            "answer_3": "<p>\u2713 Support prostate health</p><p>\u2713 Supports normal DHT balance</p><p>\u2713 Helps maintain normal prostate size</p><p>\u2713 Promotes prostate comfort</p><p>\u2713 Promotes comfortable urination<br/></p>",
+            "answer_3": "<p>✓ Support prostate health</p><p>✓ Supports normal DHT balance</p><p>✓ Helps maintain normal prostate size</p><p>✓ Promotes prostate comfort</p><p>✓ Promotes comfortable urination<br/></p>",
             "question_4": "Recommended use",
             "answer_4": "<p>Take 3-4 softgels a day with water, preferably with food.</p><p>Consistent use allows the best results. </p>",
             "question_5": "Do you offer a guarantee?",
@@ -382,17 +291,13 @@
         }
       },
       "block_order": [
-        "title",
         "a6eb81db-40e4-43e0-972f-32db010a4a56",
-        "price",
+        "title",
+        "text_d7VUAy",
         "5fcc0428-e768-4cb7-bea3-eb0274198dd1",
         "buy_buttons",
-        "e0a0b690-50df-4ca4-acfd-ce2980696cce",
         "e7a28cbe-03cb-4c9d-a2c4-0e3e76ffb3e5",
         "description",
-        "reviews_8UgFbe",
-        "de158e68-5d0d-4819-a625-e2dabdff87d1",
-        "text_d7VUAy",
         "text_iBA3k9",
         "payment_badges_JwQHnw",
         "stock_warning_CKpqhM",
@@ -472,448 +377,6 @@
         "columns_mobile": "2",
         "padding_top": 36,
         "padding_bottom": 24
-      }
-    },
-    "8beb6911-28c6-482c-976a-e5421ad3e8df": {
-      "type": "custom-columns",
-      "blocks": {
-        "template--21507361800487__8beb6911-28c6-482c-976a-e5421ad3e8df-heading-1": {
-          "type": "heading",
-          "settings": {
-            "column": "col_1",
-            "visibility": "always-display",
-            "heading": "Custom columns",
-            "title_highlight_color": "#6d388b",
-            "heading_size": "h1",
-            "alignment": "center",
-            "mobile_alignment": "mobile-center",
-            "margin_top": 20,
-            "margin_bottom": 20
-          }
-        },
-        "template--21507361800487__8beb6911-28c6-482c-976a-e5421ad3e8df-richtext-1": {
-          "type": "richtext",
-          "settings": {
-            "column": "col_1",
-            "visibility": "always-display",
-            "text": "<p>Use the flexible grid system to create any layout. Each block can be placed in any of the columns.</p>",
-            "text_style": "body",
-            "alignment": "center",
-            "mobile_alignment": "mobile-center",
-            "margin_top": 20,
-            "margin_bottom": 20
-          }
-        },
-        "template--21507361800487__8beb6911-28c6-482c-976a-e5421ad3e8df-icon_with_text-1": {
-          "type": "icon_with_text",
-          "settings": {
-            "column": "col_2",
-            "visibility": "always-display",
-            "icon": "check_circle",
-            "filled_icon": false,
-            "icon_size": "m",
-            "icon_position": "next-to-title",
-            "icon_color": "accent-1",
-            "icon_heading_size": "h3",
-            "icon_text_alignment": "left",
-            "title": "Icon with text",
-            "text": "<p>Pair text with an icon to focus on your chosen product, collection, or blog post</p>",
-            "margin_top": 20,
-            "margin_bottom": 30
-          }
-        },
-        "template--21507361800487__8beb6911-28c6-482c-976a-e5421ad3e8df-icon_with_text-2": {
-          "type": "icon_with_text",
-          "settings": {
-            "column": "col_2",
-            "visibility": "always-display",
-            "icon": "check_circle",
-            "filled_icon": false,
-            "icon_size": "m",
-            "icon_position": "next-to-title",
-            "icon_color": "accent-1",
-            "icon_heading_size": "h3",
-            "icon_text_alignment": "left",
-            "title": "Icon with text",
-            "text": "<p>Pair text with an icon to focus on your chosen product, collection, or blog post</p>",
-            "margin_top": 20,
-            "margin_bottom": 20
-          }
-        },
-        "template--21507361800487__8beb6911-28c6-482c-976a-e5421ad3e8df-image-1": {
-          "type": "image",
-          "settings": {
-            "column": "col_3",
-            "visibility": "always-display",
-            "width": 100,
-            "alignment": "center",
-            "mobile_alignment": "center",
-            "border_radius": 0,
-            "margin_top": 20,
-            "margin_bottom": 20
-          }
-        },
-        "template--21507361800487__8beb6911-28c6-482c-976a-e5421ad3e8df-icon_with_text-3": {
-          "type": "icon_with_text",
-          "settings": {
-            "column": "col_4",
-            "visibility": "always-display",
-            "icon": "check_circle",
-            "filled_icon": false,
-            "icon_size": "m",
-            "icon_position": "next-to-title",
-            "icon_color": "accent-1",
-            "icon_heading_size": "h3",
-            "icon_text_alignment": "left",
-            "title": "Icon with text",
-            "text": "<p>Pair text with an icon to focus on your chosen product, collection, or blog post</p>",
-            "margin_top": 20,
-            "margin_bottom": 30
-          }
-        },
-        "template--21507361800487__8beb6911-28c6-482c-976a-e5421ad3e8df-icon_with_text-4": {
-          "type": "icon_with_text",
-          "settings": {
-            "column": "col_4",
-            "visibility": "always-display",
-            "icon": "check_circle",
-            "filled_icon": false,
-            "icon_size": "m",
-            "icon_position": "next-to-title",
-            "icon_color": "accent-1",
-            "icon_heading_size": "h3",
-            "icon_text_alignment": "left",
-            "title": "Icon with text",
-            "text": "<p>Pair text with an icon to focus on your chosen product, collection, or blog post</p>",
-            "margin_top": 20,
-            "margin_bottom": 20
-          }
-        }
-      },
-      "block_order": [
-        "template--21507361800487__8beb6911-28c6-482c-976a-e5421ad3e8df-heading-1",
-        "template--21507361800487__8beb6911-28c6-482c-976a-e5421ad3e8df-richtext-1",
-        "template--21507361800487__8beb6911-28c6-482c-976a-e5421ad3e8df-icon_with_text-1",
-        "template--21507361800487__8beb6911-28c6-482c-976a-e5421ad3e8df-icon_with_text-2",
-        "template--21507361800487__8beb6911-28c6-482c-976a-e5421ad3e8df-image-1",
-        "template--21507361800487__8beb6911-28c6-482c-976a-e5421ad3e8df-icon_with_text-3",
-        "template--21507361800487__8beb6911-28c6-482c-976a-e5421ad3e8df-icon_with_text-4"
-      ],
-      "settings": {
-        "display_id": false,
-        "visibility": "always-display",
-        "color_scheme": "background-1",
-        "display_grid_lines": false,
-        "columns_count": 4,
-        "desktop_page_width": "normal",
-        "column_gap_desktop": 40,
-        "row_gap_desktop": 40,
-        "desktop_vertical_alignment": "center",
-        "mobile_full_page": false,
-        "column_gap_mobile": 20,
-        "row_gap_mobile": 30,
-        "mobile_vertical_alignment": "flex-start",
-        "col_1_desktop_width": 12,
-        "col_1_mobile_width": 4,
-        "col_1_visibility": "always-display",
-        "col_2_desktop_width": 4,
-        "col_2_mobile_width": 4,
-        "col_2_visibility": "always-display",
-        "col_3_desktop_width": 4,
-        "col_3_mobile_width": 4,
-        "col_3_visibility": "always-display",
-        "col_4_desktop_width": 4,
-        "col_4_mobile_width": 4,
-        "col_4_visibility": "always-display",
-        "col_5_desktop_width": 3,
-        "col_5_mobile_width": 4,
-        "col_5_visibility": "always-display",
-        "col_6_desktop_width": 3,
-        "col_6_mobile_width": 4,
-        "col_6_visibility": "always-display",
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "custom_colors_background": "#ffffff",
-        "custom_gradient_background": "",
-        "custom_colors_text": "#2e2a39",
-        "custom_colors_solid_button_background": "#dd1d1d",
-        "custom_colors_solid_button_text": "#ffffff",
-        "custom_colors_outline_button": "#dd1d1d"
-      }
-    },
-    "eba88da5-80ac-47fc-aa75-997cfe7b2e59": {
-      "type": "image-slider",
-      "blocks": {
-        "template--21507361800487__eba88da5-80ac-47fc-aa75-997cfe7b2e59-image_slide-1": {
-          "type": "image_slide",
-          "settings": {
-            "link": "",
-            "description": "",
-            "desc_alignment": "center",
-            "desc_color_scheme": "background-2"
-          }
-        },
-        "template--21507361800487__eba88da5-80ac-47fc-aa75-997cfe7b2e59-image_slide-2": {
-          "type": "image_slide",
-          "settings": {
-            "link": "",
-            "description": "",
-            "desc_alignment": "center",
-            "desc_color_scheme": "background-2"
-          }
-        },
-        "template--21507361800487__eba88da5-80ac-47fc-aa75-997cfe7b2e59-image_slide-3": {
-          "type": "image_slide",
-          "settings": {
-            "link": "",
-            "description": "",
-            "desc_alignment": "center",
-            "desc_color_scheme": "background-2"
-          }
-        },
-        "template--21507361800487__eba88da5-80ac-47fc-aa75-997cfe7b2e59-image_slide-4": {
-          "type": "image_slide",
-          "settings": {
-            "link": "",
-            "description": "",
-            "desc_alignment": "center",
-            "desc_color_scheme": "background-2"
-          }
-        }
-      },
-      "block_order": [
-        "template--21507361800487__eba88da5-80ac-47fc-aa75-997cfe7b2e59-image_slide-1",
-        "template--21507361800487__eba88da5-80ac-47fc-aa75-997cfe7b2e59-image_slide-2",
-        "template--21507361800487__eba88da5-80ac-47fc-aa75-997cfe7b2e59-image_slide-3",
-        "template--21507361800487__eba88da5-80ac-47fc-aa75-997cfe7b2e59-image_slide-4"
-      ],
-      "settings": {
-        "display_id": false,
-        "visibility": "always-display",
-        "title": "Image/Video Slider",
-        "title_highlight_color": "#6d388b",
-        "heading_size": "h1",
-        "color_scheme": "background-1",
-        "type": "slide",
-        "drag": "enabled",
-        "autoplay": false,
-        "autoplay_speed": 5,
-        "center_mode": false,
-        "arrows_color_scheme": "inverse",
-        "transparent_arrows": false,
-        "dots_color_scheme": "inverse",
-        "desktop_page_width": "normal",
-        "desktop_border_radius": 0,
-        "slides_desktop": 3,
-        "per_move_desktop": 1,
-        "desktop_spacing": 28,
-        "desktop_side_padding": 0,
-        "desktop_padding_calc": true,
-        "desktop_adaptive_height": false,
-        "desktop_dots_position": "under",
-        "desktop_arrows_position": "sides",
-        "mobile_full_page": false,
-        "mobile_border_radius": 0,
-        "slides_mobile": 2,
-        "per_move_mobile": 1,
-        "mobile_spacing": 12,
-        "mobile_side_padding": 0,
-        "mobile_padding_calc": true,
-        "mobile_adaptive_height": false,
-        "mobile_dots_position": "under",
-        "mobile_arrows_position": "sides",
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "custom_colors_background": "#ffffff",
-        "custom_gradient_background": "",
-        "custom_colors_text": "#121212"
-      }
-    },
-    "4fc05ee5-1c30-4863-b88f-81cb6fa7c41a": {
-      "type": "icons-with-content",
-      "blocks": {
-        "template--21507361800487__4fc05ee5-1c30-4863-b88f-81cb6fa7c41a-icon-1": {
-          "type": "icon",
-          "settings": {
-            "icon": "check_circle",
-            "filled_icon": false,
-            "title": "Icon with text",
-            "text": "<p>Pair text with an icon to focus on your chosen product, collection, or blog post</p>"
-          }
-        },
-        "template--21507361800487__4fc05ee5-1c30-4863-b88f-81cb6fa7c41a-icon-2": {
-          "type": "icon",
-          "settings": {
-            "icon": "check_circle",
-            "filled_icon": false,
-            "title": "Icon with text",
-            "text": "<p>Pair text with an icon to focus on your chosen product, collection, or blog post</p>"
-          }
-        },
-        "template--21507361800487__4fc05ee5-1c30-4863-b88f-81cb6fa7c41a-icon-3": {
-          "type": "icon",
-          "settings": {
-            "icon": "check_circle",
-            "filled_icon": false,
-            "title": "Icon with text",
-            "text": "<p>Pair text with an icon to focus on your chosen product, collection, or blog post</p>"
-          }
-        },
-        "template--21507361800487__4fc05ee5-1c30-4863-b88f-81cb6fa7c41a-heading-1": {
-          "type": "heading",
-          "settings": {
-            "title": "Content heading",
-            "title_highlight_color": "#6d388b",
-            "heading_size": "h1"
-          }
-        },
-        "template--21507361800487__4fc05ee5-1c30-4863-b88f-81cb6fa7c41a-text-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Pair icons with content to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "text_style": "body"
-          }
-        },
-        "template--21507361800487__4fc05ee5-1c30-4863-b88f-81cb6fa7c41a-button-1": {
-          "type": "button",
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "template--21507361800487__4fc05ee5-1c30-4863-b88f-81cb6fa7c41a-icon-1",
-        "template--21507361800487__4fc05ee5-1c30-4863-b88f-81cb6fa7c41a-icon-2",
-        "template--21507361800487__4fc05ee5-1c30-4863-b88f-81cb6fa7c41a-icon-3",
-        "template--21507361800487__4fc05ee5-1c30-4863-b88f-81cb6fa7c41a-heading-1",
-        "template--21507361800487__4fc05ee5-1c30-4863-b88f-81cb6fa7c41a-text-1",
-        "template--21507361800487__4fc05ee5-1c30-4863-b88f-81cb6fa7c41a-button-1"
-      ],
-      "settings": {
-        "display_id": false,
-        "visibility": "always-display",
-        "color_scheme": "background-1",
-        "icon_size": "m",
-        "icon_position": "next-to-title",
-        "icon_color": "accent-1",
-        "icon_heading_size": "h3",
-        "icon_text_alignment": "left",
-        "icons_desktop_layout": "1-column",
-        "icons_mobile_layout": "1-column",
-        "desktop_content_alignment": "left",
-        "layout": "image_first",
-        "mobile_layout": "text_first",
-        "hide_content_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "custom_colors_background": "#ffffff",
-        "custom_gradient_background": "",
-        "custom_colors_text": "#2e2a39",
-        "custom_colors_solid_button_background": "#dd1d1d",
-        "custom_colors_solid_button_text": "#ffffff",
-        "custom_colors_outline_button": "#dd1d1d"
-      }
-    },
-    "55bd100e-3bbd-426c-a5cf-eed7b2a3706f": {
-      "type": "testimonials",
-      "blocks": {
-        "template--21507361800487__55bd100e-3bbd-426c-a5cf-eed7b2a3706f-column-1": {
-          "type": "column",
-          "settings": {
-            "star_rating": 5,
-            "title": "Heading",
-            "text": "<p>Share positive thoughts and feedback from your customer..</p>",
-            "author": "<em><strong>Author</strong></em>"
-          }
-        },
-        "template--21507361800487__55bd100e-3bbd-426c-a5cf-eed7b2a3706f-column-2": {
-          "type": "column",
-          "settings": {
-            "star_rating": 5,
-            "title": "Heading",
-            "text": "<p>Share positive thoughts and feedback from your customer..</p>",
-            "author": "<em><strong>Author</strong></em>"
-          }
-        },
-        "template--21507361800487__55bd100e-3bbd-426c-a5cf-eed7b2a3706f-column-3": {
-          "type": "column",
-          "settings": {
-            "star_rating": 5,
-            "title": "Heading",
-            "text": "<p>Share positive thoughts and feedback from your customer..</p>",
-            "author": "<em><strong>Author</strong></em>"
-          }
-        }
-      },
-      "block_order": [
-        "template--21507361800487__55bd100e-3bbd-426c-a5cf-eed7b2a3706f-column-1",
-        "template--21507361800487__55bd100e-3bbd-426c-a5cf-eed7b2a3706f-column-2",
-        "template--21507361800487__55bd100e-3bbd-426c-a5cf-eed7b2a3706f-column-3"
-      ],
-      "settings": {
-        "display_id": false,
-        "visibility": "always-display",
-        "title": "Testimonials",
-        "title_highlight_color": "#6d388b",
-        "heading_size": "h1",
-        "text": "",
-        "color_scheme": "background-1",
-        "image_width": "full",
-        "image_ratio": "square",
-        "column_alignment": "center",
-        "show_stars": true,
-        "inactive_stars_style": "solid",
-        "star_color": "#ffcc00",
-        "bg_star_color": "#ececec",
-        "show_quotes": true,
-        "quotes_color_scheme": "accent-2",
-        "cards_color_scheme": "bg-overlay",
-        "type": "slide",
-        "autoplay": false,
-        "autoplay_speed": 5,
-        "arrows_color_scheme": "inverse",
-        "transparent_arrows": true,
-        "dots_color_scheme": "inverse",
-        "desktop_full_page": false,
-        "columns_desktop": 3,
-        "slider_desktop": false,
-        "per_move_desktop": 1,
-        "desktop_spacing": 40,
-        "desktop_side_padding": 0,
-        "desktop_padding_calc": true,
-        "desktop_adaptive_height": false,
-        "desktop_dots_position": "under",
-        "desktop_arrows_position": "sides",
-        "slider_mobile": true,
-        "enable_mobile_preview": false,
-        "mobile_adaptive_height": false,
-        "mobile_dots_position": "under",
-        "mobile_arrows_position": "under",
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "custom_colors_background": "#ffffff",
-        "custom_gradient_background": "",
-        "custom_colors_text": "#2e2a39",
-        "custom_cards_colors_background": "#f3f3f3",
-        "custom_cards_gradient_background": "",
-        "custom_cards_colors_text": "#2e2a39"
-      }
-    },
-    "b321ab88-2b59-4dba-bade-54885c874ca5": {
-      "type": "section-divider",
-      "settings": {
-        "visibility": "always-display",
-        "shape": "waves_3",
-        "flip_horizontal": false,
-        "flip_vertical": false,
-        "shape_color": "accent-1",
-        "custom_shape_color": "#dd1d1d",
-        "background_color": "background-1",
-        "custom_background_color": "#ffffff",
-        "padding_top": 0,
-        "padding_bottom": 0
       }
     },
     "review-slider-2": {
@@ -1169,7 +632,7 @@
         "button_label": "Try Risk-Free Today",
         "button_link": "shopify://products/pumpkin-seed-oil-softgels",
         "subtext": "60-day money back guarantee",
-        "our_label": "Elar\u00e9",
+        "our_label": "Elaré",
         "other_label": "Other Brands",
         "our_image": "shopify://shop_images/Kaching-Bundles-Layer_0.png",
         "bg_fallback_color": "#d58f26",
@@ -1562,11 +1025,6 @@
   "order": [
     "main",
     "related-products",
-    "8beb6911-28c6-482c-976a-e5421ad3e8df",
-    "eba88da5-80ac-47fc-aa75-997cfe7b2e59",
-    "4fc05ee5-1c30-4863-b88f-81cb6fa7c41a",
-    "55bd100e-3bbd-426c-a5cf-eed7b2a3706f",
-    "b321ab88-2b59-4dba-bade-54885c874ca5",
     "review-slider-2",
     "review_slider_3_cabtXH",
     "custom_columns_icons_image_LM9k84",
