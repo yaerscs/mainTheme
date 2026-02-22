@@ -1,0 +1,343 @@
+{%- style -%}
+  .review-slider-{{ section.id }} {
+    --review-slider-text-color: {{ section.settings.text_color }};
+    --review-slider-gap: {{ section.settings.slide_gap }}px;
+    --review-slider-slide-width: 260px;
+    background: linear-gradient(to bottom, {{ section.settings.bg_color_top }} 0%, {{ section.settings.bg_color_bottom }} 100%);
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    overflow: hidden;
+  }
+  .review-slider-{{ section.id }} .review-slider__wrap {
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 0 5rem;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+  }
+  .review-slider-{{ section.id }} .review-slider__text {
+    flex: 0 0 30%;
+    max-width: 30%;
+    color: var(--review-slider-text-color);
+  }
+  .review-slider-{{ section.id }} .review-slider__title {
+    font-size: {{ section.settings.title_size }}px;
+    line-height: 1.2;
+    margin: 0 0 1.5rem;
+    font-weight: 700;
+    color: var(--review-slider-text-color) !important;
+  }
+  .review-slider-{{ section.id }} .review-slider__subtitle {
+    font-size: {{ section.settings.subtitle_size }}px;
+    line-height: 1.5;
+    margin: 0;
+    opacity: 0.9;
+    color: var(--review-slider-text-color) !important;
+  }
+  .review-slider-{{ section.id }} .review-slider__carousel {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+  }
+  .review-slider-{{ section.id }} .review-slider__track {
+    display: flex;
+    gap: var(--review-slider-gap);
+    width: max-content;
+    animation: reviewScroll-{{ section.id }} {{ section.settings.scroll_speed }}s linear infinite;
+  }
+  .review-slider-{{ section.id }} .review-slider__track:hover {
+    animation-play-state: paused;
+  }
+  .review-slider-{{ section.id }} .review-slider__slide {
+    flex: 0 0 auto;
+    width: var(--review-slider-slide-width);
+    border-radius: {{ section.settings.slide_radius }}px;
+    overflow: hidden;
+  }
+  .review-slider-{{ section.id }} .review-slider__slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+  }
+  @keyframes reviewScroll-{{ section.id }} {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @media screen and (max-width: 749px) {
+    .review-slider-{{ section.id }} .review-slider__wrap {
+      flex-direction: column;
+      padding: 0 1.5rem;
+      gap: 2.5rem;
+    }
+    .review-slider-{{ section.id }} .review-slider__text {
+      flex: none;
+      max-width: 100%;
+      text-align: center;
+    }
+    .review-slider-{{ section.id }} .review-slider__title {
+      font-size: {{ section.settings.title_size | times: 0.7 | round }}px;
+    }
+    .review-slider-{{ section.id }} .review-slider__carousel {
+      width: calc(100% + 3rem);
+      margin: 0 -1.5rem;
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+    .review-slider-{{ section.id }} .review-slider__slide {
+      width: {{ section.settings.slide_width_mobile }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div
+  class="review-slider-{{ section.id }}"
+  data-visible-slides-desktop="{{ section.settings.desktop_visible_slides }}"
+  data-slide-gap="{{ section.settings.slide_gap }}"
+>
+  <div class="review-slider__wrap">
+    <div class="review-slider__text">
+      {%- if section.settings.title != blank -%}
+        <h2 class="review-slider__title">{{ section.settings.title }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subtitle != blank -%}
+        <p class="review-slider__subtitle">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="review-slider__carousel">
+        <div class="review-slider__track">
+          {%- for block in section.blocks -%}
+            <div class="review-slider__slide" {{ block.shopify_attributes }}>
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '200, 300, 400, 600' }}
+              {%- else -%}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+          {%- comment -%} Duplicate for seamless infinite loop {%- endcomment -%}
+          {%- for block in section.blocks -%}
+            <div class="review-slider__slide" aria-hidden="true">
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '200, 300, 400, 600' }}
+              {%- else -%}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<script>
+  (function() {
+    const sectionRoot = document.querySelector('.review-slider-{{ section.id }}');
+    if (!sectionRoot) return;
+
+    const carousel = sectionRoot.querySelector('.review-slider__carousel');
+    if (!carousel) return;
+
+    const updateSlideWidth = () => {
+      if (window.innerWidth < 750) {
+        sectionRoot.style.setProperty('--review-slider-slide-width', '{{ section.settings.slide_width_mobile }}px');
+        return;
+      }
+
+      const visibleSlides = parseFloat(sectionRoot.dataset.visibleSlidesDesktop || '2.2');
+      const gap = parseFloat(sectionRoot.dataset.slideGap || '12');
+      const carouselWidth = carousel.clientWidth;
+      if (!carouselWidth || !visibleSlides) return;
+
+      const computed = (carouselWidth - ((visibleSlides - 1) * gap)) / visibleSlides;
+      sectionRoot.style.setProperty('--review-slider-slide-width', Math.max(120, computed) + 'px');
+    };
+
+    updateSlideWidth();
+    window.addEventListener('resize', updateSlideWidth);
+    document.addEventListener('shopify:section:load', updateSlideWidth);
+    document.addEventListener('shopify:section:reorder', updateSlideWidth);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Review Slider 2",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Real Transformations from Real Customers"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 16,
+      "max": 60,
+      "step": 2,
+      "default": 36,
+      "unit": "px",
+      "label": "Title font size"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "min": 12,
+      "max": 28,
+      "step": 1,
+      "default": 16,
+      "unit": "px",
+      "label": "Subtitle font size"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color_top",
+      "label": "Background color (top)",
+      "default": "#2b0a0a"
+    },
+    {
+      "type": "color",
+      "id": "bg_color_bottom",
+      "label": "Background color (bottom)",
+      "default": "#a93232"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Slider"
+    },
+    {
+      "type": "select",
+      "id": "desktop_visible_slides",
+      "label": "Visible slides (desktop)",
+      "default": "2.2",
+      "options": [
+        { "value": "1.8", "label": "1.8" },
+        { "value": "2", "label": "2.0" },
+        { "value": "2.2", "label": "2.2" },
+        { "value": "2.5", "label": "2.5" },
+        { "value": "3", "label": "3.0" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "slide_width_mobile",
+      "min": 100,
+      "max": 250,
+      "step": 10,
+      "default": 160,
+      "unit": "px",
+      "label": "Slide width (mobile)"
+    },
+    {
+      "type": "range",
+      "id": "slide_gap",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "default": 12,
+      "unit": "px",
+      "label": "Gap between slides"
+    },
+    {
+      "type": "range",
+      "id": "slide_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "default": 10,
+      "unit": "px",
+      "label": "Slide corner radius"
+    },
+    {
+      "type": "range",
+      "id": "scroll_speed",
+      "min": 10,
+      "max": 120,
+      "step": 5,
+      "default": 40,
+      "unit": "s",
+      "label": "Scroll duration",
+      "info": "Lower = faster. Time for one full loop."
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 50,
+      "unit": "px",
+      "label": "Top padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 50,
+      "unit": "px",
+      "label": "Bottom padding"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Recommended: 9:16 portrait ratio"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Review Slider 2",
+      "blocks": [
+        { "type": "slide" },
+        { "type": "slide" },
+        { "type": "slide" },
+        { "type": "slide" },
+        { "type": "slide" },
+        { "type": "slide" }
+      ]
+    }
+  ]
+}
+{% endschema %}

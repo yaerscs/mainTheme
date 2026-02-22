@@ -1,0 +1,137 @@
+{% liquid
+  if product.variants.first.featured_image == blank
+   assign novariant_matches = true
+   else
+    assign novariant_matches = false
+   endif
+%}
+<div class="shop-carousel-container">
+  <div class="shop-product-carousel">
+    <div class="shop-main-image-wrapper">
+      <div class="shop-image-container shop-square-container">
+        {% for media in product.media %}
+          <img
+            src="{{ media | img_url: 'master' }}"
+            alt="{{ media.alt | escape }}"
+            class="shop-main-image {% if forloop.first and novariant_matches %}active{% endif %}"
+            id="shop-image{{ forloop.index }}"
+            {% if media.media_type == 'image' %}
+              loading="lazy"
+            {% endif %}
+            data-media-id="{{ media.id }}"
+            data-src="{{ media | img_url: 'master' }}"
+            data-position="{{ forloop.index0 }}"
+          >
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="shop-thumbnails-outer">
+      <div class="shop-thumbnails-wrapper shop-match-image-width">
+        <div class="shop-nav-arrow shop-prev-arrow" id="main-prev-arrow">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 6L9 12L15 18" stroke="{{ section.settings.arrow_icon_color }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+
+        <div class="shop-thumbnails" id="thumbnail-container">
+          {% for media in product.media %}
+            <div
+              class="shop-thumbnail {% if forloop.first %}active{% endif %}"
+              data-target="shop-image{{ forloop.index }}"
+              data-index="{{ forloop.index0 }}"
+              data-media-id="{{ media.id }}"
+            >
+              <div class="thumb-square">
+                <img
+                  src="{{ media | img_url: '200x', scale: 2 }}"
+                  alt="{{ media.alt | escape }}"
+                  loading="lazy"
+                  data-media-id="{{ media.id }}"
+                >
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        <div class="shop-nav-arrow shop-next-arrow" id="main-next-arrow">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 6L15 12L9 18" stroke="{{ section.settings.arrow_icon_color }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+      </div>
+
+      <div class="shop-thumbnail-indicators" id="thumbnail-indicators"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize variables
+    const mainImages = document.querySelectorAll('.shop-main-image');
+    const thumbnails = document.querySelectorAll('.shop-thumbnail');
+    const prevArrow = document.getElementById('main-prev-arrow');
+    const nextArrow = document.getElementById('main-next-arrow');
+    const totalImages = mainImages.length;
+    let currentIndex = 0;
+    
+    // Function to update active image
+    function updateActiveImage(index) {
+      // Update main images
+      mainImages.forEach(img => img.classList.remove('active'));
+      mainImages[index].classList.add('active');
+      mainImages[index].style.display = 'block';
+      // Update thumbnails
+      thumbnails.forEach(thumb => thumb.classList.remove('active'));
+      thumbnails[index].classList.add('active');
+      // Update current index
+      currentIndex = index;
+      
+      // Scroll thumbnail into view if needed
+      const thumbnailContainer = document.getElementById('thumbnail-container');
+      const activeThumb = thumbnails[index];
+      if(thumbnailContainer){
+        thumbnailContainer.scrollTo({
+        left: activeThumb.offsetLeft - thumbnailContainer.offsetWidth / 2 + activeThumb.offsetWidth / 2,
+        behavior: 'smooth'
+      });
+      }
+      
+    }
+    
+    // Add click handlers for thumbnails (keep existing functionality)
+    thumbnails.forEach(thumbnail => {
+      thumbnail.addEventListener('click', function() {
+        const index = parseInt(this.getAttribute('data-index'));
+        updateActiveImage(index);
+      });
+    });
+    
+    // Handle previous arrow click
+    prevArrow.addEventListener('click', function() {
+      let newIndex = currentIndex - 1;
+      if (newIndex < 0) newIndex = totalImages - 1; // Loop to the end
+      updateActiveImage(newIndex);
+    });
+    
+    // Handle next arrow click
+    nextArrow.addEventListener('click', function() {
+      let newIndex = currentIndex + 1;
+      if (newIndex >= totalImages) newIndex = 0; // Loop to the beginning
+      updateActiveImage(newIndex);
+    });
+    
+    // Initialize with first image active
+    if (!document.querySelector('.shop-main-image.active')) {
+      updateActiveImage(0);
+    } else {
+      // Find the current active image and set currentIndex
+      mainImages.forEach((img, index) => {
+        if (img.classList.contains('active')) {
+          currentIndex = index;
+        }
+      });
+    }
+  });
+</script>

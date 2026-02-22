@@ -1,0 +1,1213 @@
+{% comment %}
+  Video Carousel Standalone Snippet
+  
+  Customization parameters:
+  - heading: Heading text for the carousel (default: "See it in action")
+  - heading_size: Font size for the heading (default: 24)
+  - heading_color: Color of the heading text (default: #333333)
+  - button_color: Color of the play button (default: #04C7FF)
+  - show_social_badge: Whether to show the social media badge (default: false)
+  - social_platform: Platform to show badge for ('tiktok' or 'instagram') (default: 'tiktok')
+  - view_count: Number to show in the view counter (default: 5.6)
+{% endcomment %}
+
+<div class="video-carousel-container" {{ block.shopify_attributes }}>
+  <h2 class="carousel-heading" style="color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ block.settings.heading_color | default: '#333333' }}{% endif %} !important; font-size: {{ heading_size | default: 18 }}px;">{{ heading | default: "See it in action" }}</h2>
+  
+  {% if block.settings.show_social_badge %}
+    {% if block.settings.social_platform == 'tiktok' %}
+    <div class="tiktok-views-badge" style="background-color: {{ block.settings.badge_background_color | default: '#f8f9fa' }} !important; {% unless block.settings.use_gradient_text %}color: {{ block.settings.badge_text_color | default: '#262626' }} !important;{% endunless %}">
+      <img class="tiktok-icon" src="https://cdn4.iconfinder.com/data/icons/social-media-flat-7/64/Social-media_Tiktok-512.png" width="9.8" height="9.8" alt="TikTok" />
+      <span class="tiktok-text" {% if block.settings.use_gradient_text %}style="background: linear-gradient(45deg, #00f2ea, #ff0050) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; background-clip: text !important;"{% endif %}>{{ block.settings.badge_text | default: 'Over ' }} {{ block.settings.view_count }}{{ block.settings.badge_suffix | default: 'M Views On TikTok' }}</span>
+    </div>
+    {% elsif block.settings.social_platform == 'instagram' %}
+    <div class="instagram-views-badge" style="background-color: {{ block.settings.badge_background_color | default: '#f8f9fa' }} !important; {% unless block.settings.use_gradient_text %}color: {{ block.settings.badge_text_color | default: '#262626' }} !important;{% endunless %}">
+      <svg class="instagram-icon" width="9.8" height="9.8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="instagramGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#833ab4" />
+            <stop offset="50%" stop-color="#fd1d1d" />
+            <stop offset="100%" stop-color="#fcb045" />
+          </linearGradient>
+        </defs>
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="url(#instagramGradient)"/>
+      </svg>
+      <span class="instagram-text" {% if block.settings.use_gradient_text %}style="background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; background-clip: text !important;"{% endif %}>{{ block.settings.badge_text | default: 'Over ' }} {{ block.settings.view_count }}{{ block.settings.badge_suffix | default: 'M Views On Instagram' }}</span>
+    </div>
+    {% elsif block.settings.social_platform == 'facebook' %}
+    <div class="facebook-views-badge" style="background-color: {{ block.settings.badge_background_color | default: '#f8f9fa' }} !important; {% unless block.settings.use_gradient_text %}color: {{ block.settings.badge_text_color | default: '#262626' }} !important;{% endunless %}">
+      <svg class="facebook-icon" width="9.8" height="9.8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#1877F2"/>
+      </svg>
+      <span class="facebook-text" {% if block.settings.use_gradient_text %}style="background: #1877F2 !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; background-clip: text !important;"{% endif %}>{{ block.settings.badge_text | default: 'Over ' }} {{ block.settings.view_count }}{{ block.settings.badge_suffix | default: 'M Views On Facebook' }}</span>
+    </div>
+    {% endif %}
+  {% endif %}
+  
+  <div class="video-carousel">
+    {% assign video_count = 0 %}
+    {% for video_block in section.blocks %}
+      {% if video_block.type == 'carousel_video_item' or video_block.type == 'carousel_default_video' %}
+        {% assign video_count = video_count | plus: 1 %}
+        <div class="video-item" data-video-id="{{ video_block.id }}" {{ video_block.shopify_attributes }}>
+          <div class="video-thumbnail">
+            <div class="gradient-overlay"></div>
+            {% if video_block.type == 'carousel_default_video' and video_block.settings.video != blank %}
+              {% comment %} Handle Shopify default video block - use poster image instead of video tag initially {% endcomment %}
+              {% assign poster_url = video_block.settings.video | img_url: '700x' %}
+              <div class="shopify-video-container">
+                <img class="carousel-video" src="{{ poster_url }}" alt="Video thumbnail" loading="lazy">
+                <div class="video-type" data-type="shopify" data-video-id="{{ video_block.settings.video.id }}"></div>
+                {% comment %} Store the video as a hidden element for later use {% endcomment %}
+                <div style="display: none;" class="hidden-video-data">
+                  {{ video_block.settings.video | video_tag: controls: false, autoplay: false, loop: false, muted: true, preload: 'metadata' }}
+                </div>
+              </div>
+              <button type="button" class="play-button force-visible" aria-label="Play video" style="background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ button_color | default: '#04C7FF' }}{% endif %};">
+                <svg viewBox="0 0 24 24" width="24" height="24">
+                  <circle cx="12" cy="12" r="12" fill="{% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ button_color | default: '#04C7FF' }}{% endif %}"/>
+                  <polygon points="10,8 16,12 10,16" fill="white"/>
+                </svg>
+              </button>
+            {% elsif video_block.settings.video != blank %}
+              {% assign video_url = video_block.settings.video %}
+              
+              {% if video_url contains "youtube.com" or video_url contains "youtu.be" %}
+                {% assign youtube_id = video_url | split: "/" | last %}
+                {% if youtube_id contains "?v=" %}
+                  {% assign youtube_id = youtube_id | split: "?v=" | last %}
+                {% endif %}
+                {% if youtube_id contains "&" %}
+                  {% assign youtube_id = youtube_id | split: "&" | first %}
+                {% endif %}
+                <img class="carousel-video" src="https://img.youtube.com/vi/{{ youtube_id }}/hqdefault.jpg" alt="Video thumbnail" loading="lazy">
+                <div class="video-type" data-type="youtube" data-id="{{ youtube_id }}"></div>
+                <button type="button" class="play-button force-visible" aria-label="Play video" style="background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ button_color | default: '#04C7FF' }}{% endif %};">
+                  <svg viewBox="0 0 24 24" width="24" height="24">
+                    <circle cx="12" cy="12" r="12" fill="{% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ button_color | default: '#04C7FF' }}{% endif %}"/>
+                    <polygon points="10,8 16,12 10,16" fill="white"/>
+                  </svg>
+                </button>
+              {% elsif video_url contains "vimeo.com" %}
+                {% assign vimeo_id = video_url | split: "/" | last %}
+                <img class="carousel-video vimeo-thumb" src="https://vumbnail.com/{{ vimeo_id }}.jpg" alt="Video thumbnail" loading="lazy">
+                <div class="video-type" data-type="vimeo" data-id="{{ vimeo_id }}"></div>
+                <button type="button" class="play-button force-visible" aria-label="Play video" style="background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ button_color | default: '#04C7FF' }}{% endif %};">
+                  <svg viewBox="0 0 24 24" width="24" height="24">
+                    <circle cx="12" cy="12" r="12" fill="{% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ button_color | default: '#04C7FF' }}{% endif %}"/>
+                    <polygon points="10,8 16,12 10,16" fill="white"/>
+                  </svg>
+                </button>
+              {% else %}
+                {% comment %} Handle Shopify videos {% endcomment %}
+                {% assign poster_url = video_block.settings.video | img_url: '700x' %}
+                <div class="shopify-video-container">
+                  <img class="carousel-video" src="{{ poster_url }}" alt="Video thumbnail" loading="lazy">
+                  <div class="video-type" data-type="shopify" data-video-id="{{ video_block.settings.video.id }}"></div>
+                  {% comment %} Store the video as a hidden element for later use {% endcomment %}
+                  <div style="display: none;" class="hidden-video-data">
+                    {{ video_block.settings.video | video_tag: controls: false, autoplay: false, loop: false, muted: true, preload: 'metadata' }}
+                  </div>
+                </div>
+                <button type="button" class="play-button force-visible" aria-label="Play video" style="background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ button_color | default: '#04C7FF' }}{% endif %};">
+                  <svg viewBox="0 0 24 24" width="24" height="24">
+                    <circle cx="12" cy="12" r="12" fill="{% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ button_color | default: '#04C7FF' }}{% endif %}"/>
+                    <polygon points="10,8 16,12 10,16" fill="white"/>
+                  </svg>
+                </button>
+              {% endif %}
+            {% else %}
+              <div class="placeholder-video carousel-video"></div>
+              <button type="button" class="play-button force-visible" aria-label="Play video" style="background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ button_color | default: '#04C7FF' }}{% endif %};">
+                <svg viewBox="0 0 24 24" width="24" height="24">
+                  <circle cx="12" cy="12" r="12" fill="{% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ button_color | default: '#04C7FF' }}{% endif %}"/>
+                  <polygon points="10,8 16,12 10,16" fill="white"/>
+                </svg>
+              </button>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+    
+    {% if video_count == 0 %}
+      <!-- Default placeholder videos when no video blocks are added -->
+      <div class="video-item">
+        <div class="video-thumbnail">
+          <div class="gradient-overlay"></div>
+          <img class="carousel-video" src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Sample video thumbnail" loading="lazy">
+          <div class="video-type" data-type="youtube" data-id="dQw4w9WgXcQ"></div>
+          <button type="button" class="play-button" aria-label="Play video">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+              <circle cx="12" cy="12" r="12" fill="{% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ button_color | default: '#04C7FF' }}{% endif %}"/>
+              <polygon points="10,8 16,12 10,16" fill="white"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="video-item">
+        <div class="video-thumbnail">
+          <div class="gradient-overlay"></div>
+          <img class="carousel-video" src="https://img.youtube.com/vi/9bZkp7q19f0/hqdefault.jpg" alt="Sample video thumbnail" loading="lazy">
+          <div class="video-type" data-type="youtube" data-id="9bZkp7q19f0"></div>
+          <button type="button" class="play-button" aria-label="Play video">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+              <circle cx="12" cy="12" r="12" fill="{% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ button_color | default: '#04C7FF' }}{% endif %}"/>
+              <polygon points="10,8 16,12 10,16" fill="white"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="video-item">
+        <div class="video-thumbnail">
+          <div class="gradient-overlay"></div>
+          <img class="carousel-video" src="https://img.youtube.com/vi/jNQXAC9IVRw/hqdefault.jpg" alt="Sample video thumbnail" loading="lazy">
+          <div class="video-type" data-type="youtube" data-id="jNQXAC9IVRw"></div>
+          <button type="button" class="play-button" aria-label="Play video">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+              <circle cx="12" cy="12" r="12" fill="{{ button_color | default: '#04C7FF' }}"/>
+              <polygon points="10,8 16,12 10,16" fill="white"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="video-item">
+        <div class="video-thumbnail">
+          <div class="gradient-overlay"></div>
+          <img class="carousel-video" src="https://img.youtube.com/vi/fwK7ggA3-bU/hqdefault.jpg" alt="Sample video thumbnail" loading="lazy">
+          <div class="video-type" data-type="youtube" data-id="fwK7ggA3-bU"></div>
+          <button type="button" class="play-button" aria-label="Play video">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+              <circle cx="12" cy="12" r="12" fill="{{ button_color | default: '#04C7FF' }}"/>
+              <polygon points="10,8 16,12 10,16" fill="white"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<!-- Video Modal -->
+<div id="videoModal" class="video-modal" style="display: none;">
+  <div class="video-modal-content">
+    <button type="button" class="close-modal" aria-label="Close video">&times;</button>
+    <div class="video-container"></div>
+  </div>
+</div>
+
+<style>
+  .video-carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .carousel-heading {
+    font-size: 20px;
+    margin-bottom: 5px;
+    margin-top: 0;
+    font-weight: var(--font-weight-semibold) !important;
+    letter-spacing: var(--letter-spacing-heading);
+  }
+  
+  .tiktok-views-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 1.7px 10px !important;
+    background-color: #f8f9fa !important;
+    border-radius: 999px !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    font-size: 11px !important;
+    color: #262626 !important;
+    position: relative !important;
+    border: 1px solid transparent !important;
+    background-clip: padding-box !important;
+    margin-bottom: 10px;
+  }
+  
+  .tiktok-views-badge::before {
+    content: '' !important;
+    position: absolute !important;
+    top: -1px !important;
+    right: -1px !important;
+    bottom: -1px !important;
+    left: -1px !important;
+    z-index: -1 !important;
+    border-radius: 999px !important;
+    background: linear-gradient(45deg, #00f2ea, #ff0050) !important;
+  }
+  
+  .tiktok-icon {
+    width: 9.8px !important;
+    height: 9.8px !important;
+    margin-right: 7px !important;
+  }
+  
+  .tiktok-text {
+    letter-spacing: -0.3px !important;
+    font-weight: 500 !important;
+  }
+  
+  @media (max-width: 768px) {
+    .tiktok-views-badge {
+      font-size: 11px !important;
+      padding: 1.7px 12px !important;
+    }
+    
+    .tiktok-icon {
+      width: 11.7px !important;
+      height: 11.7px !important;
+      margin-right: 7.5px !important;
+    }
+  }
+  
+  .video-carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 5px 0;
+    padding-bottom: 10px;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none; /* for Internet Explorer and Edge */
+    scrollbar-width: thin !important;
+    scrollbar-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ scrollbar_color | default: "#04C7FF" }}{% endif %} #f0f0f0 !important;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .video-carousel::-webkit-scrollbar {
+    height: {{ scrollbar_width | default: 9 }}px;
+    background-color: #f0f0f0;
+  }
+  
+  .video-carousel::-webkit-scrollbar-track {
+    background: transparent !important;
+    border-radius: 3px !important;
+  }
+  
+  .video-carousel::-webkit-scrollbar-thumb {
+    background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ scrollbar_color | default: "#04C7FF" }}{% endif %};
+    border-radius: 4px;
+  }
+  
+  .video-item {
+    flex: 0 0 132px !important;
+    width: 132px !important;
+    position: relative !important;
+    min-width: 132px !important;
+    max-width: 132px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  
+  .video-thumbnail {
+    position: relative !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+    height: 235px !important;
+    background-color: #f0f0f0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .gradient-overlay {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 70px !important;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%) !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+  }
+  
+  .carousel-video {
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+    object-fit: cover !important;
+    background-color: #f0f0f0 !important;
+  }
+  
+  .placeholder-video {
+    background-color: #eaeaea;
+  }
+  
+  .play-button {
+    position: absolute !important;
+    bottom: 9px !important;
+    left: 9px !important;
+    z-index: 999 !important;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    transition: transform 0.1s ease, opacity 0.2s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 24px !important;
+    height: 24px !important;
+    filter: none !important;
+    pointer-events: auto !important;
+  }
+  
+  .play-button:hover {
+    transform: scale(1.1) !important;
+    opacity: 0.9 !important;
+  }
+  
+  .play-button:active {
+    transform: scale(0.95) !important;
+  }
+  
+  .play-button.playing {
+    opacity: 0.7 !important;
+  }
+  
+  .play-button.playing:hover {
+    opacity: 1 !important;
+  }
+  
+  .play-button svg {
+    width: 24px !important;
+    height: 24px !important;
+    display: block !important;
+  }
+  
+  /* Style for play/pause buttons to ensure they are visible above the video */
+  .video-thumbnail .play-button {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+  
+  /* Modal styles (kept for reference) */
+  .video-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 999; /* Specific value that's high but below 1000 to prevent conflicts */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .video-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .video-container {
+    position: relative;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+  }
+  
+  .video-container iframe,
+  .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  
+  .close-modal {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 30px;
+   font-weight: var(--font-weight-bold);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    z-index: 1000; /* Updated to be consistent with modal */
+  }
+  
+  .unmute-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ button_color | default: '#04C7FF' }}{% endif %} !important;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+    cursor: pointer;
+    z-index: 10;
+    filter: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* After the .video-thumbnail.playing rule, add back the inline video container styles */
+  .video-thumbnail.playing {
+    z-index: 5;
+  }
+  
+  .video-thumbnail iframe,
+  .video-thumbnail video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    z-index: 4;
+  }
+  
+  .inline-video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .inline-close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    background: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ button_color | default: '#04C7FF' }}{% endif %};
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 11;
+    font-size: 12px;
+    line-height: 1;
+    padding: 0;
+    filter: none !important;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .play-button {
+      bottom: 12px !important;
+      left: 12px !important;
+      width: 32px !important;
+      height: 32px !important;
+    }
+    
+    .play-button svg {
+      width: 32px !important;
+      height: 32px !important;
+    }
+  }
+  
+  /* Additional classes to ensure visibility */
+  .force-visible {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+  
+  .video-item .play-button {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+  
+  /* Add styles for Shopify video container */
+  .shopify-video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Make sure our play button stays on top of Shopify videos */
+  .plyr,
+  .shopify-video {
+    z-index: 1 !important;
+  }
+  
+  /* Force our controls on top of any video players */
+  .play-button,
+  .unmute-btn,
+  .inline-close-btn {
+    z-index: 1000 !important;
+    position: absolute !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+  
+  .instagram-views-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 1.7px 10px !important;
+    background-color: #f8f9fa !important;
+    margin-bottom: 10px !important;
+    border-radius: 999px !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    font-size: 11px !important;
+    color: #262626 !important;
+    position: relative !important;
+    border: 1px solid transparent !important;
+    background-clip: padding-box !important;
+  }
+
+  .instagram-views-badge::before {
+    content: '' !important;
+    position: absolute !important;
+    top: -1px !important;
+    right: -1px !important;
+    bottom: -1px !important;
+    left: -1px !important;
+    z-index: -1 !important;
+    border-radius: 999px !important;
+    background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045) !important;
+  }
+
+  .instagram-icon {
+    width: 9.8px !important;
+    height: 9.8px !important;
+    margin-right: 7px !important;
+  }
+
+  .instagram-text {
+    letter-spacing: -0.3px !important;
+    font-weight: 500 !important;
+  }
+
+  @media (max-width: 768px) {
+    .tiktok-views-badge {
+      font-size: 11px !important;
+      padding: 1.7px 12px !important;
+    }
+    
+    .tiktok-icon {
+      width: 11.7px !important;
+      height: 11.7px !important;
+      margin-right: 7.5px !important;
+    }
+    
+    .instagram-views-badge {
+      font-size: 11px !important;
+      padding: 1.7px 12px !important;
+    }
+    
+    .instagram-icon {
+      width: 11.7px !important;
+      height: 11.7px !important;
+      margin-right: 7.5px !important;
+    }
+  }
+  
+  .facebook-views-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 1.7px 10px !important;
+    background-color: #f8f9fa !important;
+    border-radius: 999px !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    font-size: 11px !important;
+    color: #262626 !important;
+    position: relative !important;
+    border: 1px solid transparent !important;
+    background-clip: padding-box !important;
+    margin-bottom: 10px;
+  }
+  
+  .facebook-views-badge::before {
+    content: '' !important;
+    position: absolute !important;
+    top: -1px !important;
+    right: -1px !important;
+    bottom: -1px !important;
+    left: -1px !important;
+    z-index: -1 !important;
+    border-radius: 999px !important;
+    background: #1877F2 !important;
+  }
+  
+  .facebook-icon {
+    width: 9.8px !important;
+    height: 9.8px !important;
+    margin-right: 7px !important;
+  }
+  
+  .facebook-text {
+    letter-spacing: -0.3px !important;
+    font-weight: 500 !important;
+  }
+  
+  @media (max-width: 768px) {
+    .tiktok-views-badge {
+      font-size: 11px !important;
+      padding: 1.7px 12px !important;
+    }
+    
+    .tiktok-icon {
+      width: 11.7px !important;
+      height: 11.7px !important;
+      margin-right: 7.5px !important;
+    }
+    
+    .instagram-views-badge {
+      font-size: 11px !important;
+      padding: 1.7px 12px !important;
+    }
+    
+    .instagram-icon {
+      width: 11.7px !important;
+      height: 11.7px !important;
+      margin-right: 7.5px !important;
+    }
+    
+    .facebook-views-badge {
+      font-size: 11px !important;
+      padding: 1.7px 12px !important;
+    }
+    
+    .facebook-icon {
+      width: 11.7px !important;
+      height: 11.7px !important;
+      margin-right: 7.5px !important;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Immediately apply fixed dimensions to all video items
+    const applyFixedDimensions = function() {
+      document.querySelectorAll('.video-item').forEach(item => {
+        item.style.width = '132px';
+        item.style.minWidth = '132px';
+        item.style.maxWidth = '132px';
+        item.style.flexBasis = '132px';
+        item.style.margin = '0';
+        item.style.padding = '0';
+        
+        const thumbnail = item.querySelector('.video-thumbnail');
+        if (thumbnail) {
+          thumbnail.style.height = '235px';
+          thumbnail.style.width = '100%';
+          thumbnail.style.borderRadius = '6px';
+        }
+        
+        const playButton = item.querySelector('.play-button');
+        if (playButton) {
+          playButton.style.position = 'absolute';
+          playButton.style.bottom = '9px';
+          playButton.style.left = '9px';
+          playButton.style.zIndex = '1';
+          playButton.style.display = 'flex';
+          playButton.style.visibility = 'visible';
+          playButton.style.opacity = '1';
+        }
+      });
+    };
+    
+    // Apply dimensions immediately and after a short delay
+    applyFixedDimensions();
+    setTimeout(applyFixedDimensions, 100);
+    setTimeout(applyFixedDimensions, 500);
+    
+    // Handle window resize events
+    window.addEventListener('resize', applyFixedDimensions);
+    
+    // Play button click handler - UPDATED for inline playback
+    document.querySelectorAll('.play-button').forEach(button => {
+      button.addEventListener('click', function() {
+        const videoItem = this.closest('.video-item');
+        const videoThumbnail = videoItem.querySelector('.video-thumbnail');
+        const videoType = videoItem.querySelector('.video-type');
+        
+        if (!videoType) return; // No video info available
+        
+        // Check if video is already playing
+        if (this.classList.contains('playing')) {
+          // Video is playing, need to pause it
+          const inlineContainer = videoThumbnail.querySelector('.inline-video-container');
+          if (inlineContainer) {
+            // Find the video or iframe element
+            const videoEl = inlineContainer.querySelector('video');
+            const iframeEl = inlineContainer.querySelector('iframe');
+            
+            if (videoEl) {
+              // Handle Shopify video
+              videoEl.pause();
+            } else if (iframeEl) {
+              // Handle YouTube or Vimeo
+              const src = iframeEl.src;
+              if (src.includes('youtube.com')) {
+                // Pause YouTube video - using better approach with postMessage
+                const iframe = iframeEl;
+                iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+              } else if (src.includes('vimeo.com')) {
+                // Pause Vimeo video - using better approach with postMessage
+                const iframe = iframeEl;
+                iframe.contentWindow.postMessage('{"method":"pause"}', '*');
+              }
+            }
+          }
+          
+          // Change button back to play
+          this.innerHTML = `
+            <svg viewBox="0 0 24 24" width="24" height="24">
+              <circle cx="12" cy="12" r="12" fill="${this.querySelector('circle').getAttribute('fill')}"/>
+              <polygon points="10,8 16,12 10,16" fill="white"/>
+            </svg>
+          `;
+          this.setAttribute('aria-label', 'Play video');
+          this.classList.remove('playing');
+          
+          return;
+        }
+        
+        // Check if video container already exists but is paused
+        const existingContainer = videoThumbnail.querySelector('.inline-video-container');
+        if (existingContainer) {
+          // Resume playback of existing video
+          const videoEl = existingContainer.querySelector('video');
+          const iframeEl = existingContainer.querySelector('iframe');
+          
+          if (videoEl) {
+            // Resume Shopify video
+            videoEl.play();
+          } else if (iframeEl) {
+            // Resume YouTube or Vimeo
+            const src = iframeEl.src;
+            if (src.includes('youtube.com')) {
+              // Play YouTube video
+              iframeEl.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+            } else if (src.includes('vimeo.com')) {
+              // Play Vimeo video
+              iframeEl.contentWindow.postMessage('{"method":"play"}', '*');
+            }
+          }
+          
+          // Change to pause button
+          this.innerHTML = `
+            <svg viewBox="0 0 24 24" width="24" height="24">
+              <circle cx="12" cy="12" r="12" fill="${this.querySelector('circle').getAttribute('fill')}"/>
+              <rect x="8" y="8" width="3" height="8" fill="white"/>
+              <rect x="13" y="8" width="3" height="8" fill="white"/>
+            </svg>
+          `;
+          this.setAttribute('aria-label', 'Pause video');
+          this.classList.add('playing');
+          
+          return;
+        }
+        
+        // Transform play button into pause button
+        this.innerHTML = `
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <circle cx="12" cy="12" r="12" fill="${this.querySelector('circle').getAttribute('fill')}"/>
+            <rect x="8" y="8" width="3" height="8" fill="white"/>
+            <rect x="13" y="8" width="3" height="8" fill="white"/>
+          </svg>
+        `;
+        this.setAttribute('aria-label', 'Pause video');
+        this.classList.add('playing');
+        
+        // Mark this thumbnail as currently playing
+        videoThumbnail.classList.add('playing');
+        
+        const type = videoType.getAttribute('data-type');
+        
+        // Create container for inline video if needed
+        let inlineContainer = videoThumbnail.querySelector('.inline-video-container');
+        if (!inlineContainer) {
+          // Remove the current static image/thumbnail
+          const existingImg = videoThumbnail.querySelector('img:not(.unmute-btn)');
+          if (existingImg) {
+            existingImg.style.display = 'none';
+          }
+          
+          inlineContainer = document.createElement('div');
+          inlineContainer.className = 'inline-video-container';
+          inlineContainer.style.position = 'absolute';
+          inlineContainer.style.top = '0';
+          inlineContainer.style.left = '0';
+          inlineContainer.style.width = '100%';
+          inlineContainer.style.height = '100%';
+          inlineContainer.style.zIndex = '1';
+          videoThumbnail.appendChild(inlineContainer);
+          
+          // Add close button
+          const closeButton = document.createElement('button');
+          closeButton.className = 'inline-close-btn';
+          closeButton.innerHTML = '✕';
+          closeButton.setAttribute('aria-label', 'Close video');
+          closeButton.style.backgroundColor = button.querySelector('circle').getAttribute('fill');
+          inlineContainer.appendChild(closeButton);
+          
+          // Close button functionality
+          closeButton.addEventListener('click', function(e) {
+            e.stopPropagation();
+            // Clear the container
+            inlineContainer.innerHTML = '';
+            // Remove the playing class
+            videoThumbnail.classList.remove('playing');
+            // Reset play button to original state
+            button.innerHTML = `
+              <svg viewBox="0 0 24 24" width="24" height="24">
+                <circle cx="12" cy="12" r="12" fill="${button.querySelector('circle').getAttribute('fill')}"/>
+                <polygon points="10,8 16,12 10,16" fill="white"/>
+              </svg>
+            `;
+            button.setAttribute('aria-label', 'Play video');
+            button.classList.remove('playing');
+            // Show the thumbnail image again
+            const existingImg = videoThumbnail.querySelector('img:not(.unmute-btn)');
+            if (existingImg) {
+              existingImg.style.display = 'block';
+            }
+            // Remove the container
+            inlineContainer.remove();
+          });
+        }
+        
+        if (type === 'youtube') {
+          const youtubeId = videoType.getAttribute('data-id');
+          inlineContainer.innerHTML = `
+            <iframe src="https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&rel=0&playsinline=1&enablejsapi=1&controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" id="youtube-player-${youtubeId}"></iframe>
+          `;
+          
+          {% unless block.settings.disable_sound_controls %}
+          // Add volume toggle button
+          const volumeBtn = document.createElement('button');
+          volumeBtn.className = 'unmute-btn force-visible';
+          volumeBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>';
+          volumeBtn.setAttribute('aria-label', 'Unmute video');
+          volumeBtn.style.backgroundColor = button.querySelector('circle').getAttribute('fill');
+          volumeBtn.style.zIndex = '1000';
+          inlineContainer.appendChild(volumeBtn);
+          
+          // Track mute state
+          let isMuted = true;
+          
+          volumeBtn.addEventListener('click', function() {
+            const iframe = inlineContainer.querySelector('iframe');
+            if (isMuted) {
+              // Unmute YouTube video
+              iframe.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+              // Change to volume-on icon
+              this.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>';
+              this.setAttribute('aria-label', 'Mute video');
+              isMuted = false;
+            } else {
+              // Mute YouTube video
+              iframe.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
+              // Change to volume-off icon
+              this.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>';
+              this.setAttribute('aria-label', 'Unmute video');
+              isMuted = true;
+            }
+          });
+          {% endunless %}
+          
+          // Re-add close button after innerHTML change
+          const closeButton = document.createElement('button');
+          closeButton.className = 'inline-close-btn';
+          closeButton.innerHTML = '✕';
+          closeButton.setAttribute('aria-label', 'Close video');
+          closeButton.style.backgroundColor = button.querySelector('circle').getAttribute('fill');
+          inlineContainer.appendChild(closeButton);
+          
+          // Close button functionality
+          closeButton.addEventListener('click', function(e) {
+            e.stopPropagation();
+            inlineContainer.innerHTML = '';
+            videoThumbnail.classList.remove('playing');
+            button.innerHTML = `
+              <svg viewBox="0 0 24 24" width="24" height="24">
+                <circle cx="12" cy="12" r="12" fill="${button.querySelector('circle').getAttribute('fill')}"/>
+                <polygon points="10,8 16,12 10,16" fill="white"/>
+              </svg>
+            `;
+            button.setAttribute('aria-label', 'Play video');
+            button.classList.remove('playing');
+            const existingImg = videoThumbnail.querySelector('img:not(.unmute-btn)');
+            if (existingImg) {
+              existingImg.style.display = 'block';
+            }
+            inlineContainer.remove();
+          });
+          
+        } else if (type === 'vimeo') {
+          const vimeoId = videoType.getAttribute('data-id');
+          inlineContainer.innerHTML = `
+            <iframe src="https://player.vimeo.com/video/${vimeoId}?autoplay=1&muted=1&playsinline=1&transparent=0&background=0&api=1&controls=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" id="vimeo-player-${vimeoId}"></iframe>
+          `;
+          
+          {% unless block.settings.disable_sound_controls %}
+          const unmuteBtn = document.createElement('button');
+          unmuteBtn.className = 'unmute-btn';
+          unmuteBtn.innerHTML = 'Unmute';
+          unmuteBtn.style.backgroundColor = button.querySelector('circle').getAttribute('fill');
+          inlineContainer.appendChild(unmuteBtn);
+          
+          unmuteBtn.addEventListener('click', function() {
+            const iframe = inlineContainer.querySelector('iframe');
+            const currentSrc = iframe.src;
+            iframe.src = currentSrc.replace('&muted=1', '');
+            this.style.display = 'none';
+          });
+          {% endunless %}
+          
+          // Re-add close button after innerHTML change
+          const closeButton = document.createElement('button');
+          closeButton.className = 'inline-close-btn';
+          closeButton.innerHTML = '✕';
+          closeButton.setAttribute('aria-label', 'Close video');
+          closeButton.style.backgroundColor = button.querySelector('circle').getAttribute('fill');
+          inlineContainer.appendChild(closeButton);
+          
+          // Close button functionality
+          closeButton.addEventListener('click', function(e) {
+            e.stopPropagation();
+            inlineContainer.innerHTML = '';
+            videoThumbnail.classList.remove('playing');
+            button.innerHTML = `
+              <svg viewBox="0 0 24 24" width="24" height="24">
+                <circle cx="12" cy="12" r="12" fill="${button.querySelector('circle').getAttribute('fill')}"/>
+                <polygon points="10,8 16,12 10,16" fill="white"/>
+              </svg>
+            `;
+            button.setAttribute('aria-label', 'Play video');
+            button.classList.remove('playing');
+            const existingImg = videoThumbnail.querySelector('img:not(.unmute-btn)');
+            if (existingImg) {
+              existingImg.style.display = 'block';
+            }
+            inlineContainer.remove();
+          });
+          
+        } else if (type === 'shopify') {
+          // Handle Shopify videos - use pre-generated Shopify video tag
+          const hiddenVideoData = videoThumbnail.querySelector('.hidden-video-data');
+          
+          if (hiddenVideoData) {
+            // Get the Shopify video tag from the hidden container
+            const videoHTML = hiddenVideoData.innerHTML;
+            
+            // Clear and add the Shopify video
+            inlineContainer.innerHTML = videoHTML;
+            
+            // Find the video element that Shopify created
+            const videoElement = inlineContainer.querySelector('video');
+            
+            if (videoElement) {
+              // Make sure video has proper styles
+              videoElement.style.width = '100%';
+              videoElement.style.height = '100%';
+              videoElement.style.objectFit = 'cover';
+              videoElement.controls = false;
+              videoElement.muted = true;
+              videoElement.autoplay = true;
+              videoElement.setAttribute('playsinline', true);
+              
+              {% unless block.settings.disable_sound_controls %}
+              // Add volume button with toggle functionality
+              const volumeBtn = document.createElement('button');
+              volumeBtn.className = 'unmute-btn force-visible';
+              volumeBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>';
+              volumeBtn.setAttribute('aria-label', 'Toggle sound');
+              volumeBtn.style.backgroundColor = button.querySelector('circle').getAttribute('fill');
+              volumeBtn.style.zIndex = '1000';
+              inlineContainer.appendChild(volumeBtn);
+              
+              volumeBtn.addEventListener('click', function() {
+                if (videoElement.muted) {
+                  // Unmute the video
+                  videoElement.muted = false;
+                  // Change to volume-on icon
+                  this.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>';
+                  this.setAttribute('aria-label', 'Mute video');
+                } else {
+                  // Mute the video
+                  videoElement.muted = true;
+                  // Change to volume-off icon
+                  this.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>';
+                  this.setAttribute('aria-label', 'Unmute video');
+                }
+              });
+              {% endunless %}
+              
+              // Add close button
+              const closeButton = document.createElement('button');
+              closeButton.className = 'inline-close-btn force-visible';
+              closeButton.innerHTML = '✕';
+              closeButton.setAttribute('aria-label', 'Close video');
+              closeButton.style.backgroundColor = button.querySelector('circle').getAttribute('fill');
+              closeButton.style.zIndex = '1000';
+              inlineContainer.appendChild(closeButton);
+              
+              // Close button functionality
+              closeButton.addEventListener('click', function(e) {
+                e.stopPropagation();
+                inlineContainer.innerHTML = '';
+                videoThumbnail.classList.remove('playing');
+                button.innerHTML = `
+                  <svg viewBox="0 0 24 24" width="24" height="24">
+                    <circle cx="12" cy="12" r="12" fill="${button.querySelector('circle').getAttribute('fill')}"/>
+                    <polygon points="10,8 16,12 10,16" fill="white"/>
+                  </svg>
+                `;
+                button.setAttribute('aria-label', 'Play video');
+                button.classList.remove('playing');
+                const existingImg = videoThumbnail.querySelector('img:not(.unmute-btn)');
+                if (existingImg) {
+                  existingImg.style.display = 'block';
+                }
+                inlineContainer.remove();
+              });
+              
+              // Play the video
+              try {
+                const playPromise = videoElement.play();
+                
+                if (playPromise !== undefined) {
+                  playPromise.catch(error => {
+                    console.warn('Auto-play was prevented. Please interact with the page to play the video.', error);
+                    
+                    // Create a play button overlay if autoplay fails
+                    const manualPlayBtn = document.createElement('button');
+                    manualPlayBtn.className = 'manual-play-btn force-visible';
+                    manualPlayBtn.innerHTML = '<span>▶</span>';
+                    manualPlayBtn.style.position = 'absolute';
+                    manualPlayBtn.style.top = '50%';
+                    manualPlayBtn.style.left = '50%';
+                    manualPlayBtn.style.transform = 'translate(-50%, -50%)';
+                    manualPlayBtn.style.background = button.querySelector('circle').getAttribute('fill');
+                    manualPlayBtn.style.border = 'none';
+                    manualPlayBtn.style.borderRadius = '50%';
+                    manualPlayBtn.style.width = '40px';
+                    manualPlayBtn.style.height = '40px';
+                    manualPlayBtn.style.cursor = 'pointer';
+                    manualPlayBtn.style.zIndex = '1001';
+                    manualPlayBtn.style.color = 'white';
+                    manualPlayBtn.style.filter = 'none';
+                    manualPlayBtn.style.display = 'flex';
+                    manualPlayBtn.style.alignItems = 'center';
+                    manualPlayBtn.style.justifyContent = 'center';
+                    
+                    inlineContainer.appendChild(manualPlayBtn);
+                    
+                    manualPlayBtn.addEventListener('click', function() {
+                      videoElement.play();
+                      this.remove();
+                    });
+                  });
+                }
+              } catch (e) {
+                console.error("Error playing Shopify video:", e);
+                // Show a helpful message to the user
+                const errorMsg = document.createElement('div');
+                errorMsg.style.position = 'absolute';
+                errorMsg.style.top = '50%';
+                errorMsg.style.left = '50%';
+                errorMsg.style.transform = 'translate(-50%, -50%)';
+                errorMsg.style.color = 'white';
+                errorMsg.style.background = 'rgba(0,0,0,0.7)';
+                errorMsg.style.padding = '10px';
+                errorMsg.style.borderRadius = '5px';
+                errorMsg.style.textAlign = 'center';
+                errorMsg.style.zIndex = '1001';
+                errorMsg.innerHTML = 'Unable to play video. Click to try again.';
+                
+                errorMsg.addEventListener('click', function() {
+                  videoElement.play().catch(err => console.error("Retry failed:", err));
+                  this.remove();
+                });
+                
+                inlineContainer.appendChild(errorMsg);
+              }
+            } else {
+              console.error("Shopify video element not found");
+            }
+          } else {
+            console.error("Hidden video data not found");
+          }
+        }
+      });
+    });
+    
+    // Additional step to ensure buttons are visible
+    function ensureButtonsVisible() {
+      document.querySelectorAll('.play-button').forEach(button => {
+        button.classList.add('force-visible');
+      });
+    }
+    
+    // Run immediately and after a delay
+    ensureButtonsVisible();
+    setTimeout(ensureButtonsVisible, 100);
+    setTimeout(ensureButtonsVisible, 500);
+    setTimeout(ensureButtonsVisible, 1000);
+    
+    // Run when videos might be interacted with
+    document.addEventListener('click', function() {
+      setTimeout(ensureButtonsVisible, 100);
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Function to animate counter
+    function animateCounter(counterId, finalValue) {
+      const counter = document.getElementById(counterId);
+      if (!counter) return;
+      
+      
+      let currentValue = 0;
+      const duration = 2000;
+      const framesPerSecond = 60;
+      const totalFrames = duration / 1000 * framesPerSecond;
+      const increment = finalValue / totalFrames;
+      
+      const animation = setInterval(() => {
+        currentValue += increment;
+        
+        if (currentValue >= finalValue) {
+          currentValue = finalValue;
+          clearInterval(animation);
+        }
+        
+        counter.textContent = currentValue.toFixed(1);
+      }, 1000 / framesPerSecond);
+    }
+    
+    // Get configured value or use default
+    const tiktokFinalValue = {{ block.settings.view_count | divided_by: 10.0 }};
+    const instagramFinalValue = {{ block.settings.view_count | divided_by: 10.0 }};
+    const facebookFinalValue = {{ block.settings.view_count | divided_by: 10.0 }};
+    
+    // Animate counters if they exist
+    animateCounter('tiktok-counter', tiktokFinalValue);
+    animateCounter('counter', instagramFinalValue);
+    animateCounter('facebook-counter', facebookFinalValue);
+  });
+</script>
+
