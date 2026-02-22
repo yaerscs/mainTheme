@@ -65,7 +65,7 @@
         "payment_enable": true,
         "enabled_payment_types": "",
         "show_policy": false,
-        "branding_text": "Powered by <a href=\"https://shrinesolutions.com/\" target=\"_blank\" title=\"https://shrinesolutions.com/\">Shrine</a>",
+        "branding_text": "",
         "margin_top": 0,
         "padding_top": 32,
         "padding_bottom": 20,
