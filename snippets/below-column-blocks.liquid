@@ -1,0 +1,35 @@
+{%- comment -%}
+  Renders below-column content blocks (below_media_content or below_info_content).
+  Usage: {% render 'below-column-blocks', blocks: below_media_blocks %}
+{%- endcomment -%}
+{%- for block in blocks -%}
+  <div class="product__below-block" {{ block.shopify_attributes }} style="margin-top:{{ block.settings.margin_top }}px; margin-bottom:{{ block.settings.margin_bottom }}px;">
+    {%- if block.settings.heading != blank -%}
+      <h3 class="product__below-heading" style="margin-bottom:10px;">{{ block.settings.heading }}</h3>
+    {%- endif -%}
+    {%- if block.settings.richtext != blank -%}
+      <div class="product__below-richtext rte">{{ block.settings.richtext }}</div>
+    {%- endif -%}
+    {%- if block.settings.image != blank -%}
+      <div
+        class="product-info__image-block{% if block.settings.Full_mobile_width %} product-info__image-block--mobile-full{% endif %}"
+        style="--margin-top:0rem;--margin-bottom:0rem;--image-width:{{ block.settings.width }}%;--image-alignment:{{ block.settings.alignment }};--border-radius:{{ block.settings.border_radius | divided_by: 10.0 }}rem;"
+      >
+        <div class="media media--transparent ratio" style="--ratio-percent: {{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100 }}%">
+          {%- capture sizes -%}
+            (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
+            (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px))
+          {%- endcapture -%}
+          {{
+            block.settings.image
+            | image_url: width: 1500
+            | image_tag: loading: 'lazy', sizes: sizes, widths: '165, 360, 535, 750, 1070, 1250, 1500'
+          }}
+        </div>
+      </div>
+    {%- endif -%}
+    {%- if block.settings.custom_liquid != blank -%}
+      <div class="product__below-custom">{{ block.settings.custom_liquid }}</div>
+    {%- endif -%}
+  </div>
+{%- endfor -%}

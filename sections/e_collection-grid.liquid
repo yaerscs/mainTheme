@@ -1,0 +1,1473 @@
+<!-- Collection Grid Section -->
+{{ 'collection-grid.css' | asset_url | stylesheet_tag }}
+
+{%- if section.settings.layout_type == 'carousel' -%}
+  <script src="{{ 'collection-grid-carousel.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+<div class="collection-grid-section section-{{ section.id }}{% if section.settings.layout_type == 'carousel' %} collection-grid-carousel{% endif %}">
+  <div class="container">
+    {% if section.settings.heading != blank %}
+      <h2 class="section-heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+    
+    {%- if section.settings.layout_type == 'carousel' -%}
+      <div class="carousel-container">
+        <div class="product-carousel" data-scroll-amount="{{ section.settings.carousel_scroll_amount }}">
+    {%- else -%}
+      <div class="product-grid">
+    {%- endif -%}
+    
+      {% assign collection = collections[section.settings.collection] %}
+      {% if section.settings.layout_type == 'carousel' %}
+        {%- for product in collection.products limit: section.settings.products_to_show -%}
+          <div class="product-card">
+            {% unless section.settings.show_view_product %}
+              <a href="{{ product.url }}" class="product-card-link">
+            {% endunless %}
+            
+            <div class="product-image-container">
+              {% assign current_variant = product.selected_or_first_available_variant %}
+              {% assign compare_at_price = current_variant.compare_at_price %}
+              {% assign price = current_variant.price %}
+              
+              {% if compare_at_price and compare_at_price > price and section.settings.show_sale_badge %}
+                <div class="sale-badge {% if section.settings.badge_gradient %}badge-gradient{% endif %}">
+                  <span class="sale-badge-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path d="M243.31,136,144,36.69A15.86,15.86,0,0,0,132.69,32H40a8,8,0,0,0-8,8v92.69A15.86,15.86,0,0,0,36.69,144L136,243.31a16,16,0,0,0,22.63,0l84.68-84.68a16,16,0,0,0,0-22.63ZM84,96A12,12,0,1,1,96,84,12,12,0,0,1,84,96Z"/></svg>
+                  </span>
+                  {% if section.settings.sale_badge_text != blank %}
+                    {{ section.settings.sale_badge_text }}
+                  {% else %}
+                    {% assign savings = compare_at_price | minus: price %}
+                    {% if section.settings.show_percentage_off %}
+                      {% assign savings_percentage = savings | times: 100 | divided_by: compare_at_price %}
+                      {{ savings_percentage }}% Off
+                    {% else %}
+                      Save {{ savings | money }}
+                    {% endif %}
+                  {% endif %}
+                </div>
+              {% endif %}
+              
+              <div class="product-slider">
+                <div class="product-slider-wrapper" data-slide-count="{{ product.images.size }}">
+                  {% for image in product.images %}
+                    <div class="product-slide">
+                      <img src="{{ image | img_url: '500x' }}" alt="{{ product.title | escape }}" class="product-image">
+                    </div>
+                  {% else %}
+                    <div class="product-slide">
+                      <img src="{{ product.featured_image | img_url: '500x' }}" alt="{{ product.title | escape }}" class="product-image">
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+            
+            <div class="collection-product-info">
+              {% if product.images.size > 1 %}
+                <div class="product-dots">
+                  {% for image in product.images %}
+                    <span class="dot {% if forloop.first %}active{% endif %}"></span>
+                  {% endfor %}
+                </div>
+              {% endif %}
+              
+              {% if section.settings.show_rating %}
+                <div class="product-rating">
+                  <div class="stars">
+                    {% assign rating_decimal = section.settings.rating_value | times: 1 %}
+                    {% assign rating_whole = rating_decimal | floor %}
+                    {% assign rating_fraction = rating_decimal | minus: rating_whole %}
+                    {% assign next_star = rating_whole | plus: 1 %}
+                    
+                    {% for i in (1..5) %}
+                      {% if i <= rating_whole %}
+                        <span class="star star-filled">
+                          <svg fill="currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 4.588l2.833 8.719H28l-7.416 5.387 2.832 8.719L16 22.023l-7.417 5.389 2.833-8.719L4 13.307h9.167L16 4.588z"/></svg>
+                        </span>
+                      {% elsif i == next_star and rating_fraction >= 0.3 %}
+                        <span class="star star-half">
+                          <svg fill="currentColor" class="star-bg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 4.588l2.833 8.719H28l-7.416 5.387 2.832 8.719L16 22.023l-7.417 5.389 2.833-8.719L4 13.307h9.167L16 4.588z"/></svg>
+                          <svg fill="currentColor" class="star-fill" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16,4.588 L16,22.023 L8.583,27.412 L11.416,18.693 L4,13.306 L13.167,13.306 L16,4.588 Z"/></svg>
+                        </span>
+                      {% else %}
+                        <span class="star star-empty">
+                          <svg fill="currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 4.588l2.833 8.719H28l-7.416 5.387 2.832 8.719L16 22.023l-7.417 5.389 2.833-8.719L4 13.307h9.167L16 4.588z"/></svg>
+                        </span>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                  {% if section.settings.show_rating_text %}
+                    {% if product.metafields.custom.rating != blank and section.settings.use_product_rating %}
+                      <span class="rating-number">({{ product.metafields.custom.rating.value }})</span>
+                    {% else %}
+                      <span class="rating-number">({{ section.settings.rating_number | default: '4.7' }})</span>
+                    {% endif %}
+                  {% endif %}
+                </div>
+              {% endif %}
+              
+              <h3 class="product-title">{{ product.title }}</h3>
+              
+              {% if section.settings.show_product_description %}
+                <div class="product-description">
+                  {{ product.description | strip_html | truncatewords: section.settings.description_words | escape }}
+                </div>
+              {% endif %}
+              
+              <div class="collection-product-price">
+                {% if compare_at_price and compare_at_price > price %}
+                  <span class="collection-regular-price">{{ compare_at_price | money }}</span>
+                {% endif %}
+                <span class="collection-current-price">{{ price | money }}</span>
+              </div>
+              
+              {% if section.settings.show_view_product %}
+                <div class="collection-view-product">
+                  <a href="{{ product.url }}" class="collection-view-product-btn">
+                    {{ section.settings.view_product_text | default: 'View Product' }}
+                  </a>
+                </div>
+              {% endif %}
+              
+              {% if section.settings.show_product_metadata %}
+                <div class="product-metadata">
+                  {% if section.settings.metadata_field_1 != blank and product.metafields.custom[section.settings.metadata_field_1] != blank %}
+                    <div class="metadata-item">
+                      <span class="metadata-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M5.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM2.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM18.75 7.5a.75.75 0 00-1.5 0v2.25H15a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H21a.75.75 0 000-1.5h-2.25V7.5z"/>
+                        </svg>
+                      </span>
+                      {% if section.settings.show_metadata_labels %}
+                        <span class="metadata-label">{{ section.settings.metadata_label_1 | default: section.settings.metadata_field_1 }}:</span>
+                      {% endif %}
+                      <span class="metadata-value">{{ product.metafields.custom[section.settings.metadata_field_1] }}</span>
+                    </div>
+                  {% endif %}
+                  
+                  {% if section.settings.metadata_field_2 != blank and product.metafields.custom[section.settings.metadata_field_2] != blank %}
+                    <div class="metadata-item">
+                      <span class="metadata-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z"/>
+                          <path d="M6.75 6.75h.008v.008H6.75V6.75z"/>
+                        </svg>
+                      </span>
+                      {% if section.settings.show_metadata_labels %}
+                        <span class="metadata-label">{{ section.settings.metadata_label_2 | default: section.settings.metadata_field_2 }}:</span>
+                      {% endif %}
+                      <span class="metadata-value">{{ product.metafields.custom[section.settings.metadata_field_2] }}</span>
+                    </div>
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+            
+            {% unless section.settings.show_view_product %}
+              </a>
+            {% endunless %}
+          </div>
+        {%- endfor -%}
+      {% else %}
+        {% paginate collection.products by section.settings.products_to_show %}
+          {% for product in collection.products %}
+            <div class="product-card">
+              {% unless section.settings.show_view_product %}
+                <a href="{{ product.url }}" class="product-card-link">
+              {% endunless %}
+              
+              <div class="product-image-container">
+                {% assign current_variant = product.selected_or_first_available_variant %}
+                {% assign compare_at_price = current_variant.compare_at_price %}
+                {% assign price = current_variant.price %}
+                
+                {% if compare_at_price and compare_at_price > price and section.settings.show_sale_badge %}
+                  <div class="sale-badge {% if section.settings.badge_gradient %}badge-gradient{% endif %}">
+                    <span class="sale-badge-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path d="M243.31,136,144,36.69A15.86,15.86,0,0,0,132.69,32H40a8,8,0,0,0-8,8v92.69A15.86,15.86,0,0,0,36.69,144L136,243.31a16,16,0,0,0,22.63,0l84.68-84.68a16,16,0,0,0,0-22.63ZM84,96A12,12,0,1,1,96,84,12,12,0,0,1,84,96Z"/></svg>
+                    </span>
+                    {% if section.settings.sale_badge_text != blank %}
+                      {{ section.settings.sale_badge_text }}
+                    {% else %}
+                      {% assign savings = compare_at_price | minus: price %}
+                      {% if section.settings.show_percentage_off %}
+                        {% assign savings_percentage = savings | times: 100 | divided_by: compare_at_price %}
+                        {{ savings_percentage }}% Off
+                      {% else %}
+                        Save {{ savings | money }}
+                      {% endif %}
+                    {% endif %}
+                  </div>
+                {% endif %}
+                
+                <div class="product-slider">
+                  <div class="product-slider-wrapper" data-slide-count="{{ product.images.size }}">
+                    {% for image in product.images %}
+                      <div class="product-slide">
+                        <img src="{{ image | img_url: '500x' }}" alt="{{ product.title | escape }}" class="product-image">
+                      </div>
+                    {% else %}
+                      <div class="product-slide">
+                        <img src="{{ product.featured_image | img_url: '500x' }}" alt="{{ product.title | escape }}" class="product-image">
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+              
+              <div class="collection-product-info">
+                {% if product.images.size > 1 %}
+                  <div class="product-dots">
+                    {% for image in product.images %}
+                      <span class="dot {% if forloop.first %}active{% endif %}"></span>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+                
+                {% if section.settings.show_rating %}
+                  <div class="product-rating">
+                    <div class="stars">
+                      {% assign rating_decimal = section.settings.rating_value | times: 1 %}
+                      {% assign rating_whole = rating_decimal | floor %}
+                      {% assign rating_fraction = rating_decimal | minus: rating_whole %}
+                      {% assign next_star = rating_whole | plus: 1 %}
+                      
+                      {% for i in (1..5) %}
+                        {% if i <= rating_whole %}
+                          <span class="star star-filled">
+                            <svg fill="currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 4.588l2.833 8.719H28l-7.416 5.387 2.832 8.719L16 22.023l-7.417 5.389 2.833-8.719L4 13.307h9.167L16 4.588z"/></svg>
+                          </span>
+                        {% elsif i == next_star and rating_fraction >= 0.3 %}
+                          <span class="star star-half">
+                            <svg fill="currentColor" class="star-bg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 4.588l2.833 8.719H28l-7.416 5.387 2.832 8.719L16 22.023l-7.417 5.389 2.833-8.719L4 13.307h9.167L16 4.588z"/></svg>
+                            <svg fill="currentColor" class="star-fill" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16,4.588 L16,22.023 L8.583,27.412 L11.416,18.693 L4,13.306 L13.167,13.306 L16,4.588 Z"/></svg>
+                          </span>
+                        {% else %}
+                          <span class="star star-empty">
+                            <svg fill="currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 4.588l2.833 8.719H28l-7.416 5.387 2.832 8.719L16 22.023l-7.417 5.389 2.833-8.719L4 13.307h9.167L16 4.588z"/></svg>
+                          </span>
+                        {% endif %}
+                      {% endfor %}
+                    </div>
+                    {% if section.settings.show_rating_text %}
+                      {% if product.metafields.custom.rating != blank and section.settings.use_product_rating %}
+                        <span class="rating-number">({{ product.metafields.custom.rating.value }})</span>
+                      {% else %}
+                        <span class="rating-number">({{ section.settings.rating_number | default: '4.7' }})</span>
+                      {% endif %}
+                    {% endif %}
+                  </div>
+                {% endif %}
+                
+                <h3 class="product-title">{{ product.title }}</h3>
+                
+                {% if section.settings.show_product_description %}
+                  <div class="product-description">
+                    {{ product.description | strip_html | truncatewords: section.settings.description_words | escape }}
+                  </div>
+                {% endif %}
+                
+                <div class="collection-product-price">
+                  {% if compare_at_price and compare_at_price > price %}
+                    <span class="collection-regular-price">{{ compare_at_price | money }}</span>
+                  {% endif %}
+                  <span class="collection-current-price">{{ price | money }}</span>
+                </div>
+                
+                {% if section.settings.show_view_product %}
+                  <div class="collection-view-product">
+                    <a href="{{ product.url }}" class="collection-view-product-btn">
+                      {{ section.settings.view_product_text | default: 'View Product' }}
+                    </a>
+                  </div>
+                {% endif %}
+                
+                {% if section.settings.show_product_metadata %}
+                  <div class="product-metadata">
+                    {% if section.settings.metadata_field_1 != blank and product.metafields.custom[section.settings.metadata_field_1] != blank %}
+                      <div class="metadata-item">
+                        <span class="metadata-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M5.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM2.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM18.75 7.5a.75.75 0 00-1.5 0v2.25H15a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H21a.75.75 0 000-1.5h-2.25V7.5z"/>
+                          </svg>
+                        </span>
+                        {% if section.settings.show_metadata_labels %}
+                          <span class="metadata-label">{{ section.settings.metadata_label_1 | default: section.settings.metadata_field_1 }}:</span>
+                        {% endif %}
+                        <span class="metadata-value">{{ product.metafields.custom[section.settings.metadata_field_1] }}</span>
+                      </div>
+                    {% endif %}
+                    
+                    {% if section.settings.metadata_field_2 != blank and product.metafields.custom[section.settings.metadata_field_2] != blank %}
+                      <div class="metadata-item">
+                        <span class="metadata-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z"/>
+                            <path d="M6.75 6.75h.008v.008H6.75V6.75z"/>
+                          </svg>
+                        </span>
+                        {% if section.settings.show_metadata_labels %}
+                          <span class="metadata-label">{{ section.settings.metadata_label_2 | default: section.settings.metadata_field_2 }}:</span>
+                        {% endif %}
+                        <span class="metadata-value">{{ product.metafields.custom[section.settings.metadata_field_2] }}</span>
+                      </div>
+                    {% endif %}
+                  </div>
+                {% endif %}
+              </div>
+              
+              {% unless section.settings.show_view_product %}
+                </a>
+              {% endunless %}
+            </div>
+          {% endfor %}
+        {% endpaginate %}
+      {% endif %}
+    
+    {%- if section.settings.layout_type == 'carousel' -%}
+        </div>
+        
+        <div class="reviews-navigation-container">
+          <div class="reviews-navigation">
+            <button class="nav-button prev" aria-label="Previous products"
+                    style="background: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.nav_button_bg }}{% endif %}; 
+                           color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.nav_button_color }}{% endif %}; 
+                           border-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color | color_lighten: 70 }}{% else %}{{ section.settings.nav_button_border }}{% endif %};">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            
+            <button class="nav-button next" aria-label="Next products"
+                    style="background: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ section.settings.nav_button_active_bg }}{% endif %}; 
+                           color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.nav_button_active_color }}{% endif %}; 
+                           border-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ section.settings.nav_button_active_border }}{% endif %};">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    {%- else -%}
+      </div>
+    {%- endif -%}
+    
+    {% if section.settings.show_view_all %}
+      <div class="view-all-container">
+        <a href="{{ collection.url }}" class="view-all-button">{{ section.settings.view_all_text | default: 'View all' }}</a>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+  /* Dynamic styles for section */
+  .section-{{ section.id }} {
+    padding: {{ section.settings.padding_top | default: 40 }}px 0 {{ section.settings.padding_bottom | default: 40 }}px;
+    background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.section_background_color | default: '#ffffff' }}{% endif %};
+  }
+  
+  .section-{{ section.id }} .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Override global star styles with section-specific styling */
+  .section-{{ section.id }} .star {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    display: inline-block;
+    align-content: center;
+    margin-right: -3px !important;
+    line-height: 1;
+    position: relative;
+  }
+  
+  .section-{{ section.id }} .star svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  
+  .section-{{ section.id }} .star-filled {
+    color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ section.settings.star_color | default: '#FFD700' }}{% endif %};
+  }
+  
+  .section-{{ section.id }} .star-empty {
+    color: #e0e0e0;
+    opacity: 0.5;
+  }
+  
+  .section-{{ section.id }} .star-half {
+    position: relative;
+  }
+  
+  .section-{{ section.id }} .star-half .star-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #e0e0e0;
+    opacity: 0.5;
+  }
+  
+  .section-{{ section.id }} .star-half .star-fill {
+    position: relative;
+    z-index: 1;
+    color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ section.settings.star_color | default: '#FFD700' }}{% endif %};
+  }
+  
+  .section-{{ section.id }} .section-heading {
+    text-align: {{ section.settings.heading_alignment | default: 'center' }};
+    margin-bottom: 30px;
+    font-size: {{ section.settings.heading_size | default: 28 }}px;
+    color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.heading_color | default: '#000000' }}{% endif %} !important;
+  }
+  
+  /* Product card dynamic styles */
+  .section-{{ section.id }} .product-card {
+    background: {% if section.settings.use_theme_colors %}{{ settings.global_section_background_color }}{% else %}{{ section.settings.card_background | default: '#ffffff' }}{% endif %};
+    border-radius: {{ section.settings.card_radius | default: 8 }}px;
+    border: 1px solid {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color | color_modify: 'alpha', 0.1 | default: 'rgb(240, 240, 240)' }}{% else %}{{ section.settings.card_border_color | default: '#E5E7EB' }}{% endif %};
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Product image container */
+  .section-{{ section.id }} .product-image-container {
+    background: {{ section.settings.image_background | default: '#f8f8f8' }};
+    position: relative;
+  }
+  
+  .section-{{ section.id }} .product-image {
+    object-fit: {{ section.settings.image_fit | default: 'contain' }};
+  }
+  
+  /* Sale badge */
+  .section-{{ section.id }} .sale-badge {
+    background: {{ section.settings.badge_background | default: '#FFEAE6' }};
+    color: {{ section.settings.badge_color | default: '#FF3C16' }};
+    border-radius: {{ section.settings.badge_radius | default: 4 }}px;
+  }
+  
+  .section-{{ section.id }} .badge-gradient {
+    background: linear-gradient(135deg, {{ section.settings.badge_background | default: '#FFEAE6' }}, {{ section.settings.badge_gradient_color | default: '#666666' }});
+  }
+  
+  .section-{{ section.id }} .sale-badge-icon svg {
+    fill: {{ section.settings.badge_color | default: '#FF3C16' }};
+  }
+  
+  /* Product navigation dots */
+  .section-{{ section.id }} .dot {
+    width: {{ section.settings.dot_size | default: 8 }}px;
+    height: {{ section.settings.dot_size | default: 8 }}px;
+    background: {{ section.settings.dot_color | default: '#cccccc' }};
+  }
+  
+  .section-{{ section.id }} .dot.active {
+    background: {{ section.settings.dot_active_color | default: '#000000' }};
+  }
+  
+  /* Product info section dynamic styles */
+  .section-{{ section.id }} .product-title {
+    font-size: 20px;
+    color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.title_color | default: '#000000' }}{% endif %} !important;
+    margin-top: 0px;
+    font-weight: var(--font-weight-bold) !important;
+    margin-bottom: 3px;
+    line-height: 1.3;
+    min-height: unset;
+    height: auto;
+  }
+  
+  .section-{{ section.id }} .collection-product-info {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 12px 15px;
+  }
+  
+  .section-{{ section.id }} .product-description {
+    font-size: {{ section.settings.description_font_size }}px;
+    color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color | color_modify: 'alpha', 0.8 }}{% else %}{{ section.settings.description_color }}{% endif %};
+    margin: {{ section.settings.description_margin }}px 0;
+    line-height: 1.4;
+    overflow: hidden;
+  }
+  
+  .section-{{ section.id }} .collection-product-price {
+    font-size: {{ section.settings.price_size | plus: 0 | default: 15 }}px;
+    margin-top: auto;
+    padding-top: 4px;
+  }
+  
+  .section-{{ section.id }} .collection-regular-price {
+    color: {% if section.settings.use_theme_colors %}#b3b3b3{% else %}{{ section.settings.compare_price_color | default: '#999999' }}{% endif %};
+  }
+  
+  .section-{{ section.id }} .collection-current-price {
+    color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ section.settings.price_color | default: '#000000' }}{% endif %};
+  }
+  
+  /* Product rating dynamic styles */
+  .section-{{ section.id }} .product-rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3px;
+  }
+  
+  .section-{{ section.id }} .stars {
+    color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ section.settings.star_color | default: '#FFD700' }}{% endif %};
+    font-size: 13px;
+  }
+  
+  /* Product description styles */
+  .section-{{ section.id }} .product-description {
+    font-size: {{ section.settings.description_font_size }}px;
+    color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color | color_modify: 'alpha', 0.8 }}{% else %}{{ section.settings.description_color }}{% endif %};
+    margin: {{ section.settings.description_margin }}px 0;
+    line-height: 1.4;
+    overflow: hidden;
+  }
+  
+  .section-{{ section.id }} .rating-number {
+    color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.rating_text_color | default: '#000000' }}{% endif %};
+    font-size: 14px;
+    font-weight: {{ section.settings.rating_text_weight | default: '600' }};
+  }
+  
+  /* View All button */
+  .section-{{ section.id }} .view-all-button {
+    background-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ section.settings.view_all_background | default: '#000000' }}{% endif %} !important;
+    color: {% if section.settings.use_theme_colors %}{{ settings.global_section_button_text_color | default: settings.global_section_background_color }}{% else %}{{ section.settings.view_all_color | default: '#ffffff' }}{% endif %} !important;
+    border: 1px solid {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ section.settings.view_all_background | default: '#000000' }}{% endif %} !important;
+  }
+  
+  .section-{{ section.id }} .view-all-button:hover {
+    background-color: transparent !important;
+    color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ section.settings.view_all_hover_color | default: '#000000' }}{% endif %} !important;
+    border-color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ section.settings.view_all_background | default: '#000000' }}{% endif %} !important;
+  }
+  
+  /* Product metadata dynamic styles */
+  .section-{{ section.id }} .product-metadata {
+    font-size: {{ section.settings.metadata_font_size }}px;
+  }
+  
+  .section-{{ section.id }} .metadata-item {
+    display: flex;
+    align-items: center;
+    margin: 4px 0;
+  }
+  
+  .section-{{ section.id }} .metadata-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 6px;
+    color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ section.settings.metadata_label_color | default: '#666666' }}{% endif %};
+    flex-shrink: 0;
+  }
+  
+  .section-{{ section.id }} .metadata-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .section-{{ section.id }} .metadata-label {
+    color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color | color_darken: 10 }}{% else %}{{ section.settings.metadata_label_color }}{% endif %};
+    font-weight: {{ section.settings.metadata_label_weight }};
+    margin-right: 4px;
+  }
+  
+  .section-{{ section.id }} .metadata-value {
+    color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.metadata_value_color }}{% endif %};
+  }
+  
+  .section-{{ section.id }} .metadata-rating-value {
+    color: {% if section.settings.use_theme_colors %}{{ settings.global_section_text_color }}{% else %}{{ section.settings.metadata_rating_color }}{% endif %};
+  }
+  
+  .section-{{ section.id }} .metadata-stars {
+    color: {% if section.settings.use_theme_colors %}{{ settings.global_section_accent_1_color }}{% else %}{{ section.settings.star_color }}{% endif %};
+    font-size: 12px;
+  }
+  
+  /* View Product button styles */
+  .section-{{ section.id }} .collection-view-product {
+    margin-top: 12px;
+  }
+  
+  .section-{{ section.id }} .collection-view-product-btn {
+    width: 100%;
+    padding: 10px 16px;
+    border: none;
+    border-radius: {{ section.settings.view_product_radius }}px;
+    font-size: 14px;
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: {% if section.settings.use_theme_colors %}{{ settings.global_button_background_color | default: settings.global_section_accent_1_color }}{% else %}{{ section.settings.view_product_background | default: '#000000' }}{% endif %};
+    color: {% if section.settings.use_theme_colors %}{{ settings.global_button_text_color | default: settings.global_section_button_text_color | default: settings.global_section_background_color }}{% else %}{{ section.settings.view_product_color | default: '#ffffff' }}{% endif %};
+    border: 1px solid {% if section.settings.use_theme_colors %}{{ settings.global_button_background_color | default: settings.global_section_accent_1_color }}{% else %}{{ section.settings.view_product_background | default: '#000000' }}{% endif %};
+  }
+  
+  .section-{{ section.id }} .collection-view-product-btn:hover {
+    background-color: {% if section.settings.use_theme_colors %}{{ settings.global_button_hover_background_color | default: 'transparent' }}{% else %}transparent{% endif %};
+    color: {% if section.settings.use_theme_colors %}{{ settings.global_button_hover_text_color | default: settings.global_button_background_color | default: settings.global_section_accent_1_color }}{% else %}{{ section.settings.view_product_background | default: '#000000' }}{% endif %};
+    transform: translateY(-1px);
+  }
+  
+  /* Product card link styles */
+  .section-{{ section.id }} .product-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .section-{{ section.id }} .product-card-link:hover {
+    color: inherit;
+  }
+  
+  /* Responsive dynamic styles */
+  @media (max-width: 767px) {
+    .section-{{ section.id }} .product-grid {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+    }
+    
+    .section-{{ section.id }} .product-metadata {
+      font-size: {{ section.settings.metadata_font_size | minus: 1 }}px;
+    }
+    
+    .section-{{ section.id }} .product-description {
+      font-size: {{ section.settings.description_font_size | minus: 1 }}px;
+    }
+    
+    .section-{{ section.id }} .stars {
+      font-size: 12px;
+    }
+    
+    .section-{{ section.id }} .rating-number {
+      font-size: 12px;
+    }
+    
+    .section-{{ section.id }} .star {
+      width: 14px;
+      height: 14px;
+    }
+    
+    .section-{{ section.id }} .product-title {
+      font-size: 19px;
+    }
+    
+    .section-{{ section.id }} .collection-product-price {
+      font-size: {{ section.settings.price_size | plus: 0 | default: 13 }}px;
+    }
+    
+    .section-{{ section.id }} .metadata-stars {
+      font-size: 11px;
+    }
+    
+    .section-{{ section.id }} .dot {
+      width: 6px;
+      height: 6px;
+    }
+    
+    .section-{{ section.id }} .collection-view-product-btn {
+      padding: 8px 12px;
+      font-size: 12px;
+      letter-spacing: 0.3px;
+    }
+  }
+  
+  @media (max-width: 484px) {
+    .section-{{ section.id }} .product-grid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 10px;
+    }
+    
+    .section-{{ section.id }} .product-metadata {
+      font-size: {{ section.settings.metadata_font_size | minus: 2 }}px;
+    }
+    
+    .section-{{ section.id }} .product-description {
+      font-size: {{ section.settings.description_font_size | minus: 2 }}px;
+      margin: {{ section.settings.description_margin | minus: 2 }}px 0;
+    }
+    
+    .section-{{ section.id }} .metadata-stars {
+      font-size: 10px;
+    }
+    
+    .section-{{ section.id }} .stars {
+      font-size: 10px;
+    }
+    
+    .section-{{ section.id }} .rating-number {
+      font-size: 10px;
+    }
+    
+    .section-{{ section.id }} .star {
+      width: 12px;
+      height: 12px;
+    }
+    
+    .section-{{ section.id }} .product-title {
+      font-size: 17px !important;
+    }
+    
+    .section-{{ section.id }} .collection-product-price {
+      font-size: {{ section.settings.price_size | plus: 0 | default: 12 }}px;
+    }
+    
+    .section-{{ section.id }} .collection-view-product-btn {
+      padding: 8px 10px;
+      font-size: 11px;
+      letter-spacing: 0.2px;
+    }
+  }
+</style>
+
+<script>
+  // Image slider functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const sliders = document.querySelectorAll('.section-{{ section.id }} .product-slider');
+    
+    sliders.forEach(slider => {
+      const wrapper = slider.querySelector('.product-slider-wrapper');
+      const slides = slider.querySelectorAll('.product-slide');
+      const card = slider.closest('.product-card');
+      const dots = card.querySelectorAll('.dot');
+      
+      if (slides.length <= 1) return; // Skip if there's only one slide
+      
+      let currentSlide = 0;
+      const slideCount = slides.length;
+      
+      // Initialize dots
+      updateDots();
+      
+      // Touch swipe functionality
+      let touchStartX = 0;
+      let touchEndX = 0;
+      
+      slider.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, {passive: true});
+      
+      slider.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }, {passive: true});
+      
+      // Mouse drag functionality for desktop
+      let isDragging = false;
+      let startPosX = 0;
+      let currentTranslate = 0;
+      
+      slider.addEventListener('mousedown', e => {
+        e.preventDefault();
+        isDragging = true;
+        startPosX = e.clientX;
+        slider.style.cursor = 'grabbing';
+      });
+      
+      slider.addEventListener('mousemove', e => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const moveX = e.clientX - startPosX;
+        const slideWidth = slider.offsetWidth;
+        
+        // Limit movement to prevent excessive drag
+        if (Math.abs(moveX) < slideWidth * 0.5) {
+          wrapper.style.transform = `translateX(${-currentSlide * (100 / slideCount) + (moveX / slideWidth * 100 / slideCount)}%)`;
+        }
+      });
+      
+      document.addEventListener('mouseup', e => {
+        if (!isDragging) return;
+        
+        isDragging = false;
+        slider.style.cursor = 'grab';
+        
+        const moveX = e.clientX - startPosX;
+        const threshold = slider.offsetWidth * 0.2; // 20% of slide width
+        
+        if (moveX < -threshold) {
+          // Dragged left - go to next slide
+          currentSlide = Math.min(currentSlide + 1, slideCount - 1);
+        } else if (moveX > threshold) {
+          // Dragged right - go to previous slide
+          currentSlide = Math.max(currentSlide - 1, 0);
+        }
+        
+        updateSlider();
+      });
+      
+      document.addEventListener('mouseleave', () => {
+        if (isDragging) {
+          isDragging = false;
+          slider.style.cursor = 'grab';
+          updateSlider();
+        }
+      });
+      
+      function handleSwipe() {
+        const threshold = 50; // Minimum swipe distance
+        
+        if (touchStartX - touchEndX > threshold) {
+          // Swipe left - go to next slide
+          currentSlide = Math.min(currentSlide + 1, slideCount - 1);
+          updateSlider();
+        } else if (touchEndX - touchStartX > threshold) {
+          // Swipe right - go to previous slide
+          currentSlide = Math.max(currentSlide - 1, 0);
+          updateSlider();
+        }
+      }
+      
+      // Update slider position
+      function updateSlider() {
+        const slideCount = parseInt(wrapper.dataset.slideCount) || 1;
+        const translateX = -currentSlide * (100 / slideCount);
+        wrapper.style.transform = `translateX(${translateX}%)`;
+        updateDots();
+      }
+      
+      // Update dots
+      function updateDots() {
+        if (dots && dots.length) {
+          dots.forEach((dot, i) => {
+            if (i === currentSlide) {
+              dot.classList.add('active');
+            } else {
+              dot.classList.remove('active');
+            }
+          });
+        }
+      }
+      
+      // Connect dots to slides (if they exist)
+      if (dots && dots.length) {
+        dots.forEach((dot, i) => {
+          dot.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            currentSlide = i;
+            updateSlider();
+          });
+        });
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Collection Grid",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Collection Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_theme_colors",
+      "default": true,
+      "label": "Use Theme Colors",
+      "info": "Apply the global theme colors to this section - text, pricing and stars"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 50,
+      "step": 1,
+      "default": 8,
+      "label": "Products to show",
+      "info": "For grid layout, this will affect pagination. For carousel, this sets the total number of products displayed."
+    },
+    {
+      "type": "header",
+      "content": "Section Layout"
+    },
+    {
+      "type": "color",
+      "id": "section_background_color",
+      "label": "Section background color",
+      "default": "#ffffff",
+      "info": "Background color when not using theme colors"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Featured Collection"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 16,
+      "max": 40,
+      "step": 1,
+      "default": 28,
+      "label": "Heading font size"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 40,
+      "label": "Top padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 40,
+      "label": "Bottom padding"
+    },
+    {
+      "type": "header",
+      "content": "Product Card"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Card border color",
+      "default": "#E5E7EB"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "default": 8,
+      "label": "Card corner radius"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Product Description"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_description",
+      "label": "Show product description",
+      "default": true,
+      "info": "Displays a truncated version of the product description"
+    },
+    {
+      "type": "range",
+      "id": "description_words",
+      "min": 5,
+      "max": 50,
+      "step": 5,
+      "default": 20,
+      "label": "Maximum words to show"
+    },
+    {
+      "type": "range",
+      "id": "description_font_size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "default": 13,
+      "label": "Description font size"
+    },
+    {
+      "type": "range",
+      "id": "description_margin",
+      "min": 2,
+      "max": 15,
+      "step": 1,
+      "default": 8,
+      "label": "Description margin (top & bottom)"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description color",
+      "default": "#666666"
+    },
+    {
+      "type": "range",
+      "id": "price_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 16,
+      "label": "Price font size"
+    },
+    {
+      "type": "color",
+      "id": "price_color",
+      "label": "Price color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "compare_price_color",
+      "label": "Compare price color",
+      "default": "#999999"
+    },
+    {
+      "type": "header",
+      "content": "Sale Badge"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sale_badge",
+      "default": true,
+      "label": "Show sale badge"
+    },
+    {
+      "type": "text",
+      "id": "sale_badge_text",
+      "label": "Custom sale badge text",
+      "info": "Leave blank to show savings amount"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_percentage_off",
+      "default": false,
+      "label": "Show percentage instead of amount"
+    },
+    {
+      "type": "color",
+      "id": "badge_background",
+      "label": "Badge background",
+      "default": "#FFEAE6"
+    },
+    {
+      "type": "checkbox",
+      "id": "badge_gradient",
+      "default": false,
+      "label": "Enable badge gradient"
+    },
+    {
+      "type": "color",
+      "id": "badge_gradient_color",
+      "label": "Badge gradient color",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "badge_color",
+      "label": "Badge text color",
+      "default": "#FF3C16"
+    },
+    {
+      "type": "range",
+      "id": "badge_radius",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 4,
+      "label": "Badge corner radius"
+    },
+    {
+      "type": "header",
+      "content": "Product Image Dots"
+    },
+    {
+      "type": "range",
+      "id": "dot_size",
+      "min": 6,
+      "max": 16,
+      "step": 1,
+      "default": 8,
+      "label": "Dot size"
+    },
+    {
+      "type": "color",
+      "id": "dot_color",
+      "label": "Dot color",
+      "default": "#cccccc"
+    },
+    {
+      "type": "color",
+      "id": "dot_active_color",
+      "label": "Active dot color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Product Rating"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": true,
+      "label": "Show product rating"
+    },
+    {
+      "type": "range",
+      "id": "rating_value",
+      "min": 0,
+      "max": 5,
+      "step": 0.5,
+      "default": 5,
+      "label": "Rating value"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating_text",
+      "default": true,
+      "label": "Show rating number"
+    },
+    {
+      "type": "text",
+      "id": "rating_number",
+      "label": "Rating number",
+      "default": "4.7",
+      "info": "Enter the rating number"
+    },
+    {
+      "type": "color",
+      "id": "star_color",
+      "label": "Star color",
+      "default": "#FFC107"
+    },
+    {
+      "type": "color",
+      "id": "rating_text_color",
+      "label": "Rating text color",
+      "default": "#777777"
+    },
+    {
+      "type": "select",
+      "id": "rating_text_weight",
+      "label": "Rating text weight",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "bold",
+          "label": "Bold"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "header",
+      "content": "View All"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "default": true,
+      "label": "Show view all button"
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "View all text",
+      "default": "View all products"
+    },
+    {
+      "type": "color",
+      "id": "view_all_background",
+      "label": "View all button background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "view_all_color",
+      "label": "View all button text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "view_all_hover_color",
+      "label": "View all button hover text color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Product Metadata"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_metadata",
+      "default": false,
+      "label": "Show product metadata",
+      "info": "Display metadata from product.metafields.custom"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_product_rating",
+      "default": true,
+      "label": "Use per-product rating",
+      "info": "Uses product.metafields.custom.rating value for each product"
+    },
+    {
+      "type": "text",
+      "id": "metadata_field_1",
+      "label": "Metadata field 1",
+      "info": "Enter the key name of your first custom metafield (e.g. 'size', 'material')"
+    },
+    {
+      "type": "text",
+      "id": "metadata_label_1",
+      "label": "Label for field 1",
+      "info": "Custom label to display before the metafield value"
+    },
+    {
+      "type": "text",
+      "id": "metadata_field_2",
+      "label": "Metadata field 2",
+      "info": "Enter the key name of your second custom metafield"
+    },
+    {
+      "type": "text",
+      "id": "metadata_label_2",
+      "label": "Label for field 2",
+      "info": "Custom label to display before the metafield value"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_metadata_labels",
+      "default": true,
+      "label": "Show metadata labels"
+    },
+    {
+      "type": "paragraph",
+      "content": "### How to add product metadata and ratings\n\n1. Go to your Shopify admin > Products > Select a product > Metafields\n2. Add a new metafield in the 'Custom' namespace\n3. For product ratings: create a metafield with key 'rating' and number type (decimal) with value between 0-5\n4. For other metadata: create metafields with your desired keys and use those key names in the fields above\n5. Repeat for each product you want to display metadata for"
+    },
+    {
+      "type": "header",
+      "content": "Metadata Styling"
+    },
+    {
+      "type": "range",
+      "id": "metadata_font_size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "default": 12,
+      "label": "Metadata font size"
+    },
+    {
+      "type": "color",
+      "id": "metadata_label_color",
+      "label": "Metadata label color",
+      "default": "#666666"
+    },
+    {
+      "type": "select",
+      "id": "metadata_label_weight",
+      "label": "Metadata label weight",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "bold",
+          "label": "Bold"
+        }
+      ],
+      "default": "bold"
+    },
+    {
+      "type": "color",
+      "id": "metadata_value_color",
+      "label": "Metadata value color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "metadata_rating_color",
+      "label": "Metadata rating color",
+      "default": "#333333"
+    },
+    {
+      "type": "header",
+      "content": "View Product"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_product",
+      "default": true,
+      "label": "Show view product button",
+      "info": "When disabled, clicking anywhere on the product card will redirect to the product page"
+    },
+    {
+      "type": "text",
+      "id": "view_product_text",
+      "label": "View product text",
+      "default": "View Product"
+    },
+    {
+      "type": "range",
+      "id": "view_product_radius",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "default": 6,
+      "label": "View product button radius"
+    },
+    {
+      "type": "color",
+      "id": "view_product_background",
+      "label": "View product button background",
+      "default": "#000000",
+      "info": "Used when 'Use Theme Colors' is disabled"
+    },
+    {
+      "type": "color",
+      "id": "view_product_color",
+      "label": "View product button text color",
+      "default": "#ffffff",
+      "info": "Used when 'Use Theme Colors' is disabled"
+    },
+    {
+      "type": "header",
+      "content": "Layout & Display"
+    },
+    {
+      "type": "select",
+      "id": "layout_type",
+      "label": "Layout type",
+      "options": [
+        {
+          "value": "grid",
+          "label": "Grid"
+        },
+        {
+          "value": "carousel",
+          "label": "Carousel"
+        }
+      ],
+      "default": "grid",
+      "info": "Choose between a static grid layout or a scrollable carousel"
+    },
+    {
+      "type": "range",
+      "id": "carousel_scroll_amount",
+      "min": 200,
+      "max": 800,
+      "step": 50,
+      "default": 350,
+      "label": "Carousel scroll amount (pixels)",
+      "info": "Only applies to carousel layout"
+    },
+    {
+      "type": "header",
+      "content": "Carousel Navigation"
+    },
+    {
+      "type": "color",
+      "id": "nav_button_bg",
+      "label": "Navigation button background",
+      "default": "#ffffff",
+      "info": "Used when 'Use Theme Colors' is disabled"
+    },
+    {
+      "type": "color",
+      "id": "nav_button_color",
+      "label": "Navigation button color",
+      "default": "#000000",
+      "info": "Used when 'Use Theme Colors' is disabled"
+    },
+    {
+      "type": "color",
+      "id": "nav_button_border",
+      "label": "Navigation button border",
+      "default": "#e0e0e0",
+      "info": "Used when 'Use Theme Colors' is disabled"
+    },
+    {
+      "type": "color",
+      "id": "nav_button_active_bg",
+      "label": "Active navigation button background",
+      "default": "#000000",
+      "info": "Used when 'Use Theme Colors' is disabled"
+    },
+    {
+      "type": "color",
+      "id": "nav_button_active_color",
+      "label": "Active navigation button color",
+      "default": "#ffffff",
+      "info": "Used when 'Use Theme Colors' is disabled"
+    },
+    {
+      "type": "color",
+      "id": "nav_button_active_border",
+      "label": "Active navigation button border",
+      "default": "#000000",
+      "info": "Used when 'Use Theme Colors' is disabled"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Grid",
+      "category": "Collection"
+    }
+  ]
+}
+{% endschema %} 

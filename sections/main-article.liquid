@@ -92,7 +92,11 @@
           <div class="article-header__container page-width{{ page_narrow_class }} article-header__container--desktop-image-{{ desktop_image }} article-header__container--desktop-image-{{ block.settings.desktop_image_alignment }} article-header__container--mobile-image-{{ mobile_image }}">
             <div class="article-header__content">
               <h1 class="article-template__title" itemprop="headline">
-                {{ article.title | escape }}
+                {% if block.settings.custom_title_text != blank %}
+                  {{ block.settings.custom_title_text }}
+                {% else %}
+                  {{ article.title | escape }}
+                {% endif %}
               </h1>
               {% if block.settings.show_excerpt %}
                 <p class="article-template__excerpt">
@@ -895,6 +899,12 @@
           "id": "show_excerpt",
           "default": false,
           "label": "Show excerpt (summary)"
+        },
+        {
+          "type": "text",
+          "id": "custom_title_text",
+          "label": "Custom title text",
+          "placeholder": "Enter custom text to display instead of article title"
         },
         {
           "type": "select",

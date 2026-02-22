@@ -1,0 +1,260 @@
+{%- style -%}
+  .goat-timeline-{{ section.id }} {
+    background: linear-gradient(to bottom, {{ section.settings.bg_color_top }} 0%, {{ section.settings.bg_color_bottom }} 100%);
+    color: {{ section.settings.text_color }};
+    position: relative;
+    isolation: isolate;
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .goat-timeline-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+
+  {%- if section.settings.show_dot_pattern -%}
+    .goat-timeline-{{ section.id }}::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-repeat: repeat;
+      opacity: {{ section.settings.dot_opacity | divided_by: 100.0 }};
+      pointer-events: none;
+      z-index: 0;
+      background-image: radial-gradient({{ section.settings.dot_color }} {{ section.settings.dot_size }}px, transparent {{ section.settings.dot_size }}px);
+      background-size: {{ section.settings.dot_spacing }}px {{ section.settings.dot_spacing }}px;
+    }
+  {%- endif -%}
+
+  .goat-timeline-{{ section.id }} > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .goat-timeline-{{ section.id }} .goat-timeline__container {
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .goat-timeline-{{ section.id }} .goat-timeline__container {
+      padding: 0 5rem;
+    }
+  }
+
+  .goat-timeline-{{ section.id }} .goat-timeline__items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+
+  .goat-timeline-{{ section.id }} .goat-timeline__items::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: {{ section.settings.line_thickness }}px;
+    transform: translateX(-50%);
+    background: {{ section.settings.inactive_line_color }};
+  }
+
+  .goat-timeline-{{ section.id }} .goat-timeline__item {
+    position: relative;
+    max-width: 84rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: calc({{ section.settings.point_size_mobile }}px + 1rem) 2rem 0;
+    text-align: center;
+    margin-bottom: {{ section.settings.items_spacing_mobile }}px;
+  }
+
+  .goat-timeline-{{ section.id }} .goat-timeline__item:last-child {
+    margin-bottom: 0;
+  }
+
+  .goat-timeline-{{ section.id }} .goat-timeline__marker {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: {{ section.settings.point_size_mobile }}px;
+    height: {{ section.settings.point_size_mobile }}px;
+    border-radius: 999px;
+    border: {{ section.settings.point_border_width }}px solid {{ section.settings.inactive_point_border }};
+    background: {{ section.settings.inactive_point_bg }};
+    color: {{ section.settings.inactive_point_icon_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  .goat-timeline-{{ section.id }} .goat-timeline__marker .material-symbols-outlined {
+    font-size: calc({{ section.settings.point_size_mobile }}px * 0.55);
+    line-height: 1;
+  }
+
+  .goat-timeline-{{ section.id }} .goat-timeline__item.is-active .goat-timeline__marker {
+    border-color: {{ section.settings.point_border }};
+    background: {{ section.settings.point_bg }};
+    color: {{ section.settings.point_icon_color }};
+  }
+
+  .goat-timeline-{{ section.id }} .goat-timeline__eyebrow {
+    margin: 0 0 0.2rem;
+    color: {{ section.settings.eyebrow_color }};
+    font-size: {{ section.settings.eyebrow_size }}px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .goat-timeline-{{ section.id }} .goat-timeline__title {
+    margin: 0 0 0.8rem;
+    color: {{ section.settings.title_color }};
+    font-size: {{ section.settings.item_title_size_mobile }}px;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  .goat-timeline-{{ section.id }} .goat-timeline__text {
+    margin: 0;
+    color: {{ section.settings.text_color }};
+    opacity: 0.95;
+    font-size: {{ section.settings.item_text_size }}px;
+    line-height: 1.55;
+  }
+
+  .goat-timeline-{{ section.id }} .goat-timeline__item:not(.is-active) {
+    opacity: {{ section.settings.inactive_opacity | divided_by: 100.0 }};
+  }
+
+  @media screen and (min-width: 990px) {
+    .goat-timeline-{{ section.id }} .goat-timeline__item {
+      width: 100%;
+      max-width: 96rem;
+      padding: calc({{ section.settings.point_size_desktop }}px + 1.2rem) 4rem 0;
+      margin-bottom: {{ section.settings.items_spacing_desktop }}px;
+    }
+
+    .goat-timeline-{{ section.id }} .goat-timeline__marker {
+      left: 50%;
+      width: {{ section.settings.point_size_desktop }}px;
+      height: {{ section.settings.point_size_desktop }}px;
+    }
+
+    .goat-timeline-{{ section.id }} .goat-timeline__marker .material-symbols-outlined {
+      font-size: calc({{ section.settings.point_size_desktop }}px * 0.55);
+    }
+
+    .goat-timeline-{{ section.id }} .goat-timeline__title {
+      font-size: {{ section.settings.item_title_size_desktop }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="goat-timeline-{{ section.id }}">
+  <div class="goat-timeline__container">
+    <ol class="goat-timeline__items" role="list">
+      {%- for block in section.blocks -%}
+        <li class="goat-timeline__item{% if block.settings.active %} is-active{% endif %}" {{ block.shopify_attributes }}>
+          <div class="goat-timeline__marker">
+            <span class="material-symbols-outlined">{{ block.settings.icon }}</span>
+          </div>
+          {%- if block.settings.eyebrow != blank -%}
+            <p class="goat-timeline__eyebrow">{{ block.settings.eyebrow }}</p>
+          {%- endif -%}
+          {%- if block.settings.title != blank -%}
+            <h3 class="goat-timeline__title">{{ block.settings.title }}</h3>
+          {%- endif -%}
+          {%- if block.settings.text != blank -%}
+            <div class="goat-timeline__text rte">{{ block.settings.text }}</div>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ol>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "GOAT Timeline",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    { "type": "header", "content": "Background" },
+    { "type": "color", "id": "bg_color_top", "label": "Gradient top", "default": "#ffffff" },
+    { "type": "color", "id": "bg_color_bottom", "label": "Gradient bottom", "default": "#f7f7f7" },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#2e2a39" },
+    { "type": "color", "id": "title_color", "label": "Title color", "default": "#4a4a4a" },
+    { "type": "color", "id": "eyebrow_color", "label": "Eyebrow color", "default": "#8b8b8b" },
+
+    { "type": "header", "content": "Dot pattern" },
+    { "type": "checkbox", "id": "show_dot_pattern", "label": "Show dotted background pattern", "default": true },
+    { "type": "color", "id": "dot_color", "label": "Dot color", "default": "#9f3f3f" },
+    { "type": "range", "id": "dot_size", "min": 1, "max": 4, "step": 1, "label": "Dot size", "default": 2 },
+    { "type": "range", "id": "dot_spacing", "min": 10, "max": 40, "step": 2, "unit": "px", "label": "Dot spacing", "default": 20 },
+    { "type": "range", "id": "dot_opacity", "min": 0, "max": 30, "step": 1, "unit": "%", "label": "Dot opacity", "default": 7 },
+
+    { "type": "header", "content": "Timeline style" },
+    { "type": "color", "id": "inactive_line_color", "label": "Inactive line color", "default": "#d0d0d0" },
+    { "type": "range", "id": "line_thickness", "min": 1, "max": 6, "step": 1, "unit": "px", "label": "Line thickness", "default": 3 },
+    { "type": "color", "id": "point_bg", "label": "Active point background", "default": "#b44444" },
+    { "type": "color", "id": "point_border", "label": "Active point border", "default": "#b44444" },
+    { "type": "color", "id": "point_icon_color", "label": "Active point icon", "default": "#ffffff" },
+    { "type": "color", "id": "inactive_point_bg", "label": "Inactive point background", "default": "#fafafa" },
+    { "type": "color", "id": "inactive_point_border", "label": "Inactive point border", "default": "#d0d0d0" },
+    { "type": "color", "id": "inactive_point_icon_color", "label": "Inactive point icon", "default": "#d0d0d0" },
+    { "type": "range", "id": "point_border_width", "min": 1, "max": 4, "step": 1, "unit": "px", "label": "Point border width", "default": 2 },
+    { "type": "range", "id": "point_size_desktop", "min": 28, "max": 80, "step": 2, "unit": "px", "label": "Point size (desktop)", "default": 48 },
+    { "type": "range", "id": "point_size_mobile", "min": 24, "max": 64, "step": 2, "unit": "px", "label": "Point size (mobile)", "default": 40 },
+    { "type": "range", "id": "inactive_opacity", "min": 30, "max": 100, "step": 5, "unit": "%", "label": "Inactive item opacity", "default": 70 },
+
+    { "type": "header", "content": "Typography" },
+    { "type": "range", "id": "eyebrow_size", "min": 10, "max": 24, "step": 1, "unit": "px", "label": "Eyebrow size", "default": 14 },
+    { "type": "range", "id": "item_title_size_desktop", "min": 18, "max": 52, "step": 1, "unit": "px", "label": "Item title size (desktop)", "default": 42 },
+    { "type": "range", "id": "item_title_size_mobile", "min": 18, "max": 38, "step": 1, "unit": "px", "label": "Item title size (mobile)", "default": 28 },
+    { "type": "range", "id": "item_text_size", "min": 12, "max": 24, "step": 1, "unit": "px", "label": "Item text size", "default": 14 },
+
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "items_spacing_mobile", "min": 12, "max": 80, "step": 2, "unit": "px", "label": "Items spacing (mobile)", "default": 24 },
+    { "type": "range", "id": "items_spacing_desktop", "min": 12, "max": 120, "step": 2, "unit": "px", "label": "Items spacing (desktop)", "default": 16 },
+    { "type": "range", "id": "padding_top_mobile", "min": 0, "max": 120, "step": 2, "unit": "px", "label": "Top padding (mobile)", "default": 28 },
+    { "type": "range", "id": "padding_bottom_mobile", "min": 0, "max": 120, "step": 2, "unit": "px", "label": "Bottom padding (mobile)", "default": 28 },
+    { "type": "range", "id": "padding_top_desktop", "min": 0, "max": 160, "step": 2, "unit": "px", "label": "Top padding (desktop)", "default": 36 },
+    { "type": "range", "id": "padding_bottom_desktop", "min": 0, "max": 160, "step": 2, "unit": "px", "label": "Bottom padding (desktop)", "default": 36 }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Timeline item",
+      "settings": [
+        { "type": "checkbox", "id": "active", "label": "Active item", "default": true },
+        { "type": "text", "id": "icon", "label": "Material icon name", "default": "check_circle" },
+        { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "WEEKS 1–2" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Easy Start" },
+        { "type": "richtext", "id": "text", "label": "Content", "default": "<p>✔ Simple daily routine with one softgel<br/>✔ No garlic aftertaste, breath, or burping<br/>✔ Gentle on the stomach and easy to tolerate<br/>✔ Feeling comfortable staying consistent</p>" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "GOAT Timeline",
+      "blocks": [
+        { "type": "item" },
+        { "type": "item" },
+        { "type": "item" },
+        { "type": "item" }
+      ]
+    }
+  ]
+}
+{% endschema %}

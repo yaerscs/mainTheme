@@ -224,7 +224,7 @@
               {%- else -%}
                 <search-form class="search-modal__form"> 
               {%- endif -%}
-                  <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form search-modal__form--border-light search-modal__form--polyfill search-modal__form--predictive">
+                  <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form search-modal__form--border-light search-modal__form--polyfill search-modal__form--predictive" data-model="{{ settings.animations_type }}">
                     <div class="field">
                       <input class="search__input field__input"
                         id="Search-In-Modal-1"
@@ -541,7 +541,7 @@
               {%- else -%}
                 <search-form class="search-modal__form" data-main='false'>
               {%- endif -%}
-                  <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form search-modal__form--border-light search-modal__form--polyfill search-modal__form--predictive">
+                  <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form search-modal__form--border-light search-modal__form--polyfill search-modal__form--predictive" data-modal="{{ settings.animations_type }}">
                     <div class="field">
                       <input class="search__input field__input"
                         id="Search-In-Modal"

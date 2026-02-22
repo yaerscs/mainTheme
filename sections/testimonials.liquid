@@ -36,9 +36,13 @@
     --gradient-background: {% if section.settings.custom_cards_gradient_background != blank %}{{ section.settings.custom_cards_gradient_background }}{% else %}{{ section.settings.custom_cards_colors_background }}{% endif %};
     --color-foreground: {{ section.settings.custom_cards_colors_text.red }}, {{ section.settings.custom_cards_colors_text.green }}, {{ section.settings.custom_cards_colors_text.blue }};
   }
+
+  .multicolumn.testimonials-template-gradient-{{ section.id }} {
+    background: linear-gradient(to bottom, {{ section.settings.template_gradient_top }} 0%, {{ section.settings.template_gradient_bottom }} 100%) !important;
+  }
 {%- endstyle -%}
 
-<div class="multicolumn color-scheme-{{ section.id }} color-{{ section.settings.color_scheme }} gradient{% if section.settings.title == blank %} no-heading{% endif %} content-for-grouping animate-section animate--hidden {{ section.settings.visibility }}">
+<div class="multicolumn color-scheme-{{ section.id }} color-{{ section.settings.color_scheme }} gradient{% if section.settings.title == blank %} no-heading{% endif %}{% if section.settings.enable_template_gradient %} testimonials-template-gradient-{{ section.id }}{% endif %} content-for-grouping animate-section animate--hidden {{ section.settings.visibility }}">
   {% if section.settings.display_id %}
     <copy-button class='section-id-btn button' data-content="#shopify-section-{{ section.id }}" data-success="false">
       <span class="copy-text">Click to copy section ID</span>
@@ -394,6 +398,28 @@
       "default": "background-1",
       "label": "Color scheme",
       "info": "Custom color scheme is edited at the bottom of section settings."
+    },
+    {
+      "type": "header",
+      "content": "Template gradient"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_template_gradient",
+      "label": "Enable top-to-bottom gradient",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "template_gradient_top",
+      "label": "Gradient top color",
+      "default": "#2b0a0a"
+    },
+    {
+      "type": "color",
+      "id": "template_gradient_bottom",
+      "label": "Gradient bottom color",
+      "default": "#a93232"
     },
     {
       "type": "header",

@@ -1,0 +1,641 @@
+{%- style -%}
+  .rr-table-{{ section.id }} {
+    position: relative;
+    isolation: isolate;
+    color: {{ section.settings.text_color }};
+    background-color: {{ section.settings.bg_fallback_color }};
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    overflow: hidden;
+  }
+
+  .rr-table-{{ section.id }}::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background-image:
+      {%- if section.settings.bg_image != blank -%}
+        url({{ section.settings.bg_image | image_url: width: 2400 }}),
+      {%- endif -%}
+      linear-gradient({{ section.settings.bg_gradient_angle }}deg, {{ section.settings.bg_color_1 }} 0%, {{ section.settings.bg_color_2 }} 100%);
+    background-size:
+      {%- if section.settings.bg_image != blank -%}
+        {{ section.settings.bg_image_size }},
+      {%- endif -%}
+      cover;
+    background-position:
+      {%- if section.settings.bg_image != blank -%}
+        {{ section.settings.bg_image_position }},
+      {%- endif -%}
+      center;
+    background-repeat: no-repeat;
+  }
+
+  .rr-table-{{ section.id }}::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: {{ section.settings.overlay_color }};
+    opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+  }
+
+  @media screen and (min-width: 750px) {
+    .rr-table-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+
+  .rr-table-{{ section.id }} .rr-table__container {
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .rr-table-{{ section.id }} .rr-table__container {
+      padding: 0 5rem;
+    }
+  }
+
+  .rr-table-{{ section.id }} .rr-table__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  @media screen and (min-width: 990px) {
+    .rr-table-{{ section.id }} .rr-table__grid {
+      flex-direction: row;
+      gap: {{ section.settings.columns_gap_desktop }}px;
+      align-items: center;
+    }
+  }
+
+  .rr-table-{{ section.id }} .rr-table__left {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    margin-top: 8rem;
+  }
+
+  @media screen and (min-width: 990px) {
+    .rr-table-{{ section.id }} .rr-table__left {
+      width: {{ section.settings.left_width_desktop }}%;
+      margin-top: {{ section.settings.left_top_offset_desktop }}px;
+    }
+  }
+
+  .rr-table-{{ section.id }} .rr-table__col {
+    border-radius: {{ section.settings.column_radius }}px;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .rr-table-{{ section.id }} .rr-table__col--our {
+    width: {{ section.settings.our_col_width }}%;
+    background: {{ section.settings.our_col_bg }};
+    color: {{ section.settings.our_col_text }};
+  }
+
+  .rr-table-{{ section.id }} .rr-table__col--other {
+    width: calc(100% - {{ section.settings.our_col_width }}%);
+    background: {{ section.settings.other_col_bg }};
+    color: {{ section.settings.other_col_text }};
+    border: 1px solid {{ section.settings.other_col_border }};
+    position: relative;
+    margin-top: {{ section.settings.other_col_shift_mobile }}px;
+  }
+
+  @media screen and (min-width: 990px) {
+    .rr-table-{{ section.id }} .rr-table__col--other {
+      margin-top: {{ section.settings.other_col_shift_desktop }}px;
+    }
+  }
+
+  .rr-table-{{ section.id }} .rr-table__other-title {
+    position: absolute;
+    top: -4.2rem;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    color: {{ section.settings.other_label_color }};
+    font-size: {{ section.settings.column_title_size }}px;
+    line-height: 1.2;
+    font-weight: 600;
+  }
+
+  .rr-table-{{ section.id }} .rr-table__product {
+    text-align: center;
+    padding: 0.8rem 1rem;
+  }
+
+  .rr-table-{{ section.id }} .rr-table__product-image {
+    display: block;
+    margin: -{{ section.settings.product_image_overlap }}px auto 0;
+    width: auto;
+    max-height: {{ section.settings.product_image_height_desktop }}px;
+    object-fit: contain;
+  }
+
+  .rr-table-{{ section.id }} .rr-table__product-name {
+    margin: 0.6rem 0 0;
+    font-size: {{ section.settings.column_title_size }}px;
+    line-height: 1.2;
+    font-weight: 600;
+  }
+
+  .rr-table-{{ section.id }} .rr-table__col--our .rr-table__product-name {
+    color: {{ section.settings.our_col_text }};
+  }
+
+  .rr-table-{{ section.id }} .rr-table__col--other .rr-table__product-name {
+    color: {{ section.settings.other_col_text }};
+  }
+
+  .rr-table-{{ section.id }} .rr-table__rows {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 0 0 {{ section.settings.column_radius }}px {{ section.settings.column_radius }}px;
+    overflow: hidden;
+  }
+
+  .rr-table-{{ section.id }} .rr-table__row {
+    min-height: {{ section.settings.row_min_height_desktop }}px;
+    border-top: 1px solid {{ section.settings.row_divider_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .rr-table-{{ section.id }} .rr-table__rows .rr-table__row:first-child {
+    border-top: none;
+  }
+
+  .rr-table-{{ section.id }} .rr-table__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+    width: 100%;
+  }
+
+  .rr-table-{{ section.id }} .rr-table__icon {
+    font-size: {{ section.settings.row_icon_size }}px;
+    line-height: 1;
+    color: currentColor;
+  }
+
+  .rr-table-{{ section.id }} .rr-table__text {
+    margin: 0;
+    font-size: {{ section.settings.row_text_size }}px;
+    line-height: 1.3;
+    font-weight: 500;
+  }
+
+  .rr-table-{{ section.id }} .rr-table__right {
+    width: 100%;
+    text-align: left;
+  }
+
+  @media screen and (min-width: 990px) {
+    .rr-table-{{ section.id }} .rr-table__right {
+      width: calc(100% - {{ section.settings.left_width_desktop }}% - {{ section.settings.columns_gap_desktop }}px);
+    }
+  }
+
+  .rr-table-{{ section.id }} .rr-table__heading,
+  .rr-table-{{ section.id }} .rr-table__heading-mobile {
+    margin: 0;
+    color: {{ section.settings.heading_color }};
+    font-size: {{ section.settings.heading_size_mobile }}px;
+    line-height: 1.1;
+    font-weight: 600;
+  }
+
+  .rr-table-{{ section.id }} .rr-table__heading strong,
+  .rr-table-{{ section.id }} .rr-table__heading-mobile strong {
+    color: {{ section.settings.heading_accent_color }};
+    font-weight: 600;
+  }
+
+  .rr-table-{{ section.id }} .rr-table__heading {
+    display: none;
+  }
+
+  .rr-table-{{ section.id }} .rr-table__heading-mobile {
+    margin-bottom: 1.8rem;
+    text-align: center;
+  }
+
+  @media screen and (min-width: 990px) {
+    .rr-table-{{ section.id }} .rr-table__heading {
+      display: block;
+      font-size: {{ section.settings.heading_size_desktop }}px;
+      margin-bottom: 3rem;
+    }
+
+    .rr-table-{{ section.id }} .rr-table__heading-mobile {
+      display: none;
+    }
+  }
+
+  .rr-table-{{ section.id }} .rr-table__checklist {
+    list-style: none;
+    margin: 0 0 3rem;
+    padding: 0;
+  }
+
+  .rr-table-{{ section.id }} .rr-table__checklist-item {
+    position: relative;
+    padding-left: 3rem;
+    margin-bottom: 1.8rem;
+    color: {{ section.settings.checklist_color }};
+    font-size: {{ section.settings.checklist_size }}px;
+    line-height: 1.4;
+  }
+
+  .rr-table-{{ section.id }} .rr-table__checklist-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.2rem;
+    width: 2rem;
+    height: 2rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='{{ section.settings.checklist_tick_color | replace: '#', '%23' }}' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .rr-table-{{ section.id }} .rr-table__cta {
+    width: 100%;
+    min-height: 5.4rem;
+    border-radius: {{ section.settings.button_radius }}px;
+    background: {{ section.settings.button_bg_color }};
+    color: {{ section.settings.button_text_color }};
+    border: 1px solid {{ section.settings.button_border_color }};
+    font-size: {{ section.settings.button_text_size }}px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 1rem 2rem;
+  }
+
+  .rr-table-{{ section.id }} .rr-table__cta:hover {
+    background: {{ section.settings.button_bg_hover_color }};
+    color: {{ section.settings.button_text_hover_color }};
+    border-color: {{ section.settings.button_border_hover_color }};
+  }
+
+  .rr-table-{{ section.id }} .rr-table__subtext {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin: 1rem 0 0;
+    color: {{ section.settings.subtext_color }};
+    font-size: {{ section.settings.subtext_size }}px;
+    line-height: 1.3;
+  }
+
+  .rr-table-{{ section.id }} .rr-table__subtext .material-symbols-outlined {
+    font-size: {{ section.settings.subtext_icon_size }}px;
+    line-height: 1;
+  }
+
+  @media screen and (max-width: 989px) {
+    .rr-table-{{ section.id }} .rr-table__grid {
+      gap: 2.5rem;
+    }
+
+    .rr-table-{{ section.id }} .rr-table__left {
+      margin-top: 7rem;
+      width: 100%;
+    }
+
+    .rr-table-{{ section.id }} .rr-table__other-title {
+      top: -3.8rem;
+      font-size: {{ section.settings.column_title_size_mobile }}px;
+    }
+
+    .rr-table-{{ section.id }} .rr-table__product-image {
+      max-height: {{ section.settings.product_image_height_mobile }}px;
+      margin-top: -{{ section.settings.product_image_overlap_mobile }}px;
+    }
+
+    .rr-table-{{ section.id }} .rr-table__product-name {
+      font-size: {{ section.settings.column_title_size_mobile }}px;
+    }
+
+    .rr-table-{{ section.id }} .rr-table__row {
+      min-height: {{ section.settings.row_min_height_mobile }}px;
+    }
+
+    .rr-table-{{ section.id }} .rr-table__text {
+      font-size: {{ section.settings.row_text_size_mobile }}px;
+    }
+
+    .rr-table-{{ section.id }} .rr-table__icon {
+      font-size: {{ section.settings.row_icon_size_mobile }}px;
+    }
+
+    .rr-table-{{ section.id }} .rr-table__checklist-item {
+      margin-bottom: 1.4rem;
+      font-size: {{ section.settings.checklist_size_mobile }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="rr-table-{{ section.id }}">
+  <div class="rr-table__container">
+    <h2 class="rr-table__heading-mobile inline-richtext">{{ section.settings.heading }}</h2>
+
+    <div class="rr-table__grid">
+      <div class="rr-table__left">
+        <div class="rr-table__col rr-table__col--our">
+          <div class="rr-table__product">
+            {%- if section.settings.our_image != blank -%}
+              {{ section.settings.our_image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'rr-table__product-image', widths: '160, 260, 360, 500, 800' }}
+            {%- endif -%}
+            <h3 class="rr-table__product-name">{{ section.settings.our_label }}</h3>
+          </div>
+
+          <ul class="rr-table__rows" role="list">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'table_row' -%}
+                <li class="rr-table__row" {{ block.shopify_attributes }}>
+                  <div class="rr-table__item">
+                    {%- if block.settings.our_icon != blank -%}
+                      <span class="material-symbols-outlined rr-table__icon">{{ block.settings.our_icon }}</span>
+                    {%- endif -%}
+                    <p class="rr-table__text">{{ block.settings.our_text }}</p>
+                  </div>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        </div>
+
+        <div class="rr-table__col rr-table__col--other">
+          <h3 class="rr-table__other-title">{{ section.settings.other_label }}</h3>
+
+          <div class="rr-table__product">
+            {%- if section.settings.other_image != blank -%}
+              {{ section.settings.other_image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'rr-table__product-image', widths: '160, 260, 360, 500, 800' }}
+            {%- endif -%}
+          </div>
+
+          <ul class="rr-table__rows" role="list">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'table_row' -%}
+                <li class="rr-table__row" {{ block.shopify_attributes }}>
+                  <div class="rr-table__item">
+                    {%- if block.settings.other_icon != blank -%}
+                      <span class="material-symbols-outlined rr-table__icon">{{ block.settings.other_icon }}</span>
+                    {%- endif -%}
+                    <p class="rr-table__text">{{ block.settings.other_text }}</p>
+                  </div>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        </div>
+      </div>
+
+      <div class="rr-table__right">
+        <h2 class="rr-table__heading inline-richtext">{{ section.settings.heading }}</h2>
+
+        <ul class="rr-table__checklist" role="list">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'check_item' -%}
+              <li class="rr-table__checklist-item" {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+
+        {%- if section.settings.button_label != blank -%}
+          <a
+            class="rr-table__cta"
+            {% if section.settings.button_link != blank %}
+              href="{{ section.settings.button_link }}"
+            {% else %}
+              role="link" aria-disabled="true"
+            {% endif %}
+          >
+            {{ section.settings.button_label }}
+          </a>
+        {%- endif -%}
+
+        {%- if section.settings.subtext != blank -%}
+          <p class="rr-table__subtext">
+            <span class="material-symbols-outlined">verified_user</span>
+            <span>{{ section.settings.subtext }}</span>
+          </p>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "RR New Table",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    { "type": "header", "content": "Heading and CTA" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Elaré<strong>®</strong> vs. Other Brands" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Try Risk-Free Today" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "text", "id": "subtext", "label": "Subtext", "default": "30-day money back guarantee" },
+
+    { "type": "header", "content": "Product columns" },
+    { "type": "text", "id": "our_label", "label": "Left column title", "default": "Elaré" },
+    { "type": "text", "id": "other_label", "label": "Right column title", "default": "Other Brands" },
+    { "type": "image_picker", "id": "our_image", "label": "Left column image" },
+    { "type": "image_picker", "id": "other_image", "label": "Right column image" },
+
+    { "type": "header", "content": "Background" },
+    { "type": "color", "id": "bg_fallback_color", "label": "Fallback background", "default": "#7f141a" },
+    { "type": "color", "id": "bg_color_1", "label": "Gradient color 1", "default": "#8a2b2b" },
+    { "type": "color", "id": "bg_color_2", "label": "Gradient color 2", "default": "#690e0e" },
+    { "type": "range", "id": "bg_gradient_angle", "min": 0, "max": 360, "step": 5, "unit": "deg", "label": "Gradient angle", "default": 165 },
+    { "type": "image_picker", "id": "bg_image", "label": "Background image" },
+    { "type": "select", "id": "bg_image_size", "label": "Background image size", "default": "cover", "options": [
+      { "value": "cover", "label": "Cover" },
+      { "value": "contain", "label": "Contain" },
+      { "value": "auto", "label": "Auto" }
+    ] },
+    { "type": "select", "id": "bg_image_position", "label": "Background image position", "default": "center center", "options": [
+      { "value": "left top", "label": "Left top" },
+      { "value": "center top", "label": "Center top" },
+      { "value": "right top", "label": "Right top" },
+      { "value": "left center", "label": "Left center" },
+      { "value": "center center", "label": "Center center" },
+      { "value": "right center", "label": "Right center" },
+      { "value": "left bottom", "label": "Left bottom" },
+      { "value": "center bottom", "label": "Center bottom" },
+      { "value": "right bottom", "label": "Right bottom" }
+    ] },
+    { "type": "color", "id": "overlay_color", "label": "Overlay color", "default": "#000000" },
+    { "type": "range", "id": "overlay_opacity", "min": 0, "max": 90, "step": 1, "unit": "%", "label": "Overlay opacity", "default": 0 },
+
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "text_color", "label": "Base text color", "default": "#ffffff" },
+    { "type": "color", "id": "heading_color", "label": "Heading color", "default": "#ffffff" },
+    { "type": "color", "id": "heading_accent_color", "label": "Heading accent color", "default": "#ffffff" },
+    { "type": "color", "id": "our_col_bg", "label": "Left column background", "default": "#9f3f3f" },
+    { "type": "color", "id": "our_col_text", "label": "Left column text", "default": "#ffffff" },
+    { "type": "color", "id": "other_col_bg", "label": "Right column background", "default": "#ffffff" },
+    { "type": "color", "id": "other_col_text", "label": "Right column text", "default": "#2b2b2b" },
+    { "type": "color", "id": "other_col_border", "label": "Right column border", "default": "#f0f0f0" },
+    { "type": "color", "id": "other_label_color", "label": "Other Brands title color", "default": "#ffffff" },
+    { "type": "color", "id": "row_divider_color", "label": "Row divider color", "default": "#ffffff" },
+    { "type": "color", "id": "checklist_color", "label": "Checklist text color", "default": "#ffffff" },
+    { "type": "color", "id": "checklist_tick_color", "label": "Checklist tick color", "default": "#ffffff" },
+
+    { "type": "header", "content": "Button" },
+    { "type": "color", "id": "button_bg_color", "label": "Button background", "default": "#ffffff" },
+    { "type": "color", "id": "button_text_color", "label": "Button text", "default": "#2b2b2b" },
+    { "type": "color", "id": "button_border_color", "label": "Button border", "default": "#ffffff" },
+    { "type": "color", "id": "button_bg_hover_color", "label": "Button background hover", "default": "#f2f2f2" },
+    { "type": "color", "id": "button_text_hover_color", "label": "Button text hover", "default": "#2b2b2b" },
+    { "type": "color", "id": "button_border_hover_color", "label": "Button border hover", "default": "#f2f2f2" },
+    { "type": "range", "id": "button_radius", "min": 0, "max": 30, "step": 1, "unit": "px", "label": "Button radius", "default": 6 },
+
+    { "type": "header", "content": "Sizing" },
+    { "type": "range", "id": "left_width_desktop", "min": 40, "max": 70, "step": 1, "unit": "%", "label": "Left area width (desktop)", "default": 50 },
+    { "type": "range", "id": "our_col_width", "min": 30, "max": 70, "step": 1, "unit": "%", "label": "Left card width inside table", "default": 55 },
+    { "type": "range", "id": "other_col_shift_desktop", "min": -60, "max": 120, "step": 2, "unit": "px", "label": "Other column vertical shift (desktop)", "default": 18 },
+    { "type": "range", "id": "other_col_shift_mobile", "min": -60, "max": 120, "step": 2, "unit": "px", "label": "Other column vertical shift (mobile)", "default": 0 },
+    { "type": "range", "id": "columns_gap_desktop", "min": 8, "max": 120, "step": 2, "unit": "px", "label": "Gap between table and right content", "default": 40 },
+    { "type": "range", "id": "left_top_offset_desktop", "min": 0, "max": 120, "step": 2, "unit": "px", "label": "Left area top offset (desktop)", "default": 0 },
+    { "type": "range", "id": "column_radius", "min": 0, "max": 24, "step": 1, "unit": "px", "label": "Column corner radius", "default": 6 },
+
+    { "type": "range", "id": "heading_size_desktop", "min": 20, "max": 64, "step": 1, "unit": "px", "label": "Heading size (desktop)", "default": 52 },
+    { "type": "range", "id": "heading_size_mobile", "min": 18, "max": 44, "step": 1, "unit": "px", "label": "Heading size (mobile)", "default": 34 },
+    { "type": "range", "id": "column_title_size", "min": 14, "max": 34, "step": 1, "unit": "px", "label": "Column title size (desktop)", "default": 20 },
+    { "type": "range", "id": "column_title_size_mobile", "min": 12, "max": 28, "step": 1, "unit": "px", "label": "Column title size (mobile)", "default": 18 },
+    { "type": "range", "id": "row_text_size", "min": 12, "max": 28, "step": 1, "unit": "px", "label": "Table row text size (desktop)", "default": 16 },
+    { "type": "range", "id": "row_text_size_mobile", "min": 10, "max": 22, "step": 1, "unit": "px", "label": "Table row text size (mobile)", "default": 14 },
+    { "type": "range", "id": "row_icon_size", "min": 14, "max": 40, "step": 1, "unit": "px", "label": "Table icon size (desktop)", "default": 24 },
+    { "type": "range", "id": "row_icon_size_mobile", "min": 12, "max": 34, "step": 1, "unit": "px", "label": "Table icon size (mobile)", "default": 20 },
+    { "type": "range", "id": "row_min_height_desktop", "min": 40, "max": 140, "step": 2, "unit": "px", "label": "Row min height (desktop)", "default": 86 },
+    { "type": "range", "id": "row_min_height_mobile", "min": 40, "max": 140, "step": 2, "unit": "px", "label": "Row min height (mobile)", "default": 100 },
+    { "type": "range", "id": "product_image_height_desktop", "min": 40, "max": 220, "step": 2, "unit": "px", "label": "Product image max height (desktop)", "default": 106 },
+    { "type": "range", "id": "product_image_height_mobile", "min": 40, "max": 220, "step": 2, "unit": "px", "label": "Product image max height (mobile)", "default": 120 },
+    { "type": "range", "id": "product_image_overlap", "min": 0, "max": 140, "step": 2, "unit": "px", "label": "Product image overlap (desktop)", "default": 86 },
+    { "type": "range", "id": "product_image_overlap_mobile", "min": 0, "max": 140, "step": 2, "unit": "px", "label": "Product image overlap (mobile)", "default": 80 },
+    { "type": "range", "id": "checklist_size", "min": 12, "max": 28, "step": 1, "unit": "px", "label": "Checklist text size (desktop)", "default": 17 },
+    { "type": "range", "id": "checklist_size_mobile", "min": 12, "max": 24, "step": 1, "unit": "px", "label": "Checklist text size (mobile)", "default": 17 },
+    { "type": "range", "id": "button_text_size", "min": 12, "max": 30, "step": 1, "unit": "px", "label": "Button text size", "default": 19 },
+    { "type": "range", "id": "subtext_size", "min": 10, "max": 22, "step": 1, "unit": "px", "label": "Subtext size", "default": 15 },
+    { "type": "range", "id": "subtext_icon_size", "min": 10, "max": 28, "step": 1, "unit": "px", "label": "Subtext icon size", "default": 18 },
+
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_top_mobile", "min": 0, "max": 160, "step": 2, "unit": "px", "label": "Top padding (mobile)", "default": 40 },
+    { "type": "range", "id": "padding_bottom_mobile", "min": 0, "max": 160, "step": 2, "unit": "px", "label": "Bottom padding (mobile)", "default": 40 },
+    { "type": "range", "id": "padding_top_desktop", "min": 0, "max": 200, "step": 2, "unit": "px", "label": "Top padding (desktop)", "default": 36 },
+    { "type": "range", "id": "padding_bottom_desktop", "min": 0, "max": 200, "step": 2, "unit": "px", "label": "Bottom padding (desktop)", "default": 36 }
+  ],
+  "blocks": [
+    {
+      "type": "table_row",
+      "name": "Table row",
+      "settings": [
+        { "type": "text", "id": "our_icon", "label": "Left icon (Material symbol)", "default": "verified" },
+        { "type": "text", "id": "our_text", "label": "Left text", "default": "Clinically Backed" },
+        { "type": "text", "id": "other_icon", "label": "Right icon (Material symbol)", "default": "cancel" },
+        { "type": "text", "id": "other_text", "label": "Right text", "default": "Trend-Driven Formulas" }
+      ]
+    },
+    {
+      "type": "check_item",
+      "name": "Checklist item",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "Clinically Backed Ingredients" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RR New Table",
+      "blocks": [
+        {
+          "type": "table_row",
+          "settings": {
+            "our_icon": "biotech",
+            "our_text": "Clinically Backed",
+            "other_icon": "cancel",
+            "other_text": "Trend-Driven Formulas"
+          }
+        },
+        {
+          "type": "table_row",
+          "settings": {
+            "our_icon": "verified_user",
+            "our_text": "3rd-Party Tested",
+            "other_icon": "cancel",
+            "other_text": "No Transparent Testing"
+          }
+        },
+        {
+          "type": "table_row",
+          "settings": {
+            "our_icon": "clean_hands",
+            "our_text": "Allergen-Free and Clean",
+            "other_icon": "cancel",
+            "other_text": "Fillers and Artificial Additives"
+          }
+        },
+        {
+          "type": "table_row",
+          "settings": {
+            "our_icon": "workspace_premium",
+            "our_text": "High-Quality Formula",
+            "other_icon": "cancel",
+            "other_text": "Inconsistent Quality"
+          }
+        },
+        {
+          "type": "table_row",
+          "settings": {
+            "our_icon": "air_freshener",
+            "our_text": "Odorless Aged Garlic Extract",
+            "other_icon": "cancel",
+            "other_text": "Strong Odor"
+          }
+        },
+        {
+          "type": "check_item",
+          "settings": { "text": "Clinically Backed Ingredients" }
+        },
+        {
+          "type": "check_item",
+          "settings": { "text": "Noticeable Results in Weeks" }
+        },
+        {
+          "type": "check_item",
+          "settings": { "text": "Long-Term Wellness" }
+        },
+        {
+          "type": "check_item",
+          "settings": { "text": "Clean, High-Quality Formula" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

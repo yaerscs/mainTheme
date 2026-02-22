@@ -1,0 +1,436 @@
+{%- style -%}
+  .review-slider-3-{{ section.id }} {
+    background: linear-gradient(to bottom, {{ section.settings.bg_color_top }} 0%, {{ section.settings.bg_color_bottom }} 100%);
+    color: {{ section.settings.text_color }};
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  @media screen and (min-width: 915px) {
+    .review-slider-3-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+
+  .review-slider-3-{{ section.id }} .review-slider-3__container {
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .review-slider-3-{{ section.id }} .review-slider-3__container {
+      padding: 0 5rem;
+    }
+  }
+
+  .review-slider-3-{{ section.id }} .review-slider-3__header {
+    text-align: center;
+    margin-bottom: 2.4rem;
+  }
+
+  .review-slider-3-{{ section.id }} .review-slider-3__title {
+    margin: 0;
+    color: {{ section.settings.text_color }};
+    font-size: {{ section.settings.title_size_mobile }}px;
+    line-height: 1.2;
+  }
+
+  @media screen and (min-width: 915px) {
+    .review-slider-3-{{ section.id }} .review-slider-3__title {
+      font-size: {{ section.settings.title_size_desktop }}px;
+    }
+  }
+
+  .review-slider-3-{{ section.id }} .review-slider-3__subtitle {
+    margin: 0.8rem 0 0;
+    color: {{ section.settings.text_color }};
+    font-size: {{ section.settings.subtitle_size }}px;
+    line-height: 1.4;
+    opacity: 0.95;
+  }
+
+  .review-slider-3-{{ section.id }} .review-slider-3__viewport {
+    overflow: hidden;
+  }
+
+  .review-slider-3-{{ section.id }} .review-slider-3__track {
+    display: flex;
+    gap: {{ section.settings.slide_gap }}px;
+    will-change: transform;
+    transition: transform 0.35s ease;
+  }
+
+  .review-slider-3-{{ section.id }} .review-slider-3__slide {
+    flex: 0 0 calc((100% - ({{ section.settings.slides_desktop | minus: 1 }} * {{ section.settings.slide_gap }}px)) / {{ section.settings.slides_desktop }});
+    min-width: 0;
+  }
+
+  @media screen and (max-width: 914px) {
+    .review-slider-3-{{ section.id }} .review-slider-3__viewport {
+      padding-right: {{ section.settings.mobile_teaser }}px;
+    }
+
+    .review-slider-3-{{ section.id }} .review-slider-3__slide {
+      flex: 0 0 calc((100% - {{ section.settings.mobile_teaser }}px - ({{ section.settings.slides_mobile | minus: 1 }} * {{ section.settings.slide_gap }}px)) / {{ section.settings.slides_mobile }});
+    }
+  }
+
+  .review-slider-3-{{ section.id }} .review-slider-3__card {
+    background: {{ section.settings.card_bg_color }};
+    color: {{ section.settings.card_text_color }};
+    border-radius: {{ section.settings.card_radius }}px;
+    overflow: hidden;
+    padding: 1.2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .review-slider-3-{{ section.id }} .review-slider-3__image {
+    border-radius: {{ section.settings.image_radius }}px;
+    overflow: hidden;
+    background: #f3f3f3;
+    aspect-ratio: 9 / 16;
+    margin-bottom: 1rem;
+  }
+
+  .review-slider-3-{{ section.id }} .review-slider-3__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .review-slider-3-{{ section.id }} .review-slider-3__stars {
+    display: inline-flex;
+    gap: 0.25rem;
+    margin-bottom: 0.8rem;
+    color: {{ section.settings.accent_color }};
+  }
+
+  .review-slider-3-{{ section.id }} .review-slider-3__quote {
+    margin: 0 0 1rem;
+    font-size: {{ section.settings.quote_size }}px;
+    line-height: 1.45;
+  }
+
+  .review-slider-3-{{ section.id }} .review-slider-3__author {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-top: auto;
+    font-size: {{ section.settings.author_size }}px;
+    font-weight: 600;
+  }
+
+  .review-slider-3-{{ section.id }} .review-slider-3__verify-icon {
+    color: {{ section.settings.accent_color }};
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+
+  .review-slider-3-{{ section.id }} .review-slider-3__verified {
+    color: {{ section.settings.accent_color }};
+    font-weight: 700;
+  }
+
+  .review-slider-3-{{ section.id }} .review-slider-3__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-top: 1rem;
+  }
+
+  .review-slider-3-{{ section.id }} .review-slider-3__tag {
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, {{ section.settings.accent_color }} 40%, #ffffff);
+    color: {{ section.settings.accent_color }};
+    font-size: 1.2rem;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .review-slider-3-{{ section.id }} .review-slider-3__controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.6rem;
+  }
+
+  .review-slider-3-{{ section.id }} .review-slider-3__arrow {
+    border: 1px solid color-mix(in srgb, {{ section.settings.text_color }} 55%, transparent);
+    background: color-mix(in srgb, {{ section.settings.text_color }} 10%, transparent);
+    color: {{ section.settings.text_color }};
+    width: 3.8rem;
+    height: 3.8rem;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  {% unless section.settings.show_arrows_desktop %}
+    @media screen and (min-width: 915px) {
+      .review-slider-3-{{ section.id }} [data-slider-prev],
+      .review-slider-3-{{ section.id }} [data-slider-next],
+      .review-slider-3-{{ section.id }} [data-slider-dots] {
+        display: none !important;
+      }
+    }
+  {% endunless %}
+
+  {% unless section.settings.show_arrows_mobile %}
+    @media screen and (max-width: 914px) {
+      .review-slider-3-{{ section.id }} [data-slider-prev],
+      .review-slider-3-{{ section.id }} [data-slider-next],
+      .review-slider-3-{{ section.id }} [data-slider-dots] {
+        display: none !important;
+      }
+    }
+  {% endunless %}
+
+  .review-slider-3-{{ section.id }} .review-slider-3__dots {
+    display: inline-flex;
+    gap: 0.45rem;
+  }
+
+  .review-slider-3-{{ section.id }} .review-slider-3__dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 999px;
+    border: 0;
+    background: color-mix(in srgb, {{ section.settings.text_color }} 45%, transparent);
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .review-slider-3-{{ section.id }} .review-slider-3__dot.is-active {
+    background: {{ section.settings.text_color }};
+  }
+{%- endstyle -%}
+
+<div class="review-slider-3-{{ section.id }}" data-review-slider-3 data-desktop-slides="{{ section.settings.slides_desktop }}" data-mobile-slides="{{ section.settings.slides_mobile }}">
+  <div class="review-slider-3__container isolate">
+    <div class="review-slider-3__header">
+      {%- if section.settings.title != blank -%}
+        <h2 class="review-slider-3__title inline-richtext">{{ section.settings.title }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subtitle != blank -%}
+        <div class="review-slider-3__subtitle">{{ section.settings.subtitle }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="review-slider-3__viewport" data-slider-viewport>
+      <div class="review-slider-3__track" data-slider-track>
+        {%- for block in section.blocks -%}
+          <div class="review-slider-3__slide" {{ block.shopify_attributes }}>
+            <article class="review-slider-3__card">
+              <div class="review-slider-3__image">
+                {%- if block.settings.image != blank -%}
+                  {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '220, 320, 450, 650, 900' }}
+                {%- else -%}
+                  {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
+              </div>
+
+              <div class="review-slider-3__stars" aria-label="{{ block.settings.stars }} out of 5 stars">
+                {%- for i in (1..5) -%}
+                  <span>{% if i <= block.settings.stars %}★{% else %}☆{% endif %}</span>
+                {%- endfor -%}
+              </div>
+
+              {%- if block.settings.quote != blank -%}
+                <p class="review-slider-3__quote">{{ block.settings.quote }}</p>
+              {%- endif -%}
+
+              <div class="review-slider-3__author">
+                <span class="review-slider-3__verify-icon">✺</span>
+                <span>{{ block.settings.name }}</span>
+                {%- if block.settings.verified_text != blank -%}
+                  <span class="review-slider-3__verified">| {{ block.settings.verified_text }}</span>
+                {%- endif -%}
+              </div>
+
+              <div class="review-slider-3__tags">
+                {%- if block.settings.tag_1 != blank -%}<span class="review-slider-3__tag">{{ block.settings.tag_1 }}</span>{%- endif -%}
+                {%- if block.settings.tag_2 != blank -%}<span class="review-slider-3__tag">{{ block.settings.tag_2 }}</span>{%- endif -%}
+                {%- if block.settings.tag_3 != blank -%}<span class="review-slider-3__tag">{{ block.settings.tag_3 }}</span>{%- endif -%}
+              </div>
+            </article>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <div class="review-slider-3__controls">
+      <button class="review-slider-3__arrow" type="button" data-slider-prev aria-label="Previous">←</button>
+      <div class="review-slider-3__dots" data-slider-dots></div>
+      <button class="review-slider-3__arrow" type="button" data-slider-next aria-label="Next">→</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (() => {
+    const root = document.querySelector('.review-slider-3-{{ section.id }}[data-review-slider-3]');
+    if (!root) return;
+
+    const track = root.querySelector('[data-slider-track]');
+    const dotsWrap = root.querySelector('[data-slider-dots]');
+    const prevButton = root.querySelector('[data-slider-prev]');
+    const nextButton = root.querySelector('[data-slider-next]');
+    const slides = Array.from(track.children);
+
+    if (!slides.length) return;
+
+    let index = 0;
+
+    const getPerView = () => {
+      const mobile = Number(root.dataset.mobileSlides || 1);
+      const desktop = Number(root.dataset.desktopSlides || 4);
+      return window.innerWidth < 915 ? mobile : desktop;
+    };
+
+    const maxIndex = () => Math.max(0, slides.length - getPerView());
+
+    const renderDots = () => {
+      const total = maxIndex() + 1;
+      dotsWrap.innerHTML = '';
+      for (let i = 0; i < total; i++) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'review-slider-3__dot' + (i === index ? ' is-active' : '');
+        button.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        button.addEventListener('click', () => {
+          index = i;
+          update();
+        });
+        dotsWrap.appendChild(button);
+      }
+    };
+
+    const update = () => {
+      const firstSlide = slides[0];
+      const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || '0');
+      const step = firstSlide.getBoundingClientRect().width + gap;
+      const limited = Math.min(index, maxIndex());
+      index = Math.max(0, limited);
+      track.style.transform = `translateX(${-index * step}px)`;
+
+      const dots = dotsWrap.querySelectorAll('.review-slider-3__dot');
+      dots.forEach((dot, dotIndex) => dot.classList.toggle('is-active', dotIndex === index));
+
+      if (prevButton) prevButton.disabled = index <= 0;
+      if (nextButton) nextButton.disabled = index >= maxIndex();
+    };
+
+    if (prevButton) {
+      prevButton.addEventListener('click', () => {
+        index -= 1;
+        update();
+      });
+    }
+
+    if (nextButton) {
+      nextButton.addEventListener('click', () => {
+        index += 1;
+        update();
+      });
+    }
+
+    window.addEventListener('resize', () => {
+      renderDots();
+      update();
+    });
+
+    renderDots();
+    update();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Review Slider 3",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    { "type": "header", "content": "Heading" },
+    { "type": "inline_richtext", "id": "title", "label": "Title", "default": "Compliments You Weren’t Expecting — <em>But Secretly Love</em>" },
+    { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "From subtle glances to bold compliments" },
+    { "type": "range", "id": "title_size_desktop", "min": 20, "max": 64, "step": 2, "unit": "px", "label": "Title size (desktop)", "default": 46 },
+    { "type": "range", "id": "title_size_mobile", "min": 18, "max": 44, "step": 2, "unit": "px", "label": "Title size (mobile)", "default": 28 },
+    { "type": "range", "id": "subtitle_size", "min": 12, "max": 28, "step": 1, "unit": "px", "label": "Subtitle size", "default": 20 },
+
+    { "type": "header", "content": "Colors & gradient" },
+    { "type": "color", "id": "bg_color_top", "label": "Gradient top", "default": "#7f1222" },
+    { "type": "color", "id": "bg_color_bottom", "label": "Gradient bottom", "default": "#a93232" },
+    { "type": "color", "id": "text_color", "label": "Heading text color", "default": "#ffffff" },
+    { "type": "color", "id": "card_bg_color", "label": "Card background", "default": "#ffffff" },
+    { "type": "color", "id": "card_text_color", "label": "Card text", "default": "#2b2b2b" },
+    { "type": "color", "id": "accent_color", "label": "Accent (stars/verified/tags)", "default": "#a93232" },
+
+    { "type": "header", "content": "Slider" },
+    { "type": "range", "id": "slides_desktop", "label": "Slides shown (desktop)", "min": 2, "max": 5, "step": 1, "default": 4 },
+    { "type": "checkbox", "id": "show_arrows_desktop", "label": "Show arrows on desktop", "default": true },
+    { "type": "checkbox", "id": "show_arrows_mobile", "label": "Show arrows on mobile", "default": true },
+    {
+      "type": "select",
+      "id": "slides_mobile",
+      "label": "Slides shown (mobile)",
+      "default": "1",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ]
+    },
+    { "type": "range", "id": "mobile_teaser", "label": "Next slide teaser (mobile)", "min": 0, "max": 80, "step": 2, "unit": "px", "default": 24 },
+    { "type": "range", "id": "slide_gap", "label": "Gap", "min": 8, "max": 40, "step": 2, "unit": "px", "default": 16 },
+    { "type": "range", "id": "card_radius", "label": "Card radius", "min": 0, "max": 30, "step": 1, "unit": "px", "default": 10 },
+    { "type": "range", "id": "image_radius", "label": "Image radius", "min": 0, "max": 30, "step": 1, "unit": "px", "default": 0 },
+    { "type": "range", "id": "quote_size", "label": "Quote text size", "min": 12, "max": 26, "step": 1, "unit": "px", "default": 18 },
+    { "type": "range", "id": "author_size", "label": "Author text size", "min": 12, "max": 24, "step": 1, "unit": "px", "default": 14 },
+
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_top_desktop", "label": "Top padding (desktop)", "min": 0, "max": 120, "step": 2, "unit": "px", "default": 60 },
+    { "type": "range", "id": "padding_bottom_desktop", "label": "Bottom padding (desktop)", "min": 0, "max": 120, "step": 2, "unit": "px", "default": 62 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Top padding (mobile)", "min": 0, "max": 120, "step": 2, "unit": "px", "default": 30 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Bottom padding (mobile)", "min": 0, "max": 120, "step": 2, "unit": "px", "default": 30 }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review card",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "range", "id": "stars", "label": "Stars", "min": 1, "max": 5, "step": 1, "default": 5 },
+        { "type": "textarea", "id": "quote", "label": "Review text", "default": "\"This is easily the best smelling perfume I have ever had!\"" },
+        { "type": "text", "id": "name", "label": "Name", "default": "Brenda M." },
+        { "type": "text", "id": "verified_text", "label": "Verified label", "default": "Verified Customer" },
+        { "type": "text", "id": "tag_1", "label": "Tag 1", "default": "Favourite Scent" },
+        { "type": "text", "id": "tag_2", "label": "Tag 2", "default": "Delicious" },
+        { "type": "text", "id": "tag_3", "label": "Tag 3" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Review Slider 3",
+      "blocks": [
+        { "type": "review" },
+        { "type": "review" },
+        { "type": "review" },
+        { "type": "review" }
+      ]
+    }
+  ]
+}
+{% endschema %}
