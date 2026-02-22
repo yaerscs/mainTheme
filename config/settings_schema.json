@@ -7,17 +7,7 @@
     "theme_documentation_url": "https://app.shrine.io/customer/help-center",
     "theme_support_url": "https://app.shrine.io/customer/help-center"
   },
-  {
-    "name": "Authentication",
-    "settings": [
-      {
-        "type": "text",
-        "id": "animations_type",
-        "label": "Authentication token",
-        "info": "Refresh the page if the error message doesnt disappear after entering your token."
-      }
-    ]
-  },
+
   {
     "name": "Help",
     "settings": [

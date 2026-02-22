@@ -29,7 +29,6 @@
       data-country-list-function="{{ settings.country_list_function }}"
       data-country-list="{{ settings.country_list }}"
       data-country-list-error="{{ settings.country_invalid_error_msg }}"
-      data-animations-type="{{ settings.animations_type }}"
     ></script>
     <script src="{{ 'secondary.js' | asset_url }}" defer="defer" data-defer="true" data-is-rtl="{{ is_rtl }}"></script>
 
@@ -103,7 +102,7 @@
           --font-body-weight-bold: {{ settings.custom_body_font_weight | plus: 300 | at_most: 1000 }};
         }
       {% endif %}
-      {% if settings.animations_type == blank or settings.animations_type.size < 174 %}main{visibility:hidden !important;}{% endif %}
+
       {% if settings.custom_header_font_link == blank %}
         {{ settings.type_header_font | font_face: font_display: 'swap' }}
         :root {
