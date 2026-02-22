@@ -247,7 +247,7 @@ function _0x4738() {
         'CyDhI',
         'mssGD',
         'pdrog',
-        'rapid-pro',
+        'shrine-pro',
         'YlTml',
         '[name=cart',
         'item_count',
