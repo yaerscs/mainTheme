@@ -1,18 +1,19 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Rapid PRO",
+    "theme_name": "Shrine PRO",
     "theme_version": "1.4.3",
-    "theme_author": "Rapid",
-    "theme_documentation_url": "https://app.rapid.io/customer/help-center",
-    "theme_support_url": "https://app.rapid.io/customer/help-center"
+    "theme_author": "Shrine",
+    "theme_documentation_url": "https://app.shrine.io/customer/help-center",
+    "theme_support_url": "https://app.shrine.io/customer/help-center"
   },
+
   {
     "name": "Help",
     "settings": [
       {
         "type": "paragraph",
-        "content": "Full theme guide can be viewed [here](https://dashboard.rapid.io/customer/help-center)."
+        "content": "Full theme guide can be viewed [here](https://dashboard.shrinesolutions.com/customer/help-center)."
       }
     ]
   },
