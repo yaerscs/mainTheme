@@ -308,66 +308,6 @@
             "margin_bottom": 15
           }
         },
-        "stock_warning_CKpqhM": {
-          "type": "stock_warning",
-          "settings": {
-            "title": "NOTE: Pre-order notice",
-            "icon_text": "!",
-            "body": "<p>This product sold out <strong>12 times</strong> last year. We encourage you to take advantage of the <strong>limited sale</strong> and buy now. Due to excess demand, we are placing orders on pre-order while we wait for our March batch to arrive.</p>",
-            "background_color": "#fdf2f2",
-            "border_color": "#d37373",
-            "header_color": "#a94442",
-            "icon_background": "#a94442",
-            "icon_color": "#ffffff",
-            "text_color": "#834040",
-            "strong_color": "#a94442",
-            "link_color": "#834040",
-            "header_size": 14,
-            "text_size": 14,
-            "icon_size": 18,
-            "icon_text_size": 12,
-            "padding": 16,
-            "border_size": 2,
-            "border_style": "dashed",
-            "border_radius": 4,
-            "margin_top": 15,
-            "margin_bottom": 15
-          }
-        },
-        "product_faq_wztQ3W": {
-          "type": "product_faq",
-          "settings": {
-            "items_limit": 5,
-            "image_size": 30,
-            "image_border_radius": 4,
-            "image_fit": "contain",
-            "text_size": 14,
-            "answer_text_size": 13,
-            "item_padding": 5,
-            "question_padding": 8,
-            "margin_top": 10,
-            "margin_bottom": 10,
-            "border_radius": 10,
-            "border_color": "#e5e5e5",
-            "question_color": "#000000",
-            "question_bg_color": "#ffffff",
-            "answer_color": "#666666",
-            "answer_bg_color": "#ffffff",
-            "accordion_mode": true,
-            "question_1": "Description",
-            "answer_1": "<p>MeridEase is a powerful, clean supplement designed to support prostate health with high-potency pumpkin seed oil and saw palmetto extracts.</p><p>Our supplements are backed up with a 60-day money-back guarantee. That's how confident we are in your results. </p><p>No aftertaste. No side effects. Just results. </p>",
-            "question_2": "Why MeridEase's Pumpkin Seed oil?",
-            "answer_2": "<p>Our daily formula, made with highly concentrated extracts, supports your prostate health, comfort, and normal urinary flow. </p><p>Backed by modern science, pumpkin seed oil and saw palmetto are able refresh your world again. </p><p><strong>Our product is not the same as regular pumpkin seeds and saw palmetto. Our softgels are</strong> <strong>standardized, concentrated and cold-pressed, ensuring correct lab-grade ingredients. </strong></p>",
-            "question_3": "Benefits",
-            "answer_3": "<p>\u2713 Support prostate health</p><p>\u2713 Supports normal DHT balance</p><p>\u2713 Helps maintain normal prostate size</p><p>\u2713 Promotes prostate comfort</p><p>\u2713 Promotes comfortable urination<br/></p>",
-            "question_4": "Recommended use",
-            "answer_4": "<p>Take 3-4 softgels a day with water, preferably with food.</p><p>Consistent use allows the best results. </p>",
-            "question_5": "Do you offer a guarantee?",
-            "answer_5": "<p>Yes! All MeridEase's orders are backed by our 60-day money back guarantee.</p><p>Not satisfied with results? Contact us and we'll make it right. </p>",
-            "question_6": "",
-            "answer_6": ""
-          }
-        },
         "image_pQkgxF": {
           "type": "image",
           "settings": {
@@ -395,8 +335,6 @@
         "text_d7VUAy",
         "text_iBA3k9",
         "payment_badges_JwQHnw",
-        "stock_warning_CKpqhM",
-        "product_faq_wztQ3W",
         "image_pQkgxF"
       ],
       "custom_css": [],
