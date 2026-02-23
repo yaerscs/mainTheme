@@ -1,0 +1,1037 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "a6eb81db-40e4-43e0-972f-32db010a4a56": {
+          "type": "rating_stars",
+          "settings": {
+            "rating": 4.8,
+            "star_color": "#ffcc00",
+            "bg_stars_style": "full",
+            "bg_star_color": "#ececec",
+            "label": "Rated <strong>4.8 Excellent <\/strong>5273+ Reviews",
+            "size": 14,
+            "alignment": "flex-start",
+            "scroll_id": "",
+            "margin_top": 0,
+            "margin_bottom": 9
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "text_size": "h1",
+            "title_alignment": "left",
+            "uppercase_title": false,
+            "margin_top": 0,
+            "margin_bottom": 0
+          }
+        },
+        "text_d7VUAy": {
+          "type": "text",
+          "settings": {
+            "mobile_text_size": 14,
+            "desktop_text_size": 16,
+            "alignment": "left",
+            "text_color": "#2e2a39",
+            "icon_scale": 120,
+            "icon_color": "#d58f26",
+            "width": "100%",
+            "direction": "vertical",
+            "column_gap": 3,
+            "styling_container": "container",
+            "enable_bg": false,
+            "bg_color": "#f3f3f3",
+            "corner_radius": 40,
+            "padding": 3,
+            "border_size": 0,
+            "border_style": "solid",
+            "border_color": "#b7b7b7",
+            "text_1": "Promotes Prostate Health",
+            "icon_1": "check_circle",
+            "filled_icon_1": true,
+            "text_2": "Free From Side Effects",
+            "icon_2": "check_circle",
+            "filled_icon_2": true,
+            "text_3": "Made With Highly Concentrated Extracts",
+            "icon_3": "check_circle",
+            "filled_icon_3": true,
+            "text_4": "",
+            "icon_4": "check_circle",
+            "filled_icon_4": false,
+            "margin_top": 15,
+            "margin_bottom": 15
+          }
+        },
+        "5fcc0428-e768-4cb7-bea3-eb0274198dd1": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_types": "pills, dropdown, dropdown",
+            "custom_labels": "[name] - [selected]",
+            "skip_unavailable": false,
+            "swatches_size": "medium",
+            "swatches_custom_colors": "disabled",
+            "swatches_custom_colors_list": "#000000, #6D388B, #0000FF, #FFCC00",
+            "full_width_dropdowns": false,
+            "breaks_style": "normal",
+            "breaks_headline": "BUNDLE & SAVE",
+            "breaks_prices_layout": "price-first-vertical",
+            "breaks_display_selected_indicator": true,
+            "breaks_border_radius": 10,
+            "breaks_border_width": 2,
+            "breaks_color_scheme": "accent-1",
+            "breaks_vertical_items_align": "flex-start",
+            "breaks_badges": "[empty], Most popular, [empty]",
+            "breaks_badge_style": "1",
+            "breaks_badge_color": "accent-1",
+            "breaks_displayed_images": "variant_images",
+            "breaks_custom_images": "",
+            "breaks_image_width": 70,
+            "breaks_space_images": true,
+            "breaks_vertical_images_position": "top",
+            "breaks_labels": "[name], [name], [name]",
+            "breaks_benefits": "[empty], Free Shipping, Free Shipping",
+            "breaks_benefit_position": "top",
+            "breaks_benefit_style": "outlined",
+            "breaks_benefit_color": "accent-1",
+            "breaks_captions": "Variant 1 caption, Variant 2 caption, Variant 3 caption",
+            "breaks_price_texts": "[price], [price], [price]",
+            "breaks_compare_price_texts": "[compare_price], [compare_price], [compare_price]",
+            "margin_top": 15,
+            "margin_bottom": 15
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "skip_cart": true,
+            "uppercase_text": true,
+            "icon_scale": 120,
+            "icon_spacing": 10,
+            "atc_custom_label": "Buy now",
+            "display_price": false,
+            "price_position": "left",
+            "price_separator": "â€¢",
+            "enable_custom_color": false,
+            "custom_color": "#53af01",
+            "custom_text_color": "#ffffff",
+            "enable_secondary_btn": false,
+            "secondary_btn_label": "Buy It Now",
+            "secondary_btn_enable_custom_color": false,
+            "secondary_btn_custom_color": "#dd1d1d",
+            "margin_top": 24,
+            "margin_bottom": 24
+          }
+        },
+        "e7a28cbe-03cb-4c9d-a2c4-0e3e76ffb3e5": {
+          "type": "sticky_atc",
+          "settings": {
+            "function": "add_to_cart",
+            "display_when": "after_scroll",
+            "button_label": "Add to cart",
+            "enable_custom_btn_color": false,
+            "custom_btn_color": "#dd1d1d",
+            "color_scheme": "background-1",
+            "star_color": "#ffcc00",
+            "stars_label": "(xxxx Reviews)",
+            "picker_type": "combined",
+            "desktop_show_image": true,
+            "desktop_show_title": true,
+            "desktop_rating_stars": false,
+            "desktop_show_price": true,
+            "desktop_show_sale_badge": true,
+            "desktop_variant_picker": true,
+            "desktop_full_button_width": false,
+            "desktop_show_price_in_button": false,
+            "desktop_transparent_bg": false,
+            "mobile_show_image": false,
+            "mobile_show_title": true,
+            "mobile_rating_stars": false,
+            "mobile_show_price": true,
+            "mobile_show_sale_badge": false,
+            "mobile_variant_picker": false,
+            "mobile_full_button_width": false,
+            "mobile_show_price_in_button": false,
+            "mobile_transparent_bg": false
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "margin_top": 24,
+            "margin_bottom": 24
+          }
+        },
+        "text_iBA3k9": {
+          "type": "text",
+          "settings": {
+            "mobile_text_size": 14,
+            "desktop_text_size": 16,
+            "alignment": "center",
+            "text_color": "#121212",
+            "icon_scale": 120,
+            "icon_color": "#121212",
+            "width": "100%",
+            "direction": "horizontal",
+            "column_gap": 3,
+            "styling_container": "container",
+            "enable_bg": false,
+            "bg_color": "#f3f3f3",
+            "corner_radius": 40,
+            "padding": 3,
+            "border_size": 0,
+            "border_style": "solid",
+            "border_color": "#b7b7b7",
+            "text_1": "60-Day Money Back Guarantee",
+            "icon_1": "Workspace Premium",
+            "filled_icon_1": false,
+            "text_2": "",
+            "icon_2": "check_circle",
+            "filled_icon_2": false,
+            "text_3": "",
+            "icon_3": "check_circle",
+            "filled_icon_3": false,
+            "text_4": "",
+            "icon_4": "check_circle",
+            "filled_icon_4": false,
+            "margin_top": 15,
+            "margin_bottom": 9
+          }
+        },
+        "payment_badges_JwQHnw": {
+          "type": "payment_badges",
+          "settings": {
+            "enabled_payment_types": "",
+            "margin_top": 9,
+            "margin_bottom": 15
+          }
+        },
+        "stock_warning_CKpqhM": {
+          "type": "stock_warning",
+          "settings": {
+            "title": "NOTE: High Demand Notice",
+            "icon_text": "!",
+            "body": "<p>This product sold out <strong>12 times<\/strong> last year. We encourage you to take advantage of the <strong>limited sale<\/strong> and buy now. Due to extreme demand, we cannot guarantee that this item will be in stock the next day. <\/p>",
+            "background_color": "#fdf2f2",
+            "border_color": "#d37373",
+            "header_color": "#a94442",
+            "icon_background": "#a94442",
+            "icon_color": "#ffffff",
+            "text_color": "#834040",
+            "strong_color": "#a94442",
+            "link_color": "#834040",
+            "header_size": 14,
+            "text_size": 14,
+            "icon_size": 18,
+            "icon_text_size": 12,
+            "padding": 16,
+            "border_size": 2,
+            "border_style": "dashed",
+            "border_radius": 4,
+            "margin_top": 15,
+            "margin_bottom": 15
+          }
+        },
+        "product_faq_wztQ3W": {
+          "type": "product_faq",
+          "settings": {
+            "items_limit": 5,
+            "image_size": 30,
+            "image_border_radius": 4,
+            "image_fit": "contain",
+            "text_size": 14,
+            "answer_text_size": 13,
+            "item_padding": 5,
+            "question_padding": 8,
+            "margin_top": 10,
+            "margin_bottom": 10,
+            "border_radius": 10,
+            "border_color": "#e5e5e5",
+            "question_color": "#000000",
+            "question_bg_color": "#ffffff",
+            "answer_color": "#666666",
+            "answer_bg_color": "#ffffff",
+            "accordion_mode": true,
+            "question_1": "Description",
+            "answer_1": "<p>MeridEase is a powerful, clean supplement designed to support prostate health with high-potency pumpkin seed oil and saw palmetto extracts.<\/p><p>Our supplements are backed up with a 60-day money-back guarantee. That's how confident we are in your results. <\/p><p>No aftertaste. No side effects. Just results. <\/p>",
+            "question_2": "Why MeridEase's Pumpkin Seed oil?",
+            "answer_2": "<p>Our daily formula, made with highly concentrated extracts, supports your prostate health, comfort, and normal urinary flow. <\/p><p>Backed by modern science, pumpkin seed oil and saw palmetto are able refresh your world again. <\/p><p><strong>Our product is not the same as regular pumpkin seeds and saw palmetto. Our softgels are<\/strong> <strong>standardized, concentrated and cold-pressed, ensuring correct lab-grade ingredients. <\/strong><\/p>",
+            "question_3": "Benefits",
+            "answer_3": "<p>✓ Support prostate health<\/p><p>✓ Supports normal DHT balance<\/p><p>✓ Helps maintain normal prostate size<\/p><p>✓ Promotes prostate comfort<\/p><p>✓ Promotes comfortable urination<br\/><\/p>",
+            "question_4": "Recommended use",
+            "answer_4": "<p>Take 3-4 softgels a day with water, preferably with food.<\/p><p>Consistent use allows the best results. <\/p>",
+            "question_5": "Do you offer a guarantee?",
+            "answer_5": "<p>Yes! All MeridEase's orders are backed by our 60-day money back guarantee.<\/p><p>Not satisfied with results? Contact us and we'll make it right. <\/p>",
+            "question_6": "",
+            "answer_6": ""
+          }
+        },
+        "image_pQkgxF": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Gemini_Generated_Image_bv10c9bv10c9bv10.jpg",
+            "width": 100,
+            "Full_mobile_width": false,
+            "alignment": "center",
+            "border_radius": 26,
+            "margin_top": 15,
+            "margin_bottom": 15
+          }
+        }
+      },
+      "block_order": [
+        "a6eb81db-40e4-43e0-972f-32db010a4a56",
+        "title",
+        "text_d7VUAy",
+        "5fcc0428-e768-4cb7-bea3-eb0274198dd1",
+        "buy_buttons",
+        "e7a28cbe-03cb-4c9d-a2c4-0e3e76ffb3e5",
+        "description",
+        "text_iBA3k9",
+        "payment_badges_JwQHnw",
+        "stock_warning_CKpqhM",
+        "product_faq_wztQ3W",
+        "image_pQkgxF"
+      ],
+      "custom_css": [],
+      "settings": {
+        "display_id": false,
+        "enable_sticky_info": true,
+        "color_scheme": "background-1",
+        "display_variant_image_first": false,
+        "disable_prepend": true,
+        "hide_variants": false,
+        "variant_image_filtering": "none",
+        "image_zoom": "none",
+        "thumbnails_ratio": "square",
+        "arrows_color_scheme": "inverse",
+        "transparent_arrows": false,
+        "dots_color_scheme": "inverse",
+        "video_player": "play_btn",
+        "enable_video_looping": false,
+        "autoplay_videos_pause_btn": false,
+        "video_sound_btn": false,
+        "video_timeline": false,
+        "play_btn_color_scheme": "accent-1",
+        "sound_btn_color_scheme": "inverse",
+        "timeline_color": "accent-1",
+        "media_size": "medium",
+        "media_position": "left",
+        "gallery_layout": "thumbnail_slider",
+        "desktop_thumbnails_position": "bottom",
+        "desktop_thumbnails_count": 5,
+        "desktop_vertical_thumbnails_width": 16,
+        "desktop_vertical_thumbnails_hide_arrows": false,
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "desktop_arrows_position": "hidden",
+        "mobile_media_corner_radius": 0,
+        "mobile_spacing_pixels": 0,
+        "mobile_arrows_position": "sides",
+        "mobile_pagination": "dots_overlay",
+        "mobile_thumbnails_position": "hidden",
+        "mobile_thumbnails_count": 5,
+        "mobile_vertical_thumbnails_width": 22,
+        "mobile_vertical_thumbnails_hide_arrows": true,
+        "mobile_scroll_padding_percentage": 0,
+        "mobile_scroll_padding_pixels": 14,
+        "enable_mobile_outher_spacing": false,
+        "mobile_slides_container_width": 100,
+        "mobile_slides_inner_width": 100,
+        "trust_badge_position": "top-right",
+        "trust_badge_size": "medium",
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 16,
+        "desktop_padding_top": 36,
+        "desktop_padding_bottom": 36
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "display_id": false,
+        "title": "You may also like",
+        "title_highlight_color": "#6d388b",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "stretch_cards": false,
+        "columns_desktop": 4,
+        "color_scheme": "background-1",
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 24
+      }
+    },
+    "review-slider-2": {
+      "type": "review-slider-2",
+      "blocks": {
+        "slide_N3jJqL": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/facebook-comments_1_1.png"
+          }
+        },
+        "slide_nxGGXV": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/facebook-comments_3.png"
+          }
+        },
+        "slide_MGC9MV": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/facebook-comments_4.png"
+          }
+        }
+      },
+      "block_order": [
+        "slide_N3jJqL",
+        "slide_nxGGXV",
+        "slide_MGC9MV"
+      ],
+      "custom_css": [],
+      "settings": {
+        "title": "Thousands Of Men Swear By Us - Rediscovering Their Past Again",
+        "title_size": 36,
+        "subtitle": "",
+        "subtitle_size": 16,
+        "bg_color_top": "#ffffff",
+        "bg_color_bottom": "#d58f26",
+        "text_color": "#121212",
+        "desktop_visible_slides": "2.5",
+        "slide_width_mobile": 160,
+        "slide_gap": 12,
+        "slide_radius": 10,
+        "scroll_speed": 40,
+        "padding_top": 100,
+        "padding_bottom": 50
+      }
+    },
+    "review_slider_3_cabtXH": {
+      "type": "review-slider-3",
+      "blocks": {
+        "review_mthnEy": {
+          "type": "review",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/e946cd41-c9ae-4615-b849-a61603ab5750.png",
+            "stars": 5,
+            "quote": "\"No way!! It's crazy how my sleep has been so undisturbed these days.",
+            "name": "Michael L.",
+            "verified_text": "Verified Customer",
+            "tag_1": "Finally Free",
+            "tag_2": "No Regrets",
+            "tag_3": ""
+          }
+        },
+        "review_gc9ze9": {
+          "type": "review",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ca0bd45d-dd2e-4d9b-a36c-c4d4c5c41ff5.png",
+            "stars": 5,
+            "quote": "\"Can't believe I haven't heard of these guys before...\"",
+            "name": "Messari I.",
+            "verified_text": "Verified Customer",
+            "tag_1": "Revitalised",
+            "tag_2": "Loving It!",
+            "tag_3": ""
+          }
+        },
+        "review_UTHei6": {
+          "type": "review",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4ec24937-c8e4-49f5-88d3-1d45e346b376_db56333f-5c09-4c25-abc8-2a8c141c840c.png",
+            "stars": 5,
+            "quote": "\"Heard of the hype, but was skeptical of the ads. Tried to give it a go and wow, not regrets\"",
+            "name": "Mike L.",
+            "verified_text": "Verified Customer",
+            "tag_1": "Will Buy Again",
+            "tag_2": "No Regrets",
+            "tag_3": ""
+          }
+        },
+        "review_QHJncD": {
+          "type": "review",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Gemini_Generated_Image_npdxppnpdxppnpdx.png",
+            "stars": 5,
+            "quote": "\"I tried everything. I swear. But MeridEase changed my mind... this is crazy.",
+            "name": "Brenda M.",
+            "verified_text": "Verified Customer",
+            "tag_1": "Finally Free",
+            "tag_2": "Found A Solution!",
+            "tag_3": ""
+          }
+        }
+      },
+      "block_order": [
+        "review_mthnEy",
+        "review_gc9ze9",
+        "review_UTHei6",
+        "review_QHJncD"
+      ],
+      "name": "Review Slider 3",
+      "settings": {
+        "title": "Stopped waking up - Now you can't go back.",
+        "subtitle": "See what our customers love about us:",
+        "title_size_desktop": 46,
+        "title_size_mobile": 28,
+        "subtitle_size": 20,
+        "bg_color_top": "#d58f26",
+        "bg_color_bottom": "#000000",
+        "text_color": "#ffffff",
+        "card_bg_color": "#ffffff",
+        "card_text_color": "#2b2b2b",
+        "accent_color": "#d58f26",
+        "slides_desktop": 4,
+        "show_arrows_desktop": false,
+        "show_arrows_mobile": true,
+        "slides_mobile": "1",
+        "mobile_teaser": 24,
+        "slide_gap": 16,
+        "card_radius": 10,
+        "image_radius": 0,
+        "quote_size": 18,
+        "author_size": 14,
+        "padding_top_desktop": 60,
+        "padding_bottom_desktop": 62,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30
+      }
+    },
+    "custom_columns_icons_image_LM9k84": {
+      "type": "custom-columns-icons-image",
+      "name": "Columns Icons Image",
+      "settings": {
+        "title": "Rediscover your past. Everyday.",
+        "subtitle": "Through consistent daily use, here is what makes our formula suitable for your needs  to make you feel like YOU again.",
+        "title_size_desktop": 52,
+        "title_size_mobile": 34,
+        "subtitle_size": 18,
+        "bg_color_top": "#000000",
+        "bg_color_bottom": "#d58f26",
+        "text_color": "#ffffff",
+        "icon_color": "#ffffff",
+        "icon_1": "urology",
+        "label_1": "Prostate Support",
+        "icon_2": "bed",
+        "label_2": "Highly Concentrated Extracts",
+        "icon_3": "gastroenterology",
+        "label_3": "Gentle on the Stomach",
+        "icon_4": "experiment",
+        "label_4": "Third-Party Lab Tested",
+        "icon_size": 52,
+        "feature_text_size": 18,
+        "image": "shopify:\/\/shop_images\/rings_2x_fb424de4-5b48-439e-bd65-12a63eb7f7e3.png",
+        "image_position": "right",
+        "image_width_desktop": 560,
+        "show_rings": true,
+        "column_gap_mobile": 20,
+        "row_gap_mobile": 22,
+        "column_gap_desktop": 40,
+        "row_gap_desktop": 80,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 0,
+        "padding_top_desktop": 36,
+        "padding_bottom_desktop": 0
+      }
+    },
+    "rr_new_table_hz3Mbd": {
+      "type": "rr-new-table",
+      "blocks": {
+        "table_row_1R34pA": {
+          "type": "table_row",
+          "settings": {
+            "our_icon": "biotech",
+            "our_text": "Clinically Backed",
+            "other_icon": "cancel",
+            "other_text": "Excessive claims"
+          }
+        },
+        "table_row_u4n3KD": {
+          "type": "table_row",
+          "settings": {
+            "our_icon": "verified_user",
+            "our_text": "Highly Concentrated Extracts",
+            "other_icon": "cancel",
+            "other_text": "Powdered Form"
+          }
+        },
+        "table_row_b0bS5x": {
+          "type": "table_row",
+          "settings": {
+            "our_icon": "biotech",
+            "our_text": "Cold Pressed (Preserves Nutrients)",
+            "other_icon": "cancel",
+            "other_text": "Low Nutrient Quality"
+          }
+        },
+        "table_row_i7eQx8": {
+          "type": "table_row",
+          "settings": {
+            "our_icon": "workspace_premium",
+            "our_text": "High-Quality Formula",
+            "other_icon": "cancel",
+            "other_text": "Inconsistent Quality"
+          }
+        },
+        "check_item_7rB11m": {
+          "type": "check_item",
+          "settings": {
+            "text": "Clinically Backed Ingredients"
+          }
+        },
+        "check_item_t8R6Lk": {
+          "type": "check_item",
+          "settings": {
+            "text": "Noticeable Results in Weeks"
+          }
+        },
+        "check_item_j6Wz3n": {
+          "type": "check_item",
+          "settings": {
+            "text": "Long-Term Prostate Health"
+          }
+        },
+        "check_item_k0qP9s": {
+          "type": "check_item",
+          "settings": {
+            "text": "Clean, High-Quality Formula"
+          }
+        }
+      },
+      "block_order": [
+        "table_row_1R34pA",
+        "table_row_u4n3KD",
+        "table_row_b0bS5x",
+        "table_row_i7eQx8",
+        "check_item_7rB11m",
+        "check_item_t8R6Lk",
+        "check_item_j6Wz3n",
+        "check_item_k0qP9s"
+      ],
+      "name": "RR New Table",
+      "settings": {
+        "heading": "MeridEase vs. Other Brands",
+        "button_label": "Try Risk-Free Today",
+        "button_link": "shopify:\/\/products\/pumpkin-seed-oil-softgels",
+        "subtext": "60-day money back guarantee",
+        "our_label": "Elaré",
+        "other_label": "Other Brands",
+        "our_image": "shopify:\/\/shop_images\/Kaching-Bundles-Layer_0.png",
+        "bg_fallback_color": "#d58f26",
+        "bg_color_1": "#d58f26",
+        "bg_color_2": "#6d632d",
+        "bg_gradient_angle": 180,
+        "bg_image_size": "cover",
+        "bg_image_position": "center center",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "text_color": "#ffffff",
+        "heading_color": "#ffffff",
+        "heading_accent_color": "#ffffff",
+        "our_col_bg": "#d58f26",
+        "our_col_text": "#ffffff",
+        "other_col_bg": "#ffffff",
+        "other_col_text": "#2b2b2b",
+        "other_col_border": "#ffffff",
+        "other_label_color": "#ffffff",
+        "row_divider_color": "#787878",
+        "checklist_color": "#ffffff",
+        "checklist_tick_color": "#ffffff",
+        "button_bg_color": "#cb8824",
+        "button_text_color": "#ffffff",
+        "button_border_color": "#cb8824",
+        "button_bg_hover_color": "#f2f2f2",
+        "button_text_hover_color": "#2b2b2b",
+        "button_border_hover_color": "#f2f2f2",
+        "button_radius": 6,
+        "left_width_desktop": 50,
+        "our_col_width": 55,
+        "other_col_shift_desktop": 18,
+        "other_col_shift_mobile": 0,
+        "columns_gap_desktop": 40,
+        "left_top_offset_desktop": 0,
+        "column_radius": 6,
+        "heading_size_desktop": 52,
+        "heading_size_mobile": 34,
+        "column_title_size": 20,
+        "column_title_size_mobile": 18,
+        "row_text_size": 16,
+        "row_text_size_mobile": 14,
+        "row_icon_size": 24,
+        "row_icon_size_mobile": 20,
+        "row_min_height_desktop": 86,
+        "row_min_height_mobile": 100,
+        "product_image_height_desktop": 106,
+        "product_image_height_mobile": 120,
+        "product_image_overlap": 86,
+        "product_image_overlap_mobile": 80,
+        "checklist_size": 17,
+        "checklist_size_mobile": 17,
+        "button_text_size": 19,
+        "subtext_size": 15,
+        "subtext_icon_size": 18,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "padding_top_desktop": 100,
+        "padding_bottom_desktop": 36
+      }
+    },
+    "clinical_proven_stats_t6y4kN": {
+      "type": "clinical-proven-stats",
+      "blocks": {
+        "stat_Aq8sEr": {
+          "type": "stat",
+          "settings": {
+            "percent": 94,
+            "heading": "Said that they are experiencing a more comfortable prostate",
+            "caption": ""
+          }
+        },
+        "stat_k29Qee": {
+          "type": "stat",
+          "settings": {
+            "percent": 96,
+            "heading": "Would recommend MeridEase Labs to a friend",
+            "caption": ""
+          }
+        },
+        "stat_4jXCBn": {
+          "type": "stat",
+          "settings": {
+            "percent": 92,
+            "heading": "Would buy again",
+            "caption": ""
+          }
+        },
+        "stat_8EZ7tS": {
+          "type": "stat",
+          "settings": {
+            "percent": 89,
+            "heading": "Said they prefer Our formula over any other brands",
+            "caption": ""
+          }
+        }
+      },
+      "block_order": [
+        "stat_Aq8sEr",
+        "stat_k29Qee",
+        "stat_4jXCBn",
+        "stat_8EZ7tS"
+      ],
+      "name": "Clinical Proven Stats",
+      "settings": {
+        "cta_title": "<strong>Clinically Proven.<\/strong> Support Your Prostate.",
+        "cta_subtitle": "When clean, naturally-derived ingredients meet clinical potency, the results do not disappoint",
+        "cta_title_size_desktop": 48,
+        "cta_title_size_mobile": 32,
+        "cta_subtitle_size": 17,
+        "button_label": "Try Risk-Free Today",
+        "button_link": "shopify:\/\/products\/pumpkin-seed-oil-softgels",
+        "button_direction": "center",
+        "button_direction_mobile": "center",
+        "button_full_width_mobile": true,
+        "button_radius": 6,
+        "button_bg_color": "#d58f26",
+        "button_text_color": "#ffffff",
+        "button_border_color": "#d58f26",
+        "button_bg_hover_color": "#d58f26",
+        "button_text_hover_color": "#d58f26",
+        "button_border_hover_color": "#d58f26",
+        "shield_text": "60-day money back guarantee",
+        "shield_icon_size": 18,
+        "shield_text_size": 14,
+        "bg_color_fallback": "#d58f26",
+        "bg_color_top": "#d58f26",
+        "bg_color_bottom": "#d58f26",
+        "bg_image": "shopify:\/\/shop_images\/Gemini_Generated_Image_t8x0nqt8x0nqt8x0.png",
+        "bg_image_size": "cover",
+        "bg_image_position": "center center",
+        "overlay_color": "#014c3e",
+        "overlay_opacity": 40,
+        "mobile_content_order": "cta_first",
+        "stats_column_width": 55,
+        "layout_gap_desktop": 62,
+        "stats_column_gap": 40,
+        "stat_padding_vertical": 13,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80,
+        "text_color": "#ffffff",
+        "percent_color": "#d58f26",
+        "heading_color": "#ffffff",
+        "caption_color": "#ffffff",
+        "cta_title_color": "#ffffff",
+        "cta_title_accent_color": "#d58f26",
+        "cta_subtitle_color": "#ffffff",
+        "shield_text_color": "#ffffff",
+        "divider_color": "#ffffff",
+        "divider_opacity": 35,
+        "percent_size_desktop": 40,
+        "percent_size_mobile": 36,
+        "stat_heading_size": 16,
+        "stat_caption_size": 15,
+        "cta_text_align_desktop": "center",
+        "cta_text_align_mobile": "left",
+        "enable_count_animation": true,
+        "animation_duration": 1000,
+        "animation_threshold": 50
+      }
+    },
+    "rich_text_dL4RN8": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_WUekdD": {
+          "type": "heading",
+          "settings": {
+            "title": "60-Day Money Back Guarantee",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1"
+          }
+        },
+        "text_JxzXhf": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Not satisfied? Contact us and we'll make it right. <\/p>"
+          }
+        },
+        "button_xEJcYY": {
+          "type": "button",
+          "settings": {
+            "button_label": "Try Risk-Free Now",
+            "button_link": "shopify:\/\/products\/pumpkin-seed-oil-softgels",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_WUekdD",
+        "text_JxzXhf",
+        "button_xEJcYY"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "full_width": true,
+        "mobile_narrow_width": false,
+        "color_scheme": "custom",
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "custom_colors_background": "#d58f26",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#ffffff",
+        "custom_colors_solid_button_background": "#ffffff",
+        "custom_colors_solid_button_text": "#d58f26",
+        "custom_colors_outline_button": "#ffffff"
+      }
+    },
+    "multicolumn_tfMVR4": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_RV4GiN": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Gemini_Generated_Image_fwkct7fwkct7fwkc.jpg",
+            "muted_autoplay": true,
+            "title": "Pumpkin Seed Oil",
+            "text": "<p>Clinical-grade oil rich in rare Delta-7-Sterols reduces inflammation while flooding your system with Nitric Oxide to relax the \"vice grip\" of smooth muscle tension in your pelvic region.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_BRRw4e": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Gemini_Generated_Image_sokzrsokzrsokzrs.jpg",
+            "muted_autoplay": true,
+            "title": "Saw Palmetto",
+            "text": "<p>Our standardized extract blocks both Type 1 and Type 2 5-alpha-reductase enzymes to stop the DHT fuel source that causes prostate enlargement and disrupts your sleep.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Rc7gMm": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Gemini_Generated_Image_1uy6ok1uy6ok1uy6.jpg",
+            "muted_autoplay": true,
+            "title": "Cold-Pressed Softgels",
+            "text": "<p>Cold-pressed extraction preserves delicate bioactive compounds that heat processing destroys, ensuring maximum potency and superior absorption compared to powders or capsules.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_RV4GiN",
+        "column_BRRw4e",
+        "column_Rc7gMm"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "title": "What's inside",
+        "title_highlight_color": "#6d388b",
+        "heading_size": "h1",
+        "button_label": "",
+        "button_link": "",
+        "atc_button_label": "",
+        "atc_product": "",
+        "atc_skip_cart": false,
+        "color_scheme": "custom",
+        "cards_color_scheme": "custom",
+        "cards_corner_radius": 20,
+        "stretch_cards": false,
+        "stretched_cards_content_alignment": "center",
+        "image_width": "full",
+        "image_ratio": "square",
+        "media_position": "top",
+        "column_alignment": "center",
+        "desktop_heading_size": 24,
+        "mobile_heading_size": 22,
+        "desktop_text_size": 16,
+        "mobile_text_size": 15,
+        "desktop_text_top_margin": 10,
+        "mobile_text_top_margin": 10,
+        "desktop_container_padding_y": 24,
+        "desktop_container_padding_x": 24,
+        "mobile_container_padding_y": 24,
+        "mobile_container_padding_x": 24,
+        "type": "slide",
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "arrows_color_scheme": "inverse",
+        "transparent_arrows": true,
+        "dots_color_scheme": "inverse",
+        "desktop_full_page": false,
+        "columns_desktop": 3,
+        "slider_desktop": false,
+        "per_move_desktop": 1,
+        "desktop_spacing": 40,
+        "desktop_side_padding": 0,
+        "desktop_padding_calc": true,
+        "desktop_adaptive_height": false,
+        "desktop_dots_position": "under",
+        "desktop_arrows_position": "sides",
+        "columns_mobile": "1",
+        "slider_mobile": true,
+        "enable_mobile_preview": false,
+        "mobile_adaptive_height": false,
+        "mobile_dots_position": "under",
+        "mobile_arrows_position": "under",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#121212",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d",
+        "custom_cards_colors_background": "#d58f26",
+        "custom_cards_gradient_background": "",
+        "custom_cards_colors_heading": "#ffffff",
+        "custom_cards_colors_text": "#ffffff"
+      }
+    },
+    "e_store_faq_XArNUd": {
+      "type": "e_store-faq",
+      "blocks": {
+        "faq_item_Bnqt7c": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I take this when I'm already on medication?",
+            "answer": "<p>Always consult your healthcare provider before adding this supplement to your regimen if you are currently being treated for a medical condition.<\/p>"
+          }
+        },
+        "faq_item_wPGzFY": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does this product contain common allergens?",
+            "answer": "<p>Our product is free from gluten, dairy, soy and artificial preservatives.<\/p>"
+          }
+        },
+        "faq_item_hyjDTe": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does shipping take?",
+            "answer": "<p>Standard shipping typically takes 2-3 business days for processing, followed by a 7-14 business day transit time. Please note your location as well as customs heavily influence shipment time.<\/p>"
+          }
+        },
+        "faq_item_Npc8DG": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How does your money-back guarantee work?",
+            "answer": "<p>If you're not satisfied with your results, contact us and we'll make it right. <\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_Bnqt7c",
+        "faq_item_wPGzFY",
+        "faq_item_hyjDTe",
+        "faq_item_Npc8DG"
+      ],
+      "name": "Store FAQ",
+      "settings": {
+        "use_theme_colors": false,
+        "heading": "Questions? We're here to help.",
+        "subtitle": "<p>You can also chat with us on the bottom right!<\/p>",
+        "heading_color": "#ffffff",
+        "section_padding": 60,
+        "section_bg_color": "#d58f26",
+        "border_radius": 8,
+        "border_color": "#e5e5e5",
+        "question_color": "#ffffff",
+        "question_bg_color": "#d58f26",
+        "answer_color": "#ffffff",
+        "answer_bg_color": "#d58f26",
+        "accordion_mode": true,
+        "heading_font_size": 36,
+        "heading_font_size_mobile": 30,
+        "subtitle_font_size": 16,
+        "subtitle_font_size_mobile": 14,
+        "question_font_size": 16,
+        "question_font_size_mobile": 14,
+        "answer_font_size": 14,
+        "answer_font_size_mobile": 13
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related-products",
+    "review-slider-2",
+    "review_slider_3_cabtXH",
+    "custom_columns_icons_image_LM9k84",
+    "rr_new_table_hz3Mbd",
+    "clinical_proven_stats_t6y4kN",
+    "rich_text_dL4RN8",
+    "multicolumn_tfMVR4",
+    "e_store_faq_XArNUd"
+  ]
+}
