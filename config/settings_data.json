@@ -291,7 +291,7 @@
                 "shipping-protection"
               ],
               "collection": "",
-              "prdouct_1_preselected": true,
+              "prdouct_1_preselected": false,
               "product_1_desc": "",
               "product_1_percentage_discount": "0",
               "product_1_fixed_amount_discount": "0",
