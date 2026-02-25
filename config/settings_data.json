@@ -697,6 +697,11 @@
         "type": "shopify://apps/kaching-bundles/blocks/app-embed-block-v2/6c637362-a106-4a32-94ac-94dcfd68cdb8",
         "disabled": true,
         "settings": {}
+      },
+      "6251270934270006384": {
+        "type": "shopify://apps/stape-conversion-tracking/blocks/gtm/7e13c847-7971-409d-8fe0-29ec14d5f048",
+        "disabled": false,
+        "settings": {}
       }
     }
   },
