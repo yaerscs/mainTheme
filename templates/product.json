@@ -77,7 +77,7 @@
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": false,
-            "skip_cart": true,
+            "skip_cart": false,
             "uppercase_text": true,
             "icon_scale": 120,
             "icon_spacing": 10,
