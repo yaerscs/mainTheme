@@ -126,7 +126,7 @@
                 {% render 'text-with-icon-block', block: block, margins: true, block_attributes: true %}
               {%- when 'title' -%}
                 {%- assign display_title = product.title -%}
-                {%- if block.settings.custom_title != blank -%}
+                {%- if block.settings.custom_title != blank and block.settings.custom_title != '' -%}
                   {%- assign display_title = block.settings.custom_title -%}
                 {%- endif -%}
                 <div class="product__title" {{ block.shopify_attributes }} style="--margin-top: {{ block.settings.margin_top | divided_by: 10.0 }}rem;--margin-bottom: {{ block.settings.margin_bottom | divided_by: 10.0 }}rem;">
@@ -1716,7 +1716,7 @@
           "type": "range",
           "id": "scale_slider",
           "min": 50,
-          "max": 200,
+          "max": 800,
           "step": 5,
           "unit": "%",
           "label": "Title Scale",
