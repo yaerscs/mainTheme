@@ -125,13 +125,17 @@
               {%- when 'text' -%}
                 {% render 'text-with-icon-block', block: block, margins: true, block_attributes: true %}
               {%- when 'title' -%}
+                {%- assign display_title = product.title -%}
+                {%- if block.settings.custom_title != blank -%}
+                  {%- assign display_title = block.settings.custom_title -%}
+                {%- endif -%}
                 <div class="product__title" {{ block.shopify_attributes }} style="--margin-top: {{ block.settings.margin_top | divided_by: 10.0 }}rem;--margin-bottom: {{ block.settings.margin_bottom | divided_by: 10.0 }}rem;">
-                  <h1 class="{{ block.settings.text_size }}{% if block.settings.uppercase_title %} product-title--uppercase{% endif %}{% if block.settings.title_alignment == 'center' %} center{% endif %}">
-                    {{ product.title }}
+                  <h1 class="{{ block.settings.text_size }}{% if block.settings.uppercase_title %} product-title--uppercase{% endif %}{% if block.settings.title_alignment == 'center' %} center{% endif %}" style="font-size: {{ block.settings.scale_slider | default: 100 }}%;">
+                    {{ display_title }}
                   </h1>
                   <a href="{{ product.url }}" class="product__title">
-                    <h2 class="h1">
-                      {{ product.title }}
+                    <h2 class="h1" style="font-size: {{ block.settings.scale_slider | default: 100 }}%;">
+                      {{ display_title }}
                     </h2>
                   </a>
                 </div>
@@ -1701,6 +1705,22 @@
           "id": "uppercase_title",
           "label": "Uppercase title",
           "default": false
+        },
+        {
+          "type": "text",
+          "id": "custom_title",
+          "label": "Custom Title Text",
+          "info": "Replaces the product title if not blank"
+        },
+        {
+          "type": "range",
+          "id": "scale_slider",
+          "min": 50,
+          "max": 200,
+          "step": 5,
+          "unit": "%",
+          "label": "Title Scale",
+          "default": 100
         },
         {
           "type": "header",
