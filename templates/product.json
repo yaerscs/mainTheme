@@ -134,38 +134,6 @@
             "margin_bottom": 24
           }
         },
-        "e7a28cbe-03cb-4c9d-a2c4-0e3e76ffb3e5": {
-          "type": "sticky_atc",
-          "settings": {
-            "function": "add_to_cart",
-            "display_when": "after_scroll",
-            "button_label": "Add to cart",
-            "enable_custom_btn_color": false,
-            "custom_btn_color": "#dd1d1d",
-            "color_scheme": "background-1",
-            "star_color": "#ffcc00",
-            "stars_label": "(xxxx Reviews)",
-            "picker_type": "combined",
-            "desktop_show_image": true,
-            "desktop_show_title": true,
-            "desktop_rating_stars": false,
-            "desktop_show_price": true,
-            "desktop_show_sale_badge": true,
-            "desktop_variant_picker": true,
-            "desktop_full_button_width": false,
-            "desktop_show_price_in_button": false,
-            "desktop_transparent_bg": false,
-            "mobile_show_image": false,
-            "mobile_show_title": true,
-            "mobile_rating_stars": false,
-            "mobile_show_price": true,
-            "mobile_show_sale_badge": false,
-            "mobile_variant_picker": false,
-            "mobile_full_button_width": false,
-            "mobile_show_price_in_button": false,
-            "mobile_transparent_bg": false
-          }
-        },
         "description": {
           "type": "description",
           "settings": {
@@ -296,7 +264,6 @@
         "text_d7VUAy",
         "5fcc0428-e768-4cb7-bea3-eb0274198dd1",
         "buy_buttons",
-        "e7a28cbe-03cb-4c9d-a2c4-0e3e76ffb3e5",
         "description",
         "text_iBA3k9",
         "payment_badges_JwQHnw",
