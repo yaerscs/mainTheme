@@ -271,6 +271,7 @@
         "product_faq_wztQ3W",
         "image_pQkgxF"
       ],
+      "disabled": true,
       "custom_css": [],
       "settings": {
         "display_id": false,
@@ -373,6 +374,7 @@
         "slide_nxGGXV",
         "slide_MGC9MV"
       ],
+      "disabled": true,
       "custom_css": [],
       "settings": {
         "title": "Thousands Of Men Swear By Us - Rediscovering Their Past Again",
@@ -453,6 +455,7 @@
         "review_UTHei6",
         "review_QHJncD"
       ],
+      "disabled": true,
       "name": "Review Slider 3",
       "settings": {
         "title": "Stopped waking up - Now you can't go back.",
@@ -484,6 +487,7 @@
     },
     "custom_columns_icons_image_LM9k84": {
       "type": "custom-columns-icons-image",
+      "disabled": true,
       "name": "Columns Icons Image",
       "settings": {
         "title": "Rediscover your past. Everyday.",
@@ -593,6 +597,7 @@
         "check_item_j6Wz3n",
         "check_item_k0qP9s"
       ],
+      "disabled": true,
       "name": "RR New Table",
       "settings": {
         "heading": "MeridEase vs. Other Brands",
@@ -703,6 +708,7 @@
         "stat_4jXCBn",
         "stat_8EZ7tS"
       ],
+      "disabled": true,
       "name": "Clinical Proven Stats",
       "settings": {
         "cta_title": "<strong>Clinically Proven.</strong> Support Your Prostate.",
@@ -797,6 +803,7 @@
         "text_JxzXhf",
         "button_xEJcYY"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "display_id": false,
@@ -858,6 +865,7 @@
         "column_BRRw4e",
         "column_Rc7gMm"
       ],
+      "disabled": true,
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
         "display_id": false,
@@ -963,6 +971,7 @@
         "faq_item_hyjDTe",
         "faq_item_Npc8DG"
       ],
+      "disabled": true,
       "name": "Store FAQ",
       "settings": {
         "use_theme_colors": false,
