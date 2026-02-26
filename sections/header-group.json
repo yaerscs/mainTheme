@@ -118,7 +118,7 @@
         "language_selector_selected_text_desktop": "[local_name]",
         "language_selector_selected_text_mobile": "[code]",
         "language_selector_options_text": "[name] ([local_name])",
-        "display_search": true,
+        "display_search": false,
         "margin_bottom": 0,
         "padding_top": 20,
         "padding_bottom": 20
