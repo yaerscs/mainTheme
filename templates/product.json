@@ -151,6 +151,7 @@
         },
         "stock_warning_CKpqhM": {
           "type": "stock_warning",
+          "disabled": true,
           "settings": {
             "title": "NOTE: High Demand Notice",
             "icon_text": "!",
