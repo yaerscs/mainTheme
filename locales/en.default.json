@@ -511,7 +511,12 @@
         "contact_method_title": "Email or Phone"
       },
       "marketing": {
-        "accept_marketing_checkbox_label": "Send me live tracking and order updates"
+        "accept_marketing_checkbox_label": "Send me live tracking and order updates",
+        "sms": {
+          "disclaimer": {
+            "description_html": "‎ "
+          }
+        }
       },
       "general": {
         "continue_to_payment_method": "Confirm Shipping Selection",
@@ -533,7 +538,34 @@
             "year": {
               "other": "‎ "
             }
-          }
+          },
+          "first_n_order_free_with_cycle": {
+            "one": "‎ ",
+            "other": "‎ "
+          },
+          "first_n_order_free_with_cycle_delivery_not_included": {
+            "one": "‎ ",
+            "other": "‎ "
+          },
+          "prepaid_free_shipping_with_cycles": {
+            "one": "‎ ",
+            "other": "‎ "
+          },
+          "prepaid_order_no_cycle": {
+            "one": "‎ ",
+            "other": "‎ "
+          },
+          "prepaid_order_no_cycle_delivery_not_included": {
+            "one": "‎ ",
+            "other": "‎ "
+          },
+          "recurring_order_shipping_price": "‎ ",
+          "first_order_shipping_price_included": "‎ ",
+          "first_order_different_shipping_price": "‎ "
+        },
+        "shipping_method_recurring_shipments_group_title": {
+          "one": "‎ ",
+          "other": "‎ "
         }
       },
       "payment": {
@@ -545,7 +577,47 @@
       },
       "order_summary": {
         "recurring_total_tooltip": "  "
+      },
+      "field_errors": {
+        "purchase_options_agreement_blank": "‎ "
+      },
+      "subscriptions": {
+        "recurring_total_intervals": {
+          "day": {
+            "one": "‎ ",
+            "other": "‎ "
+          },
+          "week": {
+            "one": "‎ ",
+            "other": "‎ "
+          },
+          "month": {
+            "one": "‎ ",
+            "other": "‎ "
+          },
+          "year": {
+            "one": "‎ ",
+            "other": "‎ "
+          }
+        },
+        "recurring_totals_with_policies": {
+          "first_cycles": {
+            "one": "‎ ",
+            "other": "‎ "
+          },
+          "following_cycles": "‎ "
+        },
+        "recurring_totals_with_initial_order_shipping_discount_with_policies": {
+          "first_cycles": {
+            "one": "‎ ",
+            "other": "‎ "
+          }
+        }
       }
+    },
+    "subscriptions": {
+      "buyer_consent_product": "‎ ",
+      "buyer_consent_cart": "‎ "
     }
   },
   "templates": {
@@ -595,6 +667,19 @@
         "send": "Send",
         "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
         "error_heading": "Please adjust the following:"
+      }
+    }
+  },
+  "customer_accounts": {
+    "payment_methods": {
+      "card_update_consent_subscriptions": "‎ ",
+      "update_payment_method": {
+        "disclaimer": "‎ "
+      },
+      "add_payment_method": {
+        "subscription_contracts": {
+          "title": "‎ "
+        }
       }
     }
   }
