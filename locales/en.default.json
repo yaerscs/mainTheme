@@ -544,7 +544,7 @@
         "shipping_address": "Shipping Address"
       },
       "order_summary": {
-        "recurring_total_tooltip": "‎ "
+        "recurring_total_tooltip": "  "
       }
     }
   },
