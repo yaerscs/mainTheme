@@ -533,7 +533,7 @@
               "other": "‎ "
             },
             "month": {
-              "other": "‎ "
+              "other": "‎   s"
             },
             "year": {
               "other": "‎ "
@@ -576,7 +576,7 @@
         "shipping_address": "Shipping Address"
       },
       "order_summary": {
-        "recurring_total_tooltip": "  "
+        "recurring_total_tooltip": "  s"
       },
       "field_errors": {
         "purchase_options_agreement_blank": "‎ "
