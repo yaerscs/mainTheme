@@ -579,7 +579,8 @@
         "recurring_total_tooltip": "  ",
         "unit_price": {
           "content_html": " s"
-        }
+        },
+        "recurring_payments": "  s "
       },
       "field_errors": {
         "purchase_options_agreement_blank": "‎ "
