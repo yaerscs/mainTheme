@@ -561,13 +561,13 @@
               "other": "‎ "
             },
             "month": {
-              "other": "{{ count }} "
+              "other": "  "
             },
             "year": {
               "other": "‎ "
             }
           },
-          "recurring_order_shipping_price": "‎ ",
+          "recurring_order_shipping_price": "{{ price }} ",
           "first_order_shipping_price_included": "‎ ",
           "first_order_different_shipping_price": "‎ "
         }
@@ -584,9 +584,9 @@
         "unit_price": {
           "content_html": " s"
         },
-        "recurring_payments": "  s ",
         "full_price": "{{totalPrice}}",
-        "price_label": "{{totalPrice}}"
+        "price_label": "{{totalPrice}}",
+        "recurring_total_tooltip": " Please Note: The value on the right IS NOT what you will be charged recurringly. You will be charged this order's total. "
       },
       "review": {
         "recurring_subtotal": "60 day money backguarantee"
