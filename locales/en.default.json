@@ -123,6 +123,7 @@
       "tracking_company": "Carrier",
       "tracking_number": "Tracking number",
       "subtotal": "Subtotal",
+      "recurring_subtotal": "60 day money backguarantee",
       "total_duties": "Duties"
     },
     "orders": {
@@ -245,7 +246,8 @@
     "cart": {
       "view": "View my cart ({{ count }})",
       "view_empty_cart": "View my cart",
-      "item_added": "Item added to your cart"
+      "item_added": "Item added to your cart",
+      "recurring_subtotal": "60 day money backguarantee"
     },
     "share": {
       "close": "Close share",
@@ -447,6 +449,7 @@
       "remove_title": "Remove {{ title }}",
       "subtotal": "Subtotal",
       "new_subtotal": "New subtotal",
+      "recurring_subtotal": "60 day money backguarantee",
       "note": "Order special instructions",
       "checkout": "Check out",
       "empty": "Your cart is empty",
@@ -515,7 +518,8 @@
       },
       "general": {
         "continue_to_payment_method": "Confirm Shipping Selection",
-        "pay_now_button_label": "Complete Purchase"
+        "pay_now_button_label": "Complete Purchase",
+        "recurring_subtotal": "60 day money backguarantee"
       },
       "shipping": {
         "shipping_method_title": "Shipping method"
