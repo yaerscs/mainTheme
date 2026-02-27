@@ -523,6 +523,15 @@
           "subscription_delivery_frequency": {
             "day": {
               "other": "‎ "
+            },
+            "week": {
+              "other": "‎ "
+            },
+            "month": {
+              "other": "‎ "
+            },
+            "year": {
+              "other": "‎ "
             }
           }
         }
@@ -533,6 +542,9 @@
       },
       "delivery_options": {
         "shipping_address": "Shipping Address"
+      },
+      "order_summary": {
+        "recurring_total_tooltip": "‎ "
       }
     }
   },
