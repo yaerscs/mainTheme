@@ -518,7 +518,14 @@
         "pay_now_button_label": "Complete Purchase"
       },
       "shipping": {
-        "shipping_method_title": "Shipping method"
+        "shipping_method_title": "Shipping method",
+        "subscription_delivery_description": {
+          "subscription_delivery_frequency": {
+            "day": {
+              "other": "‎ "
+            }
+          }
+        }
       },
       "payment": {
         "title": "Secure Checkout",
