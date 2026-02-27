@@ -9,7 +9,7 @@
  */
 {
   "current": {
-    "disable_inspect": false,
+    "disable_inspect": true,
     "logo": "shopify://shop_images/logo_f6ce72e4-b4bb-46c6-977a-1330d90bb9dc.png",
     "logo_width": 200,
     "mobile_logo_width": 130,
