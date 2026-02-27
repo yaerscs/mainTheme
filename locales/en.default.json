@@ -530,6 +530,12 @@
       },
       "delivery_options": {
         "shipping_address": "Shipping Address"
+      },
+      "order_summary": {
+        "recurring_subtotal": "60 day money backguarantee"
+      },
+      "review": {
+        "recurring_subtotal": "60 day money backguarantee"
       }
     }
   },
