@@ -561,7 +561,7 @@
               "other": "‎ "
             },
             "month": {
-              "other": "test"
+              "other": "{{ count }} "
             },
             "year": {
               "other": "‎ "
