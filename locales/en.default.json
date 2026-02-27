@@ -585,7 +585,8 @@
           "content_html": " s"
         },
         "recurring_payments": "  s ",
-        "full_price": "{{totalPrice}}"
+        "full_price": "{{totalPrice}}",
+        "price_label": "{{totalPrice}}"
       },
       "review": {
         "recurring_subtotal": "60 day money backguarantee"
