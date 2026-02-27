@@ -576,7 +576,7 @@
         "shipping_address": "Shipping Address"
       },
       "order_summary": {
-        "recurring_total_tooltip": "  s"
+        "recurring_total_tooltip": "  "
       },
       "field_errors": {
         "purchase_options_agreement_blank": "‎ "
