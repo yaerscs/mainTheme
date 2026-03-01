@@ -90,7 +90,7 @@
         "account_icon_text": "ACCOUNT",
         "cart_icon": "bag_2",
         "cart_icon_text": "CART",
-        "logo_link": "/",
+        "logo_link": "shopify://products/pumpkin-seed-oil-softgels",
         "logo_position": "middle-center",
         "menu": "main-menu",
         "menu_type_desktop": "dropdown",
