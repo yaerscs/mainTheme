@@ -149,9 +149,39 @@
             "margin_bottom": 15
           }
         },
+        "reviews_LPRLU8": {
+          "type": "reviews",
+          "settings": {
+            "color_scheme": "background-1",
+            "show_custom_bg": false,
+            "custom_bg_color": "#f2f2f2",
+            "corner_radius": 12,
+            "border_width": 0,
+            "border_color": "#b7b7b7",
+            "avatar_alignment": "middle",
+            "avatar_corner_radius": 40,
+            "star_color": "#ffcc00",
+            "stars_translate": 0,
+            "checkmark_color": "#6d388b",
+            "checkmark_icon_color": "#ffffff",
+            "slider_type": "slide",
+            "autoplay": false,
+            "autoplay_speed": 5,
+            "display_arrows": false,
+            "display_dots": false,
+            "author_1": "Robert L. [stars]",
+            "image_1": "shopify://shop_images/email_popup_male_portrait_1766754535993.jpg",
+            "text_1": "<p>I was waking up 4-5 times every night, completely exhausted and irritable during the day. My wife couldn't sleep either with all my trips to the bathroom, and I was terrified of ending up needing surgery. Within three weeks of starting this, I'm down to just once a night, and some nights I actually sleep straight through—I forgot what that felt like.</p>",
+            "author_2": "<em>Author</em> [stars]",
+            "text_2": "<p>Share positive thoughts and feedback from your customer.</p>",
+            "author_3": "<em>Author</em> [stars]",
+            "text_3": "<p>Share positive thoughts and feedback from your customer.</p>",
+            "margin_top": 24,
+            "margin_bottom": 24
+          }
+        },
         "stock_warning_CKpqhM": {
           "type": "stock_warning",
-          "disabled": true,
           "settings": {
             "title": "NOTE: High Demand Notice",
             "icon_text": "!",
@@ -231,6 +261,7 @@
         "description",
         "text_iBA3k9",
         "payment_badges_JwQHnw",
+        "reviews_LPRLU8",
         "stock_warning_CKpqhM",
         "product_faq_wztQ3W",
         "image_pQkgxF"
