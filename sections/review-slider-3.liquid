@@ -93,7 +93,7 @@
     border-radius: {{ section.settings.image_radius }}px;
     overflow: hidden;
     background: #f3f3f3;
-    aspect-ratio: 9 / 16;
+    aspect-ratio: {{ section.settings.image_ratio }};
     margin-bottom: 1rem;
   }
 
@@ -396,6 +396,18 @@
     { "type": "range", "id": "slide_gap", "label": "Gap", "min": 8, "max": 40, "step": 2, "unit": "px", "default": 16 },
     { "type": "range", "id": "card_radius", "label": "Card radius", "min": 0, "max": 30, "step": 1, "unit": "px", "default": 10 },
     { "type": "range", "id": "image_radius", "label": "Image radius", "min": 0, "max": 30, "step": 1, "unit": "px", "default": 0 },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image ratio",
+      "options": [
+        { "value": "1 / 1", "label": "Square (1:1)" },
+        { "value": "4 / 5", "label": "Portrait (4:5)" },
+        { "value": "3 / 4", "label": "Portrait (3:4)" },
+        { "value": "9 / 16", "label": "Tall (9:16)" }
+      ],
+      "default": "4 / 5"
+    },
     { "type": "range", "id": "quote_size", "label": "Quote text size", "min": 12, "max": 26, "step": 1, "unit": "px", "default": 18 },
     { "type": "range", "id": "author_size", "label": "Author text size", "min": 12, "max": 24, "step": 1, "unit": "px", "default": 14 },
 
