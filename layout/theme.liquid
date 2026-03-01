@@ -480,7 +480,9 @@
       {{ 'accessibility.skip_to_text' | t }}
     </a>
 
-    {% sections 'header-group' %}
+    {%- unless page.handle == 'a1a' -%}
+      {% sections 'header-group' %}
+    {%- endunless -%}
 
     {%- if settings.cart_type == 'drawer' -%}
       {%- section 'cart-drawer' -%}
@@ -493,7 +495,9 @@
     {% section 'promo-popup' %}
     {% section 'scroll-to-top-btn' %}
     {% section 'global-music-player' %}
-    {% sections 'footer-group' %}
+    {%- unless page.handle == 'a1a' -%}
+      {% sections 'footer-group' %}
+    {%- endunless -%}
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
