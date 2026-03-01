@@ -1,0 +1,11 @@
+{
+    "sections": {
+        "main": {
+            "type": "page-advertorial-v5",
+            "settings": {}
+        }
+    },
+    "order": [
+        "main"
+    ]
+}

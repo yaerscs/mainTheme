@@ -1,0 +1,712 @@
+{%- style -%}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .adv-v5-body { background: #fff; color: #333; font-family: 'Open Sans', Arial, sans-serif; font-size: 15px; line-height: 1.78; }
+
+  .adv-v5-body .adv-bar { background: #111; color: #fff; text-align: center; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; padding: 7px 0; }
+
+  .adv-v5-body .page { max-width: 700px; margin: 0 auto; padding: 0 18px 80px; }
+
+  .adv-v5-body .breadcrumb { padding: 14px 0 4px; font-size: 12px; color: #888; }
+  .adv-v5-body .breadcrumb a { color: #1a6496; text-decoration: none; }
+  .adv-v5-body .breadcrumb a:hover { text-decoration: underline; }
+  .adv-v5-body .breadcrumb span { margin: 0 4px; }
+
+  .adv-v5-body h1 { font-family: 'Merriweather', Georgia, serif; font-size: 27px; font-weight: 700; line-height: 1.3; color: #111; margin: 18px 0 16px; }
+
+  .adv-v5-body .byline-box { display: flex; align-items: center; gap: 12px; border: 1px solid #e0e0e0; border-radius: 4px; padding: 12px 16px; margin-bottom: 22px; background: #fafafa; }
+  .adv-v5-body .byline-ava { width: 44px; height: 44px; border-radius: 50%; background: #cdd9e5; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px; color: #2c5f8a; flex-shrink: 0; overflow: hidden; }
+  .adv-v5-body .byline-ava img { width: 100%; height: 100%; object-fit: cover; }
+  .adv-v5-body .byline-text { font-size: 12.5px; line-height: 1.55; color: #666; }
+  .adv-v5-body .byline-text strong { display: block; color: #111; font-size: 13px; }
+
+  .adv-v5-body .img-box { width: 100%; background: #e8eef5; border: 2px dashed #a8bece; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 28px 20px; margin: 22px 0; color: #4a6f8a; overflow: hidden; }
+  .adv-v5-body .img-box img { width: 100%; height: auto; border-radius: 4px; display: block; }
+  .adv-v5-body .img-box.has-image { padding: 0; border: none; background: transparent; }
+  
+  .adv-v5-body .img-box.h200:not(.has-image) { min-height: 200px; }
+  .adv-v5-body .img-box.h260:not(.has-image) { min-height: 260px; }
+  .adv-v5-body .img-box.h320:not(.has-image) { min-height: 320px; }
+  .adv-v5-body .img-box.h360:not(.has-image) { min-height: 360px; }
+  .adv-v5-body .img-box.h400:not(.has-image) { min-height: 400px; }
+  .adv-v5-body .img-box .ico { font-size: 30px; margin-bottom: 8px; }
+  .adv-v5-body .img-box .lbl { font-weight: 700; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 6px; }
+  .adv-v5-body .img-box .desc { font-size: 11.5px; color: #7a99b0; max-width: 420px; line-height: 1.5; }
+  .adv-v5-body .img-box.grey { background: #ebebeb; border-color: #bbb; color: #555; }
+  .adv-v5-body .img-box.grey .desc { color: #999; }
+  .adv-v5-body .img-box.red { background: #fdf0ef; border-color: #e0a8a5; color: #b03a2e; }
+  .adv-v5-body .img-box.red .desc { color: #c07060; }
+  .adv-v5-body .img-box.green { background: #eaf7ef; border-color: #7dba8e; color: #2e7d32; }
+  .adv-v5-body .img-box.green .desc { color: #5a9a6a; }
+
+  .adv-v5-body p { margin-bottom: 16px; font-size: 15px; line-height: 1.8; color: #333; }
+
+  .adv-v5-body h2 { font-family: 'Merriweather', Georgia, serif; font-size: 21px; font-weight: 700; color: #111; line-height: 1.35; margin: 36px 0 16px; }
+
+  .adv-v5-body .tick-box { background: #eef4fb; border: 1px solid #c0d6ed; border-radius: 4px; padding: 18px 22px; margin: 20px 0; }
+  .adv-v5-body .tick-box p { margin-bottom: 10px; font-size: 14.5px; }
+  .adv-v5-body .tick-box p:last-child { margin-bottom: 0; }
+
+  .adv-v5-body .photo-grid { margin: 16px 0 22px; width: 100%; }
+  .adv-v5-body .photo-grid img { width: 100%; height: auto; display: block; border-radius: 4px; }
+  .adv-v5-body .photo-grid .photo-placeholder { background: #dce8f3; border-radius: 3px; min-height: 300px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #4a6f8a; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 20px; border: 2px dashed #a8bece; }
+
+  .adv-v5-body ul.blist { list-style: disc; padding-left: 22px; margin: 10px 0 18px; }
+  .adv-v5-body ul.blist li { margin-bottom: 7px; font-size: 14.5px; }
+
+  .adv-v5-body .review-card { border: 1px solid #ddd; border-radius: 5px; padding: 16px 18px; margin: 20px 0; background: #fff; }
+  .adv-v5-body .review-card .stars { color: #f39c12; font-size: 13px; letter-spacing: 2px; margin-bottom: 4px; }
+  .adv-v5-body .review-card .r-name { font-weight: 700; font-size: 13px; color: #111; }
+  .adv-v5-body .review-card .r-meta { font-size: 11.5px; color: #999; margin-bottom: 10px; }
+  .adv-v5-body .review-card p { font-size: 13.5px; font-style: italic; margin-bottom: 0; color: #444; }
+
+  .adv-v5-body .btn { display: block; width: 100%; background: #27ae60; color: #fff !important; font-family: 'Open Sans', sans-serif; font-size: 16px; font-weight: 700; text-align: center; padding: 18px 20px; border-radius: 5px; border: none; cursor: pointer; text-decoration: none; margin: 14px 0; line-height: 1.4; transition: background 0.2s ease; }
+  .adv-v5-body .btn:hover { background: #219150; }
+
+  .adv-v5-body .update-box { border: 1px solid #ddd; border-radius: 4px; padding: 18px 20px; margin: 22px 0; }
+  .adv-v5-body .update-box p { font-size: 14px; margin-bottom: 8px; }
+  .adv-v5-body .update-box p:last-child { margin-bottom: 0; }
+
+  .adv-v5-body .final-box { border: 2px solid #ddd; border-radius: 6px; padding: 22px 18px; margin: 22px 0; text-align: center; background: #fafafa; }
+  .adv-v5-body .stock-line { font-size: 13px; color: #c0392b; font-weight: 700; margin-top: 10px; }
+
+  .adv-v5-body .comments { margin-top: 36px; }
+  .adv-v5-body .c-input-row { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+  .adv-v5-body .c-ava { width: 34px; height: 34px; border-radius: 50%; background: #dce8f3; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #2c5f8a; flex-shrink: 0; overflow: hidden; }
+  .adv-v5-body .c-ava img { width: 100%; height: 100%; object-fit: cover; }
+  .adv-v5-body .c-ava.grey { background: #e0e0e0; color: #aaa; }
+  .adv-v5-body .c-input-field { flex: 1; border: 1px solid #ddd; border-radius: 20px; padding: 9px 16px; font-size: 13px; color: #aaa; background: #fafafa; }
+  
+  .adv-v5-body .comment { display: flex; gap: 10px; margin-bottom: 16px; align-items: flex-start; }
+  .adv-v5-body .comment.c-reply { margin-left: 44px; position: relative; }
+  .adv-v5-body .comment.c-reply::before { content: ''; position: absolute; left: -26px; top: -16px; width: 16px; height: 32px; border-bottom: 2px solid #e0e0e0; border-left: 2px solid #e0e0e0; border-bottom-left-radius: 8px; }
+  
+  .adv-v5-body .c-body { flex: 1; }
+  .adv-v5-body .c-name { font-weight: 700; font-size: 13.5px; color: #111; }
+  .adv-v5-body .c-text { font-size: 13.5px; color: #333; margin: 4px 0 6px; line-height: 1.55; }
+  .adv-v5-body .c-meta { font-size: 12px; color: #888; }
+  .adv-v5-body .c-meta span { margin-right: 10px; cursor: pointer; }
+
+  .adv-v5-body footer { background: #1a1a1a; color: #777; padding: 28px 20px; margin-top: 40px; font-size: 11.5px; line-height: 1.75; text-align: center; }
+  .adv-v5-body footer .inner { max-width: 700px; margin: 0 auto; }
+  .adv-v5-body footer a { color: #aaa; }
+  .adv-v5-body .refs { text-align: left; margin-bottom: 18px; border-top: 1px solid #333; padding-top: 16px; font-size: 11px; }
+
+  .adv-v5-body s { color: #999; }
+
+  @media (max-width: 520px) {
+    .adv-v5-body h1 { font-size: 21px; }
+    .adv-v5-body h2 { font-size: 17px; }
+  }
+{%- endstyle -%}
+
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+<div class="adv-v5-body">
+  <div class="adv-bar">Advertorial</div>
+
+  <div class="page">
+
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/collections/all">Health</a><span>›</span>
+      <a href="/collections/all">Men's Health</a><span>›</span>
+      <a href="/collections/all">Prostate Health</a>
+    </div>
+
+    <h1>Top Urologist Warns: Every Month You Spend In "Watchful Waiting" Mode, Your Bladder Is Quietly Turning To Scar Tissue — And Most Men Have No Idea Until It's Too Late To Reverse</h1>
+
+    <div class="byline-box">
+      <div class="byline-ava">
+        {%- if section.settings.doctor_image != blank -%}
+          {{ section.settings.doctor_image | image_url: width: 88 | image_tag: loading: 'lazy' }}
+        {%- else -%}
+          MJ
+        {%- endif -%}
+      </div>
+      <div class="byline-text">
+        <strong>By Dr. Michael Johnson, MD | Board-Certified Urologist</strong>
+        October 29, 2025
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <div class="img-box h400{% if section.settings.hero_image != blank %} has-image{% endif %}">
+      {%- if section.settings.hero_image != blank -%}
+        {{ section.settings.hero_image | image_url: width: 1400 | image_tag: loading: 'lazy' }}
+      {%- else -%}
+        <div class="ico">🖼️</div>
+        <div class="lbl">Hero Image</div>
+        <div class="desc">Split composition. Left half: a man in his late 50s sitting on the edge of his bed at 3AM looking exhausted and resigned. Right half: a medical cross-section of a bladder wall...</div>
+      {%- endif -%}
+    </div>
+
+    <p><strong>Most men with prostate symptoms are told the same thing by their doctor: "Keep an eye on it. Come back if it gets worse."</strong></p>
+
+    <p><strong>It sounds reasonable. It might even feel responsible — like you're being sensible rather than rushing into medication or surgery.</strong></p>
+
+    <p>But here is what that advice almost never includes.</p>
+
+    <p>While you're watching and waiting, the obstruction from your prostate isn't sitting still either.</p>
+
+    <p>Every single night, your bladder is straining against it. Pushing harder. Working against resistance it was never built to handle long-term.</p>
+
+    <p>And the tissue is changing because of it — quietly, measurably, and in ways that are very difficult to reverse once they've set in.</p>
+
+    <p>I've spent more than 20 years as a urologist. The conversation I dread most is the one where I have to show a man his ultrasound and explain that we can still treat his prostate... but that his bladder has already paid a price we can't give back.</p>
+
+    <p>That conversation happens because of watchful waiting. And it's happening to men who had no idea it was coming.</p>
+
+    <p>This article exists so you don't become one of them.</p>
+
+
+    <h2>What Your Bladder Is Actually Doing While You Wait</h2>
+
+    <!-- TRABECULATION PROGRESSION DIAGRAM -->
+    <div class="img-box h400{% if section.settings.diagram_1 != blank %} has-image{% endif %}">
+      {%- if section.settings.diagram_1 != blank -%}
+        {{ section.settings.diagram_1 | image_url: width: 1400 | image_tag: loading: 'lazy' }}
+      {%- else -%}
+        <div class="ico">🖼️</div>
+        <div class="lbl">Diagram: Bladder Wall Progression</div>
+        <div class="desc">Three-stage anatomical cross-section from left to right. Stage 1 "Healthy"... Stage 2 "Hypertrophied"... Stage 3 "Trabeculated"...</div>
+      {%- endif -%}
+    </div>
+
+    <p>Your bladder is a muscle. It fills, holds, and empties — and under normal circumstances, it does this effortlessly, around a schedule that lets you sleep through the night and go about your day without a second thought.</p>
+
+    <p>But when a swollen, inflamed prostate narrows the urethra, the bladder can't empty normally. So it does what any muscle does when asked to work against resistance: it tries harder.</p>
+
+    <p>Day after day. Night after night. Every time you urinate, your bladder is generating extra force just to push past the obstruction your prostate is creating.</p>
+
+    <p>The wall starts to thicken. That part is almost expected. What isn't expected — and what almost no one warns men about — is what happens next.</p>
+
+    <p>As the wall thickens under this chronic strain, <strong>collagen begins depositing between the muscle fibers.</strong> Bands of fibrous scar tissue weave their way into the bladder wall. The muscle that was once elastic — able to stretch and contract smoothly — starts to stiffen. To harden. To become, in the language urologists use, trabeculated.</p>
+
+    <p>A trabeculated bladder is sometimes called a "leather bladder" for exactly this reason: the soft, pliable tissue has been replaced by something rigid and unresponsive.</p>
+
+    <p>And here is the part that matters most: <strong>once trabeculation sets in, it is largely irreversible.</strong> Even if the prostate obstruction is removed — through medication, surgery, or any other means — the bladder wall does not simply return to what it was. The collagen doesn't dissolve. The elasticity that's been lost doesn't come back.</p>
+
+    <p>The organ has been permanently changed by the waiting.</p>
+
+
+    <h2>You're Not "Maintaining" Anything. You're Already Losing Ground.</h2>
+
+    <!-- BLADDER WALL THICKNESS GRID -->
+    <div class="img-box h280{% if section.settings.diagram_2 != blank %} has-image{% endif %}">
+      {%- if section.settings.diagram_2 != blank -%}
+        {{ section.settings.diagram_2 | image_url: width: 1400 | image_tag: loading: 'lazy' }}
+      {%- else -%}
+        <div class="ico">🖼️</div>
+        <div class="lbl">Medical Illustration: Bladder Wall Cross-Sections</div>
+        <div class="desc">Grid of circular cross-section illustrations showing bladder wall tissue at escalating stages of damage...</div>
+      {%- endif -%}
+    </div>
+
+    <p>The most damaging idea in men's prostate health is the belief that the bladder is a static vessel — that it will simply wait, unchanged and patient, for you to decide when you're ready to address the problem properly.</p>
+
+    <p>It won't.</p>
+
+    <p>Your bladder doesn't know you're planning to deal with this "when it gets bad enough." It only knows the load it's under tonight. And tomorrow night. And every night until something changes.</p>
+
+    <p>There's a clinical signal most men are already experiencing — and almost none of them recognize it for what it is. When the urgency to urinate is intense, demanding, impossible to ignore... but you sit down and produce surprisingly little volume. That gap — the mismatch between how desperately full you felt and how little actually came out — is your bladder losing its ability to accurately sense its own state.</p>
+
+    <p>It's a bladder wall that has been thickened and stiffened past the point where it can hold comfortably and signal reliably.</p>
+
+    <p>That sensation isn't just an inconvenience. It's a measurement. And it's telling you something about the state of the tissue that no amount of waiting will improve.</p>
+
+    <p>Urologists measure bladder wall thickness by ultrasound. When it crosses above 80 grams, the literature considers it a signal of irreversible pathological change. Most men have never been told that number exists, let alone what their own score is.</p>
+
+
+    <h2>The Window To Protect Your Bladder Health Is Open Right Now. It Won't Be Forever.</h2>
+
+    <p>This is the part of the conversation that I wish I could have with every man earlier.</p>
+
+    <p>Not to create panic. But because timing genuinely matters here.</p>
+
+    <p>The tissue change that watchful waiting causes is a slow, accumulating process. In the early stages, before significant fibrosis has set in, the right intervention — one that reduces the obstruction and calms the inflammation driving the prostate enlargement — can meaningfully slow or halt the progression.</p>
+
+    <p>The bladder still has enough elasticity to recover its function. The straining stops. The wall gets a chance to settle.</p>
+
+    <p>But that window isn't permanent. Every month of untreated obstruction is another month of collagen accumulation. At some point, the damage crosses a threshold that can't be managed conservatively. And the men who reach that point do so not because they were negligent — but because they were never told that waiting carried this specific cost.</p>
+
+    <p>I'm telling you now.</p>
+
+
+    <h2>What Actually Reduces The Obstruction And Gives The Bladder A Chance To Recover</h2>
+
+    <!-- MECHANISM DIAGRAM -->
+    <div class="img-box h320{% if section.settings.diagram_3 != blank %} has-image{% endif %}">
+      {%- if section.settings.diagram_3 != blank -%}
+        {{ section.settings.diagram_3 | image_url: width: 1400 | image_tag: loading: 'lazy' }}
+      {%- else -%}
+        <div class="ico">🖼️</div>
+        <div class="lbl">Diagram: The Decompression Effect</div>
+        <div class="desc">Side-by-side prostate cross-section... Left labeled "Obstructed"... Right labeled "Decompressed"...</div>
+      {%- endif -%}
+    </div>
+
+    <p>To stop the bladder from continuing to scar, you need to stop the cause: the obstruction and inflammation that are forcing it to overwork.</p>
+
+    <p>Two things need to happen simultaneously.</p>
+
+    <p>First, the hormonal driver of prostate growth needs to be addressed. DHT — the hormone converted from testosterone by the enzyme 5-alpha-reductase — is the primary signal telling the prostate to keep enlarging. Block that enzyme, and you cut off the fuel.</p>
+
+    <p>Second, the active inflammation in the prostate tissue needs to be reduced — because inflammation is what causes the prostate to swell against the urethra in the first place. And the smooth muscle around the urethra and bladder neck needs to relax the tension it's been holding, so the obstruction can physically open.</p>
+
+    <p>When both happen together, the pressure on the bladder drops. The straining stops. And the tissue that's still recoverable gets the chance to do so.</p>
+
+    <p>This is the core of what I call the Pelvic Decompression approach — and it's the combination of ingredients I've recommended to patients for years who want to address this proactively, before the window closes.</p>
+
+    <div class="tick-box">
+      <p>✅ <strong>5-alpha-reductase inhibition</strong> — cuts DHT production, removing the hormonal signal driving prostate growth</p>
+      <p>✅ <strong>Prostate inflammation reduction</strong> — targets the swelling that's creating the obstruction in the first place</p>
+      <p>✅ <strong>Smooth muscle relaxation via the nitric oxide pathway</strong> — releases the grip on the urethra so the bladder can finally empty without straining</p>
+    </div>
+
+    <p>The specific combination that delivers all three: <strong>lipidosterolic saw palmetto extract and pumpkin seed oil.</strong></p>
+
+    <p>Saw palmetto in its properly extracted oil form is a well-studied 5-alpha-reductase inhibitor. Pumpkin seed oil delivers both anti-inflammatory plant sterols and arginine — the natural precursor to the nitric oxide signal that tells smooth muscle to release tension.</p>
+
+    <p>Together, they address the obstruction from two directions. That's the difference between managing a symptom and actually changing what the bladder has to work against every night.</p>
+
+
+    <h2>Introducing MeridEase Labs Pumpkin Seed Oil &amp; Saw Palmetto</h2>
+
+    <!-- PRODUCT IMAGE -->
+    <div class="img-box h360{% if section.settings.product_pack_1 != blank %} has-image{% endif %}">
+      {%- if section.settings.product_pack_1 != blank -%}
+        {{ section.settings.product_pack_1 | image_url: width: 1400 | image_tag: loading: 'lazy' }}
+      {%- else -%}
+        <div class="ico">🖼️</div>
+        <div class="lbl">Product Image: MeridEase Labs Pack</div>
+        <div class="desc">Clean, professional product shot of the MeridEase Labs Pumpkin Seed Oil + Saw Palmetto softgel pack...</div>
+      {%- endif -%}
+    </div>
+
+    <p>This is the formulation I point patients toward when they want to stop the accumulating damage before it becomes irreversible.</p>
+
+    <p>The saw palmetto is delivered as a <strong>lipidosterolic extract at 23.85mg per serving</strong> — concentrated active fatty acids in the oil form that absorbs into prostate tissue. Not dried berry powder. The form that actually reaches where it needs to go.</p>
+
+    <p>The pumpkin seed oil comes in at <strong>1,000mg per serving</strong>, providing the plant sterols and arginine content that work on the inflammatory and smooth muscle sides of the problem at the same time.</p>
+
+    <p>Softgels. The oil matrix is preserved from production to absorption.</p>
+
+    <p>Each pack is a <strong>3-month supply — 300 softgels, 3 per day.</strong></p>
+
+    <p>Three months is the right timeframe because this isn't an acute intervention — it's a restoration process. You're working to change the prostate environment that has been building for years. Men who stick to the full course consistently are the ones who come back and tell me something finally changed.</p>
+
+    <!-- REVIEW -->
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <div class="r-name">Gary M.</div>
+      <div class="r-meta">Reviewed in the United States on February 14, 2025</div>
+      <p><strong>The urgency-with-no-volume thing is gone</strong><br><br>
+      I'd been in watchful waiting for almost two years. The thing that finally got me to act was the description of that urgency-volume mismatch — where you feel like you're bursting but then almost nothing comes out. That was me, every night. At 8 weeks I can tell you that sensation is nearly gone. Sleeping better than I have in years and the urgency during the day has calmed significantly. Should have stopped waiting a lot sooner.</p>
+    </div>
+
+
+    <h2>What's Possible When The Bladder Isn't Straining Every Night</h2>
+
+    <div class="photo-grid">
+      {%- if section.settings.customer_results_image != blank -%}
+        {{ section.settings.customer_results_image | image_url: width: 1400 | image_tag: loading: 'lazy' }}
+      {%- else -%}
+        <div class="photo-placeholder">📸 Customer Results Collage Placeholder</div>
+      {%- endif -%}
+    </div>
+
+    <div class="tick-box">
+      <p>✅ Sleep through the night — because the bladder isn't fighting an obstruction every time it needs to empty</p>
+      <p>✅ Urge matches volume — when you feel full, you actually are, and when you go, you actually empty</p>
+      <p>✅ Stop the structural damage that compounds silently while you're in watchful waiting mode</p>
+      <p>✅ Preserve the bladder elasticity you still have — before the fibrosis reaches the point it can't be reversed</p>
+    </div>
+
+    <p>The men who use this aren't chasing a symptomatic shortcut. They're choosing to act on the information most men never get — that the waiting has a cost, and that the cost is structural and permanent if you let it run long enough.</p>
+
+    <p>That is what acting now means.</p>
+
+
+    <h2>How To Get MeridEase Labs Pumpkin Seed Oil &amp; Saw Palmetto</h2>
+
+    <!-- LIFESTYLE IMAGE -->
+    <div class="img-box h260{% if section.settings.lifestyle_1 != blank %} has-image{% endif %}">
+      {%- if section.settings.lifestyle_1 != blank -%}
+        {{ section.settings.lifestyle_1 | image_url: width: 1400 | image_tag: loading: 'lazy' }}
+      {%- else -%}
+        <div class="ico">🖼️</div>
+        <div class="lbl">Lifestyle Image</div>
+        <div class="desc">MeridEase Labs pack on a clean countertop beside a glass of water...</div>
+      {%- endif -%}
+    </div>
+
+    <p>One honest word about stock before we get to pricing.</p>
+
+    <p>The lipidosterolic extraction process for saw palmetto takes time. Every batch is produced to a specification we don't compress. We run into supply limitations regularly, and when a batch sells out, the next one isn't available the next day.</p>
+
+    <p><strong>If this page is up, packs are available right now. That can change quickly.</strong></p>
+
+
+    <h2>This Batch Is Moving Fast — Once It's Gone, Restocking Takes Weeks</h2>
+
+    <div class="img-box grey h260{% if section.settings.warehouse_image != blank %} has-image{% endif %}">
+      {%- if section.settings.warehouse_image != blank -%}
+        {{ section.settings.warehouse_image | image_url: width: 1400 | image_tag: loading: 'lazy' }}
+      {%- else -%}
+        <div class="ico">🏭</div>
+        <div class="lbl">Warehouse Image</div>
+        <div class="desc">Warehouse shelving... Communicates real production constraints without drama.</div>
+      {%- endif -%}
+    </div>
+
+    <p>The men sending emails asking when we'll be back in stock are the ones who saw this page and didn't act on it.</p>
+
+    <p>More importantly: every week you wait for stock to return is another week the prostate obstruction continues, and another week the bladder wall is under the same strain it's been under all along.</p>
+
+    <p>The case for ordering today isn't the discount, though there is one. It's that the organ you're trying to protect doesn't pause while you think about it.</p>
+
+
+    <p><strong>A 3-month supply is {{ section.settings.price }}.</strong> That's {{ section.settings.daily_price }} a day.</p>
+
+    <p>Compare that against the alternatives most men end up facing once the damage is done:</p>
+
+    <ul class="blist">
+      <li>Alpha-blockers like Flomax: $150–300/month — mask the urgency without touching the obstruction or the tissue damage accumulating behind it</li>
+      <li>5-alpha-reductase drugs like Finasteride: $100–200/month — with documented sexual side effects in a meaningful percentage of users</li>
+      <li>Surgical intervention for decompensated bladder: well into five figures, and at that stage, the bladder wall damage is already done</li>
+    </ul>
+
+    <p>The entire case for addressing this now — rather than waiting for it to get worse — is that you're choosing proactive tissue protection over expensive reactive damage control.</p>
+
+    <p>That said: I know money is real. And I've arranged something to lower the barrier.</p>
+
+
+    <h2>A Time-Limited Discount For Men Who Are Ready To Act Now</h2>
+
+    <div class="img-box red h200{% if section.settings.discount_image != blank %} has-image{% endif %}">
+      {%- if section.settings.discount_image != blank -%}
+        {{ section.settings.discount_image | image_url: width: 1400 | image_tag: loading: 'lazy' }}
+      {%- else -%}
+        <div class="ico">🏷️</div>
+        <div class="lbl">Discount Badge</div>
+        <div class="desc">"[X]% OFF" displayed prominently. MeridEase Labs pack beside it...</div>
+      {%- endif -%}
+    </div>
+
+    <p><strong>{{ section.settings.sale_price }}</strong> <s>{{ section.settings.original_price }}</s> — for the full 3-month supply, with the 60-day guarantee included.</p>
+
+    <p>This pricing is tied to current stock. When this batch is gone, the discount goes with it.</p>
+
+    <a href="{{ section.settings.cta_link }}" class="btn">Check Availability &amp; Apply Discount — While Stock Lasts 🔒</a>
+
+
+    <h2>60 Days To Try It. Full Refund If It's Not Right For You.</h2>
+
+    <div class="img-box green h260{% if section.settings.guarantee_image != blank %} has-image{% endif %}">
+      {%- if section.settings.guarantee_image != blank -%}
+        {{ section.settings.guarantee_image | image_url: width: 1400 | image_tag: loading: 'lazy' }}
+      {%- else -%}
+        <div class="ico">🛡️</div>
+        <div class="lbl">60-Day Guarantee</div>
+        <div class="desc">Circular green and gold "60 DAY MONEY BACK GUARANTEE" badge...</div>
+      {%- endif -%}
+    </div>
+
+    <p>Take 60 days. Use it consistently. If your nights don't change in a way you can feel — full refund, no questions, no forms.</p>
+
+    <p>Email the team at <strong>support@merideaselab.com</strong> and it's handled.</p>
+
+    <p>The financial risk is zero. The risk you're actually carrying is the one that comes from continuing to wait while the tissue change compounds underneath you.</p>
+
+
+    <h2>Here's How To Order</h2>
+
+    <div class="img-box h260{% if section.settings.lifestyle_2 != blank %} has-image{% endif %}">
+      {%- if section.settings.lifestyle_2 != blank -%}
+        {{ section.settings.lifestyle_2 | image_url: width: 1400 | image_tag: loading: 'lazy' }}
+      {%- else -%}
+        <div class="ico">🖼️</div>
+        <div class="lbl">Lifestyle Image</div>
+        <div class="desc">MeridEase Labs pack on a clean wooden bedside table...</div>
+      {%- endif -%}
+    </div>
+
+    <p>Click the button below. You'll go straight to our secure checkout.</p>
+
+    <p>Choose your quantity — most men order two packs so they don't have to interrupt the course — and the current discount applies automatically at checkout.</p>
+
+    <p>Three softgels per day, taken with a meal. That's the entire protocol.</p>
+
+    <a href="{{ section.settings.cta_link }}" class="btn">Apply Discount &amp; Check Availability 🔒</a>
+
+
+    <h2>The Bladder Doesn't Wait For You To Decide You're Ready</h2>
+
+    <div class="img-box grey h260{% if section.settings.crossroads_image != blank %} has-image{% endif %}">
+      {%- if section.settings.crossroads_image != blank -%}
+        {{ section.settings.crossroads_image | image_url: width: 1400 | image_tag: loading: 'lazy' }}
+      {%- else -%}
+        <div class="ico">🖼️</div>
+        <div class="lbl">Fork-in-Road Image</div>
+        <div class="desc">Man seen from behind standing at a fork in a road...</div>
+      {%- endif -%}
+    </div>
+
+    <p>The reason I still see men in my clinic with damaged, decompensated bladders is not that they were lazy or irresponsible.</p>
+
+    <p>It's that no one framed the situation honestly for them early enough. "Watchful waiting" sounds like a strategy. It's actually a description of what happens by default when nothing is done — and by the time most men realize what that inaction cost them, the cost has already been paid.</p>
+
+    <p>The tissue change happening in your bladder right now is gradual enough that you won't feel it acutely. But the urgency-without-volume, the sense of never quite emptying, the frequency getting slowly worse — those are the measurements. And they're moving in the wrong direction while you wait.</p>
+
+    <p>You don't need surgery. You don't need to accept a pharmaceutical with a list of side effects. You need to reduce the obstruction that's forcing your bladder to overwork — and give the tissue that's still recoverable the environment it needs to settle.</p>
+
+    <p>That's what this is for. And right now, while there's stock, while the discount is active, and while your bladder wall still has elasticity worth protecting — this is the right moment.</p>
+
+    <a href="{{ section.settings.cta_link }}" class="btn">Check Availability &amp; Get Your Pack Today 🔒</a>
+
+    <div class="update-box">
+      <p><strong>UPDATE:</strong> This batch is selling faster than anticipated. The current discount is still active — but stock cannot be guaranteed past today.</p>
+      <p>✅ Order now to lock in current pricing<br>✅ 60-day money-back guarantee on every order<br>✅ Once this batch sells out, the next won't be available at this price</p>
+      <p>👉 <strong>CLICK TO SECURE YOUR ORDER BEFORE THIS BATCH RUNS OUT →</strong></p>
+    </div>
+
+    <div class="final-box">
+      <div class="img-box h220{% if section.settings.final_product_image != blank %} has-image{% endif %}" style="margin: 0 0 14px;">
+        {%- if section.settings.final_product_image != blank -%}
+          {{ section.settings.final_product_image | image_url: width: 1400 | image_tag: loading: 'lazy' }}
+        {%- else -%}
+          <div class="ico">🖼️</div>
+          <div class="lbl">Final CTA Product Image</div>
+          <div class="desc">MeridEase Labs pack displayed with trust badges...</div>
+        {%- endif -%}
+      </div>
+      <a href="{{ section.settings.cta_link }}" class="btn">Get Up To {{ section.settings.discount_amount }} Off Today 🔒</a>
+      <p class="stock-line">⚠️ Only {{ section.settings.stock_left }} packs remaining at {{ section.settings.price }} — Price increases at sellout</p>
+    </div>
+
+
+    <!-- COMMENTS -->
+    <div class="comments">
+      <div class="c-input-row">
+        <div class="c-ava grey">👤</div>
+        <div class="c-input-field">Write a comment...</div>
+      </div>
+
+      <div class="comment">
+        <div class="c-ava">TD</div>
+        <div class="c-body">
+          <div class="c-name">Tom D.</div>
+          <p class="c-text">The part about urgency with no volume output was what hit me. I've been telling my wife I'm "managing it fine" for 18 months. I wasn't. Ordering now.</p>
+          <div class="c-meta"><span>Like</span><span>Reply</span><span>👍 11</span><span>· 2h</span></div>
+        </div>
+      </div>
+
+      <div class="comment">
+        <div class="c-ava">RW</div>
+        <div class="c-body">
+          <div class="c-name">Ray W.</div>
+          <p class="c-text">I'm on week 6. The urgency-volume mismatch Dr. Johnson described — that was my nightly experience for two years. It's almost completely gone now. I can't tell you what that means after two years of it.</p>
+          <div class="c-meta"><span>Like</span><span>Reply</span><span>👍 18</span><span>· 1h</span></div>
+        </div>
+      </div>
+
+      <div class="comment c-reply">
+        <div class="c-ava">TD</div>
+        <div class="c-body">
+          <div class="c-name">Tom D.</div>
+          <p class="c-text">Good to hear. Order's in. Not waiting any longer.</p>
+          <div class="c-meta"><span>Like</span><span>Reply</span><span>👍 4</span><span>· 55 min</span></div>
+        </div>
+      </div>
+
+      <div class="comment">
+        <div class="c-ava">KH</div>
+        <div class="c-body">
+          <div class="c-name">Keith H.</div>
+          <p class="c-text">My GP said watchful waiting was fine. He never mentioned anything about permanent bladder wall damage. I'm not angry but I wish I'd read something like this two years ago. Month 3 now — the nights are almost normal again.</p>
+          <div class="c-meta"><span>Like</span><span>Reply</span><span>👍 24</span><span>· 48 min</span></div>
+        </div>
+      </div>
+
+      <div class="comment">
+        <div class="c-ava">SL</div>
+        <div class="c-body">
+          <div class="c-name">Steve L.</div>
+          <p class="c-text">The 80g bladder wall weight number — I had no idea that measurement existed. Asked my urologist about it at my next appointment. He said mine was elevated. Ordered the same afternoon.</p>
+          <div class="c-meta"><span>Like</span><span>Reply</span><span>👍 15</span><span>· 40 min</span></div>
+        </div>
+      </div>
+
+      <div class="comment">
+        <div class="c-ava">PB</div>
+        <div class="c-body">
+          <div class="c-name">Paul B.</div>
+          <p class="c-text">Week 5 here. Down from 3-4 wake-ups to once or twice. The difference in how I feel during the day is hard to overstate. You don't realize how bad the sleep deprivation has gotten until you finally start getting proper rest again.</p>
+          <div class="c-meta"><span>Like</span><span>Reply</span><span>👍 19</span><span>· 32 min</span></div>
+        </div>
+      </div>
+
+      <div class="comment">
+        <div class="c-ava">JM</div>
+        <div class="c-body">
+          <div class="c-name">Jim M.</div>
+          <p class="c-text">Just placed my order. The 60-day guarantee made it a no-brainer. Worst case I get a refund. Best case I stop doing more damage to my bladder every night.</p>
+          <div class="c-meta"><span>Like</span><span>Reply</span><span>👍 8</span><span>· 22 min</span></div>
+        </div>
+      </div>
+
+      <div class="comment">
+        <div class="c-ava">RW</div>
+        <div class="c-body">
+          <div class="c-name">Ray W.</div>
+          <p class="c-text">Stick with it past week 3. I nearly stopped at week 2 thinking it wasn't doing anything. Week 4 was when I noticed the shift. Give it the full course.</p>
+          <div class="c-meta"><span>Like</span><span>Reply</span><span>👍 13</span><span>· 14 min</span></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div><!-- end page -->
+
+  <footer>
+    <div class="inner">
+      <div class="refs">
+        <p>1. Oelke M, et al. Age and bladder outlet obstruction are independently associated with detrusor overactivity in patients with lower urinary tract symptoms. Eur Urol. 2008;54:419–426.</p>
+        <p>2. Roehrborn CG, McConnell JD. Etiology, pathophysiology, epidemiology, and natural history of benign prostatic hyperplasia. Campbell's Urology. 2002.</p>
+        <p>3. Friederich M, et al. Prosta Fink Forte capsules in the treatment of benign prostatic hyperplasia. Forsch Komplementarmed Klass Naturheilkd. 2000;7:200–204.</p>
+        <p>4. Tacklind J, et al. Serenoa repens for benign prostatic hyperplasia. Cochrane Database Syst Rev. 2012.</p>
+      </div>
+      <p>These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Individual results may vary.</p>
+      <br>
+      <p>© {{ 'now' | date: "%Y" }}, MeridEase Labs &nbsp;|&nbsp; <a href="/policies/terms-of-service">Terms of Service</a> &nbsp;|&nbsp; <a href="/policies/privacy-policy">Privacy Policy</a></p>
+    </div>
+  </footer>
+</div>
+
+{% schema %}
+{
+  "name": "Advertorial V5",
+  "settings": [
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "All Call-To-Action Button Links"
+    },
+    {
+      "type": "text",
+      "id": "price",
+      "label": "Price Value (e.g. $127.50)",
+      "default": "$127.50"
+    },
+    {
+      "type": "text",
+      "id": "daily_price",
+      "label": "Daily Cost (e.g. $1.41)",
+      "default": "$1.41"
+    },
+    {
+      "type": "text",
+      "id": "original_price",
+      "label": "Original Price (Strikethrough)",
+      "default": "$175.50"
+    },
+    {
+      "type": "text",
+      "id": "sale_price",
+      "label": "Sale Price",
+      "default": "$127.50"
+    },
+    {
+      "type": "text",
+      "id": "discount_amount",
+      "label": "Discount Amount (e.g. 50%)",
+      "default": "25%"
+    },
+    {
+      "type": "text",
+      "id": "stock_left",
+      "label": "Stock Left Number",
+      "default": "48"
+    },
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "doctor_image",
+      "label": "Doctor Profile Picture"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image (Bed/Bladder Split)"
+    },
+    {
+      "type": "image_picker",
+      "id": "diagram_1",
+      "label": "Diagram 1 (Bladder Wall Progression)"
+    },
+    {
+      "type": "image_picker",
+      "id": "diagram_2",
+      "label": "Diagram 2 (Thickness Grid)"
+    },
+    {
+      "type": "image_picker",
+      "id": "diagram_3",
+      "label": "Diagram 3 (Decompression Effect)"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_pack_1",
+      "label": "Product Pack Box Setup"
+    },
+    {
+      "type": "image_picker",
+      "id": "customer_results_image",
+      "label": "Collage of Customer Photo Results"
+    },
+    {
+      "type": "image_picker",
+      "id": "lifestyle_1",
+      "label": "Product Pack at Breakfast/Kitchen"
+    },
+    {
+      "type": "image_picker",
+      "id": "warehouse_image",
+      "label": "Warehouse/Stock levels Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "discount_image",
+      "label": "Discount Badge Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "guarantee_image",
+      "label": "60-Day Guarantee Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "lifestyle_2",
+      "label": "Product Pack Nightstand/Bedside"
+    },
+    {
+      "type": "image_picker",
+      "id": "crossroads_image",
+      "label": "Fork in the road Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "final_product_image",
+      "label": "Final Bottom Product Graphic"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Advertorial V5"
+    }
+  ]
+}
+{% endschema %}
