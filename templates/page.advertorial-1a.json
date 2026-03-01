@@ -1,11 +1,44 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-    "sections": {
-        "main": {
-            "type": "page-advertorial-1a",
-            "settings": {}
-        }
-    },
-    "order": [
-        "main"
-    ]
+  "sections": {
+    "main": {
+      "type": "page-advertorial-1a",
+      "settings": {
+        "cta_link": "",
+        "price": "$55",
+        "daily_price": "$0.25",
+        "original_price": "$75",
+        "sale_price": "$55",
+        "discount_amount": "25%",
+        "stock_left": "48",
+        "doctor_image": "shopify://shop_images/Gemini_Generated_Image_i8fjdvi8fjdvi8fj.jpg",
+        "hero_image": "shopify://shop_images/unwatermarked_Gemini_Generated_Image_efcb8pefcb8pefcb.png",
+        "diagram_1": "shopify://shop_images/gg.jpg",
+        "diagram_2": "shopify://shop_images/How_BPH_affects_bladder_function.png",
+        "diagram_3": "shopify://shop_images/Gemini_Generated_Image_mf0lh5mf0lh5mf0l.jpg",
+        "doctor_research_image": "shopify://shop_images/Gemini_Generated_Image_gwo43kgwo43kgwo4.jpg",
+        "product_pack_1": "shopify://shop_images/Gemini_Generated_Image_v25mgpv25mgpv25m.jpg",
+        "mechanism_diagram": "shopify://shop_images/Gemini_Generated_Image_ms1cb5ms1cb5ms1c.png",
+        "customer_results_image": "shopify://shop_images/ss.jpg",
+        "lifestyle_1": "shopify://shop_images/unwatermarked_Gemini_Generated_Image_w9nliiw9nliiw9nl.png",
+        "warehouse_image": "shopify://shop_images/hf_20260301_061402_af1d912c-db80-4792-a422-4313cd8a0024.png",
+        "discount_image": "shopify://shop_images/ChatGPT_Image_Mar_1_2026_07_26_14_PM.png",
+        "guarantee_image": "shopify://shop_images/ChatGPT_Image_Mar_1_2026_07_30_41_PM.png",
+        "lifestyle_2": "shopify://shop_images/unwatermarked_Gemini_Generated_Image_2esfvc2esfvc2esf.png",
+        "crossroads_image": "shopify://shop_images/x.jpg",
+        "final_product_image": "shopify://shop_images/Gemini_Generated_Image_v25mgpv25mgpv25m.jpg"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
 }

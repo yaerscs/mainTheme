@@ -56,6 +56,7 @@
         "1c647602-cc00-4009-a058-976435c8ee9e",
         "email_signup_a8CiTE"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "accent-1",
         "enable_follow_on_shop": false,
