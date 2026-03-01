@@ -172,10 +172,10 @@
             "author_1": "Robert L. [stars]",
             "image_1": "shopify://shop_images/email_popup_male_portrait_1766754535993.jpg",
             "text_1": "<p>I was waking up 4-5 times every night, completely exhausted and irritable during the day. My wife couldn't sleep either with all my trips to the bathroom, and I was terrified of ending up needing surgery. Within three weeks of starting this, I'm down to just once a night, and some nights I actually sleep straight through—I forgot what that felt like.</p>",
-            "author_2": "<em>Author</em> [stars]",
-            "text_2": "<p>Share positive thoughts and feedback from your customer.</p>",
-            "author_3": "<em>Author</em> [stars]",
-            "text_3": "<p>Share positive thoughts and feedback from your customer.</p>",
+            "author_2": "",
+            "text_2": "",
+            "author_3": "",
+            "text_3": "",
             "margin_top": 24,
             "margin_bottom": 24
           }
