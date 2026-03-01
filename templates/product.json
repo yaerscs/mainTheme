@@ -228,8 +228,8 @@
             "accordion_mode": true,
             "question_1": "Description",
             "answer_1": "<p>MeridEase is a powerful, clean supplement designed to support prostate health with high-potency pumpkin seed oil and saw palmetto extracts.</p><p>Our supplements are backed up with a 60-day money-back guarantee. That's how confident we are in your results. </p><p>No aftertaste. No side effects. Just results. </p>",
-            "question_2": "Why MeridEase's Pumpkin Seed oil?",
-            "answer_2": "<p>Our daily formula, made with highly concentrated extracts, supports your prostate health, comfort, and normal urinary flow. </p><p>Backed by modern science, pumpkin seed oil and saw palmetto are able refresh your world again. </p><p><strong>Our product is not the same as regular pumpkin seeds and saw palmetto. Our softgels are</strong> <strong>standardized, concentrated and cold-pressed, ensuring correct lab-grade ingredients. </strong></p>",
+            "question_2": "How long does it take to see results?",
+            "answer_2": "<p>Most men notice their first bathroom trip gets pushed back within 2-3 weeks. </p><p>By week 4-6, you're typically waking up 1-2 fewer times per night. </p><p>The full breakthrough—sleeping through to morning—usually happens around 8-12 weeks.</p>",
             "question_3": "Benefits",
             "answer_3": "<p>✓ Support prostate health</p><p>✓ Supports normal DHT balance</p><p>✓ Helps maintain normal prostate size</p><p>✓ Promotes prostate comfort</p><p>✓ Promotes comfortable urination<br/></p>",
             "question_4": "Recommended use",
@@ -382,7 +382,7 @@
         "slide_gap": 12,
         "slide_radius": 10,
         "scroll_speed": 40,
-        "padding_top": 100,
+        "padding_top": 50,
         "padding_bottom": 50
       }
     },
