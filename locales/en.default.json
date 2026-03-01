@@ -157,6 +157,19 @@
       "submit": "Reset password"
     }
   },
+  "customer_accounts": {
+    "payment_methods": {
+      "card_update_consent_subscriptions": "‎ ",
+      "update_payment_method": {
+        "disclaimer": "‎ "
+      },
+      "add_payment_method": {
+        "subscription_contracts": {
+          "title": "‎ "
+        }
+      }
+    }
+  },
   "gempages": {
     "Carousel": {
       "no_slider": "No Slider"
@@ -680,19 +693,6 @@
         "send": "Send",
         "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
         "error_heading": "Please adjust the following:"
-      }
-    }
-  },
-  "customer_accounts": {
-    "payment_methods": {
-      "card_update_consent_subscriptions": "‎ ",
-      "update_payment_method": {
-        "disclaimer": "‎ "
-      },
-      "add_payment_method": {
-        "subscription_contracts": {
-          "title": "‎ "
-        }
       }
     }
   }
