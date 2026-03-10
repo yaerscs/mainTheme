@@ -1,6 +1,9 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>
+    {% if template == 'index' %}
+      <script>window.location.replace('/products/pumpkin-seed-oil-softgels');</script>
+    {% endif %}
     {% render 'shogun-optimizer' %}
 
     <meta charset="utf-8">
