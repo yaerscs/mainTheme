@@ -542,8 +542,8 @@
       "shipping": {
         "shipping_method_title": "Shipping method",
         "shipping_method_recurring_shipments_group_title": {
-          "one": "‎ ",
-          "other": "‎ "
+          "one": "‎ Ships every {{ interval }} ",
+          "other": "‎ Ships every {{ interval }} "
         },
         "subscription_delivery_description": {
           "first_n_order_free_with_cycle": {
@@ -593,7 +593,7 @@
         "shipping_address": "Shipping Address"
       },
       "order_summary": {
-        "recurring_subtotal": "60 day money backguarantee",
+        "recurring_subtotal": "Ships every {{ interval }} ",
         "unit_price": {
           "content_html": " s"
         },
