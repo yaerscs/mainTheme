@@ -593,7 +593,7 @@
         "shipping_address": "Shipping Address"
       },
       "order_summary": {
-        "recurring_subtotal": "Ships every {{ interval }} ",
+        "recurring_subtotal": "Shipss every {{ interval }} ",
         "unit_price": {
           "content_html": " s"
         },
