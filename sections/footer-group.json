@@ -14,17 +14,6 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "fc645871-d789-4cfa-8584-4f8a29b6ce92": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/logo_f6ce72e4-b4bb-46c6-977a-1330d90bb9dc.png",
-            "image_width": 245,
-            "alignment": "center",
-            "url": "",
-            "width_desktop": 4,
-            "width_mobile": "2"
-          }
-        },
         "1c647602-cc00-4009-a058-976435c8ee9e": {
           "type": "link_list",
           "settings": {
@@ -49,12 +38,22 @@
             "width_desktop": 3,
             "width_mobile": "2"
           }
+        },
+        "text_8QkTiW": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "block_headings_font_size": 1,
+            "subtext": "<p><strong>This statement has not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</strong></p>",
+            "width_desktop": 3,
+            "width_mobile": "2"
+          }
         }
       },
       "block_order": [
-        "fc645871-d789-4cfa-8584-4f8a29b6ce92",
         "1c647602-cc00-4009-a058-976435c8ee9e",
-        "email_signup_a8CiTE"
+        "email_signup_a8CiTE",
+        "text_8QkTiW"
       ],
       "settings": {
         "color_scheme": "accent-1",
