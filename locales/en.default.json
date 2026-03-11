@@ -542,7 +542,7 @@
       "shipping": {
         "shipping_method_title": "Shipping method",
         "shipping_method_recurring_shipments_group_title": {
-          "one": "‎ Ships every {{ interval }} ",
+          "one": "‎ Shipss every {{ interval }} ",
           "other": "‎ Ships every {{ interval }} "
         },
         "subscription_delivery_description": {
@@ -593,7 +593,7 @@
         "shipping_address": "Shipping Address"
       },
       "order_summary": {
-        "recurring_subtotal": "Shipss every {{ interval }} ",
+        "recurring_subtotal": "Ships every {{ interval }} ",
         "unit_price": {
           "content_html": " s"
         },
