@@ -542,8 +542,7 @@
       "shipping": {
         "shipping_method_title": "Shipping method",
         "shipping_method_recurring_shipments_group_title": {
-          "one": "‎ Shipss every {{ interval }} ",
-          "other": "‎ Ships every {{ interval }} "
+          "one": "‎ Shipss every {{ interval }} "
         },
         "subscription_delivery_description": {
           "first_n_order_free_with_cycle": {
