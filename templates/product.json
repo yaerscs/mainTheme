@@ -804,121 +804,12 @@
         "color_scheme": "custom",
         "padding_top": 40,
         "padding_bottom": 52,
-        "custom_colors_background": "#d58f26",
-        "custom_gradient_background": "",
-        "custom_colors_text": "#ffffff",
-        "custom_colors_solid_button_background": "#ffffff",
-        "custom_colors_solid_button_text": "#d58f26",
-        "custom_colors_outline_button": "#ffffff"
-      }
-    },
-    "multicolumn_tfMVR4": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_RV4GiN": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_fwkct7fwkct7fwkc.jpg",
-            "muted_autoplay": true,
-            "title": "Pumpkin Seed Oil",
-            "text": "<p>Clinical-grade oil rich in rare Delta-7-Sterols reduces inflammation while flooding your system with Nitric Oxide to relax the \"vice grip\" of smooth muscle tension in your pelvic region.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_BRRw4e": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_sokzrsokzrsokzrs.jpg",
-            "muted_autoplay": true,
-            "title": "Saw Palmetto",
-            "text": "<p>Our standardized extract blocks both Type 1 and Type 2 5-alpha-reductase enzymes to stop the DHT fuel source that causes prostate enlargement and disrupts your sleep.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_Rc7gMm": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_1uy6ok1uy6ok1uy6.jpg",
-            "muted_autoplay": true,
-            "title": "Cold-Pressed Softgels",
-            "text": "<p>Cold-pressed extraction preserves delicate bioactive compounds that heat processing destroys, ensuring maximum potency and superior absorption compared to powders or capsules.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_RV4GiN",
-        "column_BRRw4e",
-        "column_Rc7gMm"
-      ],
-      "name": "t:sections.multicolumn.presets.name",
-      "settings": {
-        "display_id": false,
-        "visibility": "always-display",
-        "title": "What's inside",
-        "title_highlight_color": "#6d388b",
-        "heading_size": "h1",
-        "button_label": "",
-        "button_link": "",
-        "atc_button_label": "",
-        "atc_product": "",
-        "atc_skip_cart": false,
-        "color_scheme": "custom",
-        "cards_color_scheme": "custom",
-        "cards_corner_radius": 20,
-        "stretch_cards": false,
-        "stretched_cards_content_alignment": "center",
-        "image_width": "full",
-        "image_ratio": "square",
-        "media_position": "top",
-        "column_alignment": "center",
-        "desktop_heading_size": 24,
-        "mobile_heading_size": 22,
-        "desktop_text_size": 16,
-        "mobile_text_size": 15,
-        "desktop_text_top_margin": 10,
-        "mobile_text_top_margin": 10,
-        "desktop_container_padding_y": 24,
-        "desktop_container_padding_x": 24,
-        "mobile_container_padding_y": 24,
-        "mobile_container_padding_x": 24,
-        "type": "slide",
-        "autoplay": false,
-        "autoplay_speed": 5,
-        "arrows_color_scheme": "inverse",
-        "transparent_arrows": true,
-        "dots_color_scheme": "inverse",
-        "desktop_full_page": false,
-        "columns_desktop": 3,
-        "slider_desktop": false,
-        "per_move_desktop": 1,
-        "desktop_spacing": 40,
-        "desktop_side_padding": 0,
-        "desktop_padding_calc": true,
-        "desktop_adaptive_height": false,
-        "desktop_dots_position": "under",
-        "desktop_arrows_position": "sides",
-        "columns_mobile": "1",
-        "slider_mobile": true,
-        "enable_mobile_preview": false,
-        "mobile_adaptive_height": false,
-        "mobile_dots_position": "under",
-        "mobile_arrows_position": "under",
-        "padding_top": 36,
-        "padding_bottom": 36,
         "custom_colors_background": "#ffffff",
         "custom_gradient_background": "",
-        "custom_colors_text": "#121212",
-        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_text": "#d58f26",
+        "custom_colors_solid_button_background": "#d58f26",
         "custom_colors_solid_button_text": "#ffffff",
-        "custom_colors_outline_button": "#dd1d1d",
-        "custom_cards_colors_background": "#d58f26",
-        "custom_cards_gradient_background": "",
-        "custom_cards_colors_heading": "#ffffff",
-        "custom_cards_colors_text": "#ffffff"
+        "custom_colors_outline_button": "#ffffff"
       }
     },
     "e_store_faq_XArNUd": {
@@ -994,7 +885,6 @@
     "rr_new_table_hz3Mbd",
     "clinical_proven_stats_t6y4kN",
     "rich_text_dL4RN8",
-    "multicolumn_tfMVR4",
     "e_store_faq_XArNUd"
   ]
 }
