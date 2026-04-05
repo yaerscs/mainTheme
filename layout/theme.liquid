@@ -484,7 +484,7 @@
       {{ 'accessibility.skip_to_text' | t }}
     </a>
 
-    {%- unless page.handle == 'a1a' -%}
+    {%- unless page.handle == 'no-chrome' -%}
       {% sections 'header-group' %}
     {%- endunless -%}
 
@@ -499,7 +499,7 @@
     {% section 'promo-popup' %}
     {% section 'scroll-to-top-btn' %}
     {% section 'global-music-player' %}
-    {%- unless page.handle == 'a1a' -%}
+    {%- unless page.handle == 'no-chrome' -%}
       {% sections 'footer-group' %}
     {%- endunless -%}
 
