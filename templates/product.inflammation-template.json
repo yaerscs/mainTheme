@@ -341,51 +341,6 @@
         "padding_bottom": 24
       }
     },
-    "review-slider-2": {
-      "type": "review-slider-2",
-      "blocks": {
-        "slide_N3jJqL": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/facebook-comments_1_1.png"
-          }
-        },
-        "slide_nxGGXV": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/facebook-comments_3.png"
-          }
-        },
-        "slide_MGC9MV": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/facebook-comments_4.png"
-          }
-        }
-      },
-      "block_order": [
-        "slide_N3jJqL",
-        "slide_nxGGXV",
-        "slide_MGC9MV"
-      ],
-      "custom_css": [],
-      "settings": {
-        "title": "What Other Men Who Use MeridEase Say:",
-        "title_size": 36,
-        "subtitle": "",
-        "subtitle_size": 16,
-        "bg_color_top": "#d58f26",
-        "bg_color_bottom": "#d58f26",
-        "text_color": "#ffffff",
-        "desktop_visible_slides": "2.5",
-        "slide_width_mobile": 160,
-        "slide_gap": 12,
-        "slide_radius": 10,
-        "scroll_speed": 40,
-        "padding_top": 50,
-        "padding_bottom": 50
-      }
-    },
     "review_slider_3_cabtXH": {
       "type": "review-slider-3",
       "blocks": {
@@ -879,7 +834,6 @@
   "order": [
     "main",
     "related-products",
-    "review-slider-2",
     "review_slider_3_cabtXH",
     "custom_columns_icons_image_LM9k84",
     "rr_new_table_hz3Mbd",
