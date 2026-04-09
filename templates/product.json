@@ -59,10 +59,10 @@
             "border_size": 0,
             "border_style": "solid",
             "border_color": "#b7b7b7",
-            "text_1": "Anti-Inflammatory and Anti Oxidative Support",
+            "text_1": "Promotes Prostate and Bladder Health",
             "icon_1": "check_circle",
             "filled_icon_1": true,
-            "text_2": "Made at a Clinical Level Quality",
+            "text_2": "Supports Undisturbed Sleep",
             "icon_2": "check_circle",
             "filled_icon_2": true,
             "text_3": "Made With Highly Concentrated Extracts",
@@ -171,7 +171,7 @@
             "display_dots": false,
             "author_1": "Robert L. [stars]",
             "image_1": "shopify://shop_images/email_popup_male_portrait_1766754535993.jpg",
-            "text_1": "<p>I had an inflammatory and oxidative issue with my body, which affected me for many years. Upon finding MeridEase, their Pumpkin Seed Oil and Saw Palmetto Softgels have really revitalised me, bringing me back to my old self. </p>",
+            "text_1": "<p>I was waking up 4-5 times every night, completely exhausted and irritable during the day. My wife couldn't sleep either with all my trips to the bathroom, and I was terrified of ending up needing surgery. Within three weeks of starting this, I'm down to just once a night, and some nights I actually sleep straight through—I forgot what that felt like.</p>",
             "author_2": "",
             "text_2": "",
             "author_3": "",
@@ -229,9 +229,9 @@
             "question_1": "Description",
             "answer_1": "<p>MeridEase is a powerful, clean supplement designed to support prostate health with high-potency pumpkin seed oil and saw palmetto extracts.</p><p>Our supplements are backed up with a 60-day money-back guarantee. That's how confident we are in your results. </p><p>No aftertaste. No side effects. Just results. </p>",
             "question_2": "How long does it take to see results?",
-            "answer_2": "<p>Most people start to notice reductions in inflammation and oxidative stress within 2–3 weeks. </p><p>By weeks 4–6, these improvements typically translate into fewer disruptions and better nighttime recovery. </p><p>The full shift—where inflammation and oxidation are consistently kept in check—usually occurs around 8–12 weeks.</p>",
-            "question_3": "",
-            "answer_3": "<p><br/></p>",
+            "answer_2": "<p>Most men notice their first bathroom trip gets pushed back within 2-3 weeks. </p><p>By week 4-6, you're typically waking up 1-2 fewer times per night. </p><p>The full breakthrough—sleeping through to morning—usually happens around 8-12 weeks.</p>",
+            "question_3": "Benefits",
+            "answer_3": "<p>✓ Support prostate health</p><p>✓ Supports normal DHT balance</p><p>✓ Helps maintain normal prostate size</p><p>✓ Promotes prostate comfort</p><p>✓ Promotes comfortable urination<br/></p>",
             "question_4": "Recommended use",
             "answer_4": "<p>Take 3-4 softgels a day with water, preferably with food.</p><p>Consistent use allows the best results. </p>",
             "question_5": "Do you offer a guarantee?",
@@ -341,6 +341,51 @@
         "padding_bottom": 24
       }
     },
+    "review-slider-2": {
+      "type": "review-slider-2",
+      "blocks": {
+        "slide_N3jJqL": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/facebook-comments_1_1.png"
+          }
+        },
+        "slide_nxGGXV": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/facebook-comments_3.png"
+          }
+        },
+        "slide_MGC9MV": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/facebook-comments_4.png"
+          }
+        }
+      },
+      "block_order": [
+        "slide_N3jJqL",
+        "slide_nxGGXV",
+        "slide_MGC9MV"
+      ],
+      "custom_css": [],
+      "settings": {
+        "title": "What Other Men Who Use MeridEase Say:",
+        "title_size": 36,
+        "subtitle": "",
+        "subtitle_size": 16,
+        "bg_color_top": "#d58f26",
+        "bg_color_bottom": "#d58f26",
+        "text_color": "#ffffff",
+        "desktop_visible_slides": "2.5",
+        "slide_width_mobile": 160,
+        "slide_gap": 12,
+        "slide_radius": 10,
+        "scroll_speed": 40,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
     "review_slider_3_cabtXH": {
       "type": "review-slider-3",
       "blocks": {
@@ -349,7 +394,7 @@
           "settings": {
             "image": "shopify://shop_images/e946cd41-c9ae-4615-b849-a61603ab5750.png",
             "stars": 5,
-            "quote": "This product definitely works for my inflammation and oxidation, feel so much better now.",
+            "quote": "\"No way!! It's crazy how my sleep has been so undisturbed these days.",
             "name": "Michael L.",
             "verified_text": "Verified Customer",
             "tag_1": "Finally Free",
@@ -362,7 +407,7 @@
           "settings": {
             "image": "shopify://shop_images/ca0bd45d-dd2e-4d9b-a36c-c4d4c5c41ff5.png",
             "stars": 5,
-            "quote": "I was a little concerned at first, I've been disappointed by so many supplements before. However, I'm happy I took the change and pulled the trigger on MeridEase.",
+            "quote": "\"Can't believe I haven't heard of these guys before...\"",
             "name": "Messari I.",
             "verified_text": "Verified Customer",
             "tag_1": "Revitalised",
@@ -389,7 +434,7 @@
             "image": "shopify://shop_images/Gemini_Generated_Image_npdxppnpdxppnpdx.png",
             "stars": 5,
             "quote": "\"I tried everything. I swear. But MeridEase changed my mind... this is crazy.",
-            "name": "Lee M.",
+            "name": "Brenda M.",
             "verified_text": "Verified Customer",
             "tag_1": "Finally Free",
             "tag_2": "Found A Solution!",
@@ -446,9 +491,9 @@
         "bg_color_bottom": "#d58f26",
         "text_color": "#ffffff",
         "icon_color": "#ffffff",
-        "icon_1": "heat",
-        "label_1": "Inflammation support",
-        "icon_2": "biotech",
+        "icon_1": "urology",
+        "label_1": "Prostate Support",
+        "icon_2": "bed",
         "label_2": "Highly Concentrated Extracts",
         "icon_3": "gastroenterology",
         "label_3": "Gentle on the Stomach",
@@ -656,7 +701,7 @@
       ],
       "name": "Clinical Proven Stats",
       "settings": {
-        "cta_title": "<strong>Clinically Proven.</strong> Anti-inflammatory and Anti-Oxidative",
+        "cta_title": "<strong>Clinically Proven.</strong> Support Your Prostate.",
         "cta_subtitle": "When clean, naturally-derived ingredients meet clinical potency, the results do not disappoint",
         "cta_title_size_desktop": 48,
         "cta_title_size_mobile": 32,
@@ -834,6 +879,7 @@
   "order": [
     "main",
     "related-products",
+    "review-slider-2",
     "review_slider_3_cabtXH",
     "custom_columns_icons_image_LM9k84",
     "rr_new_table_hz3Mbd",
