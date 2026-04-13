@@ -1,0 +1,1458 @@
+{%- style -%}
+  .advrj *, .advrj *::before, .advrj *::after { box-sizing: border-box; }
+  .advrj { background: #fff; color: #333; }
+
+  /* ── Top Bar ── */
+  .advrj-topbar {
+    background: {{ section.settings.topbar_bg }};
+    color: {{ section.settings.topbar_color }};
+    text-align: center;
+    padding: 10px 16px;
+    font-family: 'Alegreya', Georgia, serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  /* ── Layout ── */
+  .advrj-wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+  .advrj-cols { display: flex; gap: 22px; padding-bottom: 60px; align-items: flex-start; }
+  .advrj-main { flex: 0 0 62%; min-width: 0; }
+  .advrj-sidebar {
+    flex: 0 0 36%;
+    min-width: 0;
+    border-left: 1px solid #e4e4e4;
+    padding-left: 18px;
+    padding-top: 8px;
+  }
+
+  /* ── Breadcrumb ── */
+  .advrj-breadcrumb {
+    padding: 14px 0 6px;
+    font-family: Poppins, Arial, sans-serif;
+    font-size: 12px;
+    color: #888;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    align-items: center;
+  }
+  .advrj-breadcrumb a { color: #1a6496; text-decoration: none; }
+  .advrj-breadcrumb a:hover { text-decoration: underline; }
+  .advrj-breadcrumb .sep { color: #ccc; }
+
+  /* ── Article Header ── */
+  .advrj-main h1 {
+    font-family: 'Bitter', Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #111;
+    margin: 14px 0 16px;
+  }
+  .advrj-byline {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid #e4e4e4;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    background: #fafafa;
+  }
+  .advrj-byline-ava {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: #cdd9e5;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 14px; color: #2c5f8a;
+    flex-shrink: 0; overflow: hidden;
+  }
+  .advrj-byline-ava img { width: 100%; height: 100%; object-fit: cover; }
+  .advrj-byline-text { font-family: Poppins, Arial, sans-serif; font-size: 12px; color: #666; line-height: 1.5; }
+  .advrj-byline-text strong { display: block; color: #111; font-size: 13px; }
+
+  /* ── Images ── */
+  .advrj-img { margin: 18px 0; width: 100%; }
+  .advrj-img img { width: 100%; height: auto; display: block; border-radius: 4px; }
+  .advrj-img-caption { font-size: 11px; color: #999; font-style: italic; text-align: center; margin-top: 5px; font-family: Poppins, Arial, sans-serif; }
+  .advrj-placeholder {
+    width: 100%; background: #e8eef5;
+    border: 2px dashed #a8bece; border-radius: 4px;
+    min-height: 240px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 20px;
+    color: #4a6f8a;
+  }
+  .advrj-placeholder .ph-lbl { font-weight: 700; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; font-family: Poppins, Arial, sans-serif; }
+  .advrj-placeholder .ph-desc { font-size: 11px; color: #7a99b0; max-width: 340px; line-height: 1.5; font-family: Poppins, Arial, sans-serif; }
+
+  /* Before/After pair */
+  .advrj-ba { display: flex; gap: 8px; margin: 18px 0; }
+  .advrj-ba-item { flex: 1; position: relative; }
+  .advrj-ba-item img { width: 100%; height: auto; display: block; border-radius: 4px; }
+  .advrj-ba-placeholder { background: #dce8f3; border: 2px dashed #a8bece; border-radius: 4px; min-height: 180px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: #4a6f8a; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; padding: 12px; font-family: Poppins, Arial, sans-serif; }
+  .advrj-ba-label { position: absolute; top: 6px; left: 6px; background: rgba(0,0,0,0.6); color: #fff; font-size: 10px; font-weight: 700; padding: 3px 7px; border-radius: 3px; letter-spacing: 1px; text-transform: uppercase; font-family: Poppins, Arial, sans-serif; }
+
+  /* Body text */
+  .advrj-main p { font-family: 'Bitter', Georgia, serif; font-size: 17px; line-height: 1.75; color: #303030; margin-bottom: 14px; }
+  .advrj-body-text p { font-family: 'Bitter', Georgia, serif; font-size: 17px; line-height: 1.75; color: #303030; margin-bottom: 14px; }
+  .advrj-body-text strong { color: #111; }
+  .advrj-body-text ul { list-style: disc; padding-left: 22px; margin: 10px 0 16px; }
+  .advrj-body-text ul li { font-family: 'Bitter', Georgia, serif; font-size: 16px; color: #303030; margin-bottom: 7px; line-height: 1.7; }
+  .advrj-body-text ol { padding-left: 22px; margin: 10px 0 16px; }
+  .advrj-body-text ol li { font-family: 'Bitter', Georgia, serif; font-size: 16px; color: #303030; margin-bottom: 7px; line-height: 1.7; }
+  .advrj-main h2 {
+    font-family: 'Bitter', Georgia, serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.3;
+    margin: 32px 0 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+
+  /* Callout box */
+  .advrj-callout {
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 18px 0;
+    font-family: 'Bitter', Georgia, serif;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  /* Feature ticks */
+  .advrj-ticks { background: #eef4fb; border: 1px solid #c0d6ed; border-radius: 4px; padding: 16px 20px; margin: 18px 0; }
+  .advrj-ticks p { font-family: 'Bitter', Georgia, serif; font-size: 15px; color: #1a3053; margin-bottom: 8px; line-height: 1.6; }
+  .advrj-ticks p:last-child { margin-bottom: 0; }
+
+  /* Review card */
+  .advrj-review { border: 1px solid #ddd; border-radius: 5px; padding: 16px 18px; margin: 14px 0; background: #fff; }
+  .advrj-review .stars { color: #f39c12; font-size: 14px; margin-bottom: 4px; }
+  .advrj-review .r-name { font-weight: 700; font-size: 13px; color: #111; font-family: Poppins, Arial, sans-serif; }
+  .advrj-review .r-loc { font-size: 11.5px; color: #999; margin-bottom: 8px; font-family: Poppins, Arial, sans-serif; }
+  .advrj-review p { font-size: 13.5px; font-style: italic; color: #444; margin-bottom: 0; font-family: 'Bitter', Georgia, serif; line-height: 1.6; }
+
+  /* CTA Button */
+  .advrj-cta-wrap { margin: 18px 0 6px; }
+  .advrj-cta {
+    display: block;
+    width: 100%;
+    background: {{ section.settings.cta_color }};
+    color: #fff !important;
+    font-family: Poppins, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    padding: 18px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: opacity 0.2s ease;
+  }
+  .advrj-cta:hover { opacity: 0.88; }
+  .advrj-cta-sub { font-size: 12px; text-align: center; color: #888; font-family: Poppins, Arial, sans-serif; margin-top: 6px; margin-bottom: 14px; }
+
+  /* Urgency box */
+  .advrj-urgency { background: #fffbeb; border: 2px dashed #d0021b; border-radius: 4px; padding: 14px 18px; margin: 18px 0; font-family: 'Bitter', Georgia, serif; font-size: 17px; font-weight: 700; text-align: center; color: #d0021b; line-height: 1.4; }
+
+  /* Guarantee */
+  .advrj-guarantee { text-align: center; margin: 20px 0; }
+  .advrj-guarantee img { max-width: 340px; width: 100%; border-radius: 6px; }
+
+  /* Final offer box */
+  .advrj-finalbox { border: 2px solid #ddd; border-radius: 6px; padding: 22px 18px; margin: 20px 0; text-align: center; background: #fafafa; }
+
+  /* ── SIDEBAR ── */
+  .advrj-sb-headline { font-family: Poppins, Arial, sans-serif; font-size: 12.5px; font-weight: 600; color: #444; line-height: 1.55; margin-bottom: 12px; }
+  .advrj-sb-imgwrap { margin-bottom: 10px; }
+  .advrj-sb-imgwrap img { width: 100%; height: auto; display: block; border-radius: 4px; }
+  .advrj-sb-desc { font-family: Poppins, Arial, sans-serif; font-size: 12px; color: #555; line-height: 1.6; margin-bottom: 14px; }
+  .advrj-sb-results-headline { font-family: Poppins, Arial, sans-serif; font-size: 12.5px; font-weight: 600; color: #333; margin-bottom: 12px; line-height: 1.5; }
+  .advrj-sb-item { margin-bottom: 20px; }
+  .advrj-sb-item img { width: 100%; height: auto; display: block; border-radius: 4px; margin-bottom: 5px; }
+  .advrj-sb-item .sb-placeholder { background: #ebebeb; border: 2px dashed #bbb; border-radius: 4px; min-height: 160px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: #666; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; font-family: Poppins, Arial, sans-serif; }
+  .advrj-sb-item .sb-caption { font-size: 10px; color: #aaa; font-style: italic; text-align: center; font-family: Poppins, Arial, sans-serif; margin-bottom: 4px; }
+  .advrj-sb-item .sb-name { font-size: 12.5px; font-weight: 700; color: #111; font-family: Poppins, Arial, sans-serif; margin-bottom: 4px; }
+  .advrj-sb-item .sb-quote { font-size: 11.5px; font-style: italic; color: #444; line-height: 1.55; font-family: Poppins, Arial, sans-serif; margin-bottom: 8px; border-left: 2px solid #e0e0e0; padding-left: 8px; }
+  .advrj-sb-btn {
+    display: block;
+    background: {{ section.settings.cta_color }};
+    color: #fff !important;
+    font-family: Poppins, Arial, sans-serif;
+    font-size: 13px; font-weight: 700;
+    text-align: center;
+    padding: 10px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+  .advrj-sb-btn:hover { opacity: 0.88; }
+
+  /* ── Footer ── */
+  .advrj-footer { background: #1a1a1a; color: #777; padding: 26px 16px; font-size: 11px; line-height: 1.8; text-align: center; }
+  .advrj-footer .inner { max-width: 1120px; margin: 0 auto; }
+  .advrj-footer a { color: #aaa; }
+  .advrj-footer p { color: #777; font-size: 11px; line-height: 1.8; margin-bottom: 8px; font-family: Arial, sans-serif; }
+
+  /* ── Responsive ── */
+  @media (max-width: 780px) {
+    .advrj-cols { flex-direction: column; }
+    .advrj-main, .advrj-sidebar { flex: none; width: 100%; }
+    .advrj-sidebar { border-left: none; padding-left: 0; border-top: 2px solid #e4e4e4; padding-top: 24px; margin-top: 0; }
+    .advrj-main h1 { font-size: 22px; }
+    .advrj-main h2 { font-size: 15px; }
+    .advrj-main p, .advrj-body-text p { font-size: 15px; }
+    .advrj-cta { font-size: 16px; }
+    .advrj-ba { flex-direction: column; }
+  }
+{%- endstyle -%}
+
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,600;0,700;1,400&family=Alegreya:wght@700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<div class="advrj">
+
+  <!-- Top Bar -->
+  <div class="advrj-topbar">{{ section.settings.topbar_text | escape }}</div>
+
+  <div class="advrj-wrap">
+    <div class="advrj-cols">
+
+      <!-- ═══════════════════════════════════════════ -->
+      <!--                ARTICLE COLUMN               -->
+      <!-- ═══════════════════════════════════════════ -->
+      <article class="advrj-main">
+
+        <!-- Breadcrumb -->
+        <nav class="advrj-breadcrumb" aria-label="breadcrumb">
+          <a href="{{ section.settings.bc1_url | default: '/' }}">{{ section.settings.bc1_text | default: 'Home' | escape }}</a>
+          <span class="sep">›</span>
+          <a href="{{ section.settings.bc2_url | default: '/collections/all' }}">{{ section.settings.bc2_text | default: 'Health' | escape }}</a>
+          <span class="sep">›</span>
+          <span>{{ section.settings.bc3_text | default: 'Shoulder Health' | escape }}</span>
+        </nav>
+
+        <!-- Title -->
+        <h1>{{ section.settings.article_title | escape }}</h1>
+
+        <!-- Byline -->
+        <div class="advrj-byline">
+          <div class="advrj-byline-ava">
+            {%- if section.settings.author_image != blank -%}
+              {{ section.settings.author_image | image_url: width: 88 | image_tag: loading: 'lazy', alt: section.settings.author_name }}
+            {%- else -%}
+              {{ section.settings.author_initials | default: 'BS' | escape }}
+            {%- endif -%}
+          </div>
+          <div class="advrj-byline-text">
+            <strong>{{ section.settings.author_name | escape }}{% if section.settings.author_title != blank %}, {{ section.settings.author_title | escape }}{% endif %}</strong>
+            {{ section.settings.article_date | escape }}
+            {%- if section.settings.reading_time != blank -%}
+              &nbsp;&nbsp;·&nbsp;&nbsp;{{ section.settings.reading_time | escape }} read
+            {%- endif -%}
+          </div>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="advrj-img">
+          {%- if section.settings.hero_image != blank -%}
+            {{ section.settings.hero_image | image_url: width: 1200 | image_tag: loading: 'eager', alt: section.settings.hero_caption }}
+          {%- else -%}
+            <div class="advrj-placeholder" style="min-height:300px;">
+              <div class="ph-lbl">Hero Image</div>
+              <div class="ph-desc">Main article hero image — e.g. woman using shoulder device, relaxing on couch.</div>
+            </div>
+          {%- endif -%}
+          {%- if section.settings.hero_caption != blank -%}
+            <div class="advrj-img-caption">{{ section.settings.hero_caption | escape }}</div>
+          {%- endif -%}
+        </div>
+
+        <!-- Opening Content -->
+        {%- if section.settings.content_opening != blank -%}
+          <div class="advrj-body-text">{{ section.settings.content_opening }}</div>
+        {%- else -%}
+          <p style="color:#bbb;font-style:italic;font-family:Poppins,Arial,sans-serif;font-size:13px;">[Opening paragraphs — edit in theme customizer]</p>
+        {%- endif -%}
+
+        <!-- ─── SECTION 1 ─── -->
+        <h2>{{ section.settings.s1_title | default: 'THE NIGHT EVERYTHING CHANGED...' | escape }}</h2>
+
+        <div class="advrj-ba">
+          <div class="advrj-ba-item">
+            {%- if section.settings.img_s1_left != blank -%}
+              {{ section.settings.img_s1_left | image_url: width: 600 | image_tag: loading: 'lazy' }}
+            {%- else -%}
+              <div class="advrj-ba-placeholder">Left Image<br>(e.g. woman in pain at night)</div>
+            {%- endif -%}
+          </div>
+          <div class="advrj-ba-item">
+            {%- if section.settings.img_s1_right != blank -%}
+              {{ section.settings.img_s1_right | image_url: width: 600 | image_tag: loading: 'lazy' }}
+            {%- else -%}
+              <div class="advrj-ba-placeholder">Right Image<br>(e.g. alarm clock at 3am)</div>
+            {%- endif -%}
+          </div>
+        </div>
+
+        {%- if section.settings.content_s1 != blank -%}
+          <div class="advrj-body-text">{{ section.settings.content_s1 }}</div>
+        {%- else -%}
+          <p style="color:#bbb;font-style:italic;font-family:Poppins,Arial,sans-serif;font-size:13px;">[Section 1 body — edit in theme customizer]</p>
+        {%- endif -%}
+
+        <!-- ─── SECTION 2 ─── -->
+        <h2>{{ section.settings.s2_title | default: 'THE MIND BLOWING DISCOVERY' | escape }}</h2>
+
+        <div class="advrj-ba">
+          <div class="advrj-ba-item">
+            {%- if section.settings.img_s2_left != blank -%}
+              {{ section.settings.img_s2_left | image_url: width: 600 | image_tag: loading: 'lazy' }}
+            {%- else -%}
+              <div class="advrj-ba-placeholder">Left Image<br>(e.g. doctor researching)</div>
+            {%- endif -%}
+          </div>
+          <div class="advrj-ba-item">
+            {%- if section.settings.img_s2_right != blank -%}
+              {{ section.settings.img_s2_right | image_url: width: 600 | image_tag: loading: 'lazy' }}
+            {%- else -%}
+              <div class="advrj-ba-placeholder">Right Image<br>(e.g. shoulder pain highlighted)</div>
+            {%- endif -%}
+          </div>
+        </div>
+
+        {%- if section.settings.content_s2 != blank -%}
+          <div class="advrj-body-text">{{ section.settings.content_s2 }}</div>
+        {%- else -%}
+          <p style="color:#bbb;font-style:italic;font-family:Poppins,Arial,sans-serif;font-size:13px;">[Section 2 body — edit in theme customizer]</p>
+        {%- endif -%}
+
+        <!-- ─── SECTION 3 ─── -->
+        <h2>{{ section.settings.s3_title | default: 'THE REAL ROOT CAUSE OF ROTATOR CUFF PAIN' | escape }}</h2>
+
+        <div class="advrj-ba">
+          <div class="advrj-ba-item">
+            {%- if section.settings.img_s3_left != blank -%}
+              {{ section.settings.img_s3_left | image_url: width: 600 | image_tag: loading: 'lazy' }}
+            {%- else -%}
+              <div class="advrj-ba-placeholder">Left Image<br>(e.g. door hinge)</div>
+            {%- endif -%}
+          </div>
+          <div class="advrj-ba-item">
+            {%- if section.settings.img_s3_right != blank -%}
+              {{ section.settings.img_s3_right | image_url: width: 600 | image_tag: loading: 'lazy' }}
+            {%- else -%}
+              <div class="advrj-ba-placeholder">Right Image<br>(e.g. tissue / microscope)</div>
+            {%- endif -%}
+          </div>
+        </div>
+
+        {%- if section.settings.content_s3 != blank -%}
+          <div class="advrj-body-text">{{ section.settings.content_s3 }}</div>
+        {%- else -%}
+          <p style="color:#bbb;font-style:italic;font-family:Poppins,Arial,sans-serif;font-size:13px;">[Section 3 body — edit in theme customizer]</p>
+        {%- endif -%}
+
+        <!-- ─── SECTION 4: 12-Minute Miracle ─── -->
+        <h2>{{ section.settings.s4_title | default: 'THE 12-MINUTE MIRACLE HIDING IN PLAIN SIGHT' | escape }}</h2>
+
+        <div class="advrj-ba">
+          <div class="advrj-ba-item">
+            <div class="advrj-ba-label">BEFORE</div>
+            {%- if section.settings.img_s4_before != blank -%}
+              {{ section.settings.img_s4_before | image_url: width: 600 | image_tag: loading: 'lazy' }}
+            {%- else -%}
+              <div class="advrj-ba-placeholder" style="min-height:220px;">Before Image</div>
+            {%- endif -%}
+          </div>
+          <div class="advrj-ba-item">
+            <div class="advrj-ba-label">AFTER</div>
+            {%- if section.settings.img_s4_after != blank -%}
+              {{ section.settings.img_s4_after | image_url: width: 600 | image_tag: loading: 'lazy' }}
+            {%- else -%}
+              <div class="advrj-ba-placeholder" style="min-height:220px;">After Image</div>
+            {%- endif -%}
+          </div>
+        </div>
+
+        {%- if section.settings.content_s4 != blank -%}
+          <div class="advrj-body-text">{{ section.settings.content_s4 }}</div>
+        {%- else -%}
+          <p style="color:#bbb;font-style:italic;font-family:Poppins,Arial,sans-serif;font-size:13px;">[Section 4 body — edit in theme customizer]</p>
+        {%- endif -%}
+
+        <!-- Feature Ticks -->
+        <div class="advrj-ticks">
+          <p>✓ <strong>{{ section.settings.feature_1_title | default: 'HEAT' | escape }}</strong> — {{ section.settings.feature_1_desc | default: 'Open the blood vessels so circulation can reach starved tissue' | escape }}</p>
+          <p>✓ <strong>{{ section.settings.feature_2_title | default: 'COMPRESS' | escape }}</strong> — {{ section.settings.feature_2_desc | default: 'Force fresh blood and nutrients through the joint' | escape }}</p>
+          <p>✓ <strong>{{ section.settings.feature_3_title | default: 'VIBRATE' | escape }}</strong> — {{ section.settings.feature_3_desc | default: 'Stimulate cellular regeneration and muscle reset' | escape }}</p>
+        </div>
+
+        <!-- ─── SECTION 5: Breakthrough ─── -->
+        <h2>{{ section.settings.s5_title | default: 'THIS BREAKTHROUGH IS PISSING OFF AN ENTIRE INDUSTRY' | escape }}</h2>
+
+        <div class="advrj-ba">
+          <div class="advrj-ba-item">
+            <div class="advrj-ba-label">BEFORE</div>
+            {%- if section.settings.img_s5_before != blank -%}
+              {{ section.settings.img_s5_before | image_url: width: 600 | image_tag: loading: 'lazy' }}
+            {%- else -%}
+              <div class="advrj-ba-placeholder">Before Image</div>
+            {%- endif -%}
+          </div>
+          <div class="advrj-ba-item">
+            <div class="advrj-ba-label">AFTER</div>
+            {%- if section.settings.img_s5_after != blank -%}
+              {{ section.settings.img_s5_after | image_url: width: 600 | image_tag: loading: 'lazy' }}
+            {%- else -%}
+              <div class="advrj-ba-placeholder">After Image</div>
+            {%- endif -%}
+          </div>
+        </div>
+
+        {%- if section.settings.content_s5 != blank -%}
+          <div class="advrj-body-text">{{ section.settings.content_s5 }}</div>
+        {%- else -%}
+          <p style="color:#bbb;font-style:italic;font-family:Poppins,Arial,sans-serif;font-size:13px;">[Section 5 body — edit in theme customizer]</p>
+        {%- endif -%}
+
+        <!-- ─── SECTION 6: Introducing the Device ─── -->
+        <h2>{{ section.settings.s6_title | default: 'INTRODUCING THE DEVICE THAT ACTUALLY RELIEVES SHOULDER PAIN' | escape }}</h2>
+
+        <div class="advrj-ba">
+          {%- for i in (1..3) -%}
+            {%- assign img_key = 'img_product_' | append: i -%}
+            <div class="advrj-ba-item">
+              {%- if section.settings[img_key] != blank -%}
+                {{ section.settings[img_key] | image_url: width: 400 | image_tag: loading: 'lazy' }}
+              {%- else -%}
+                <div class="advrj-ba-placeholder" style="min-height:140px;font-size:10px;">Product Image {{ i }}</div>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+
+        {%- if section.settings.content_s6 != blank -%}
+          <div class="advrj-body-text">{{ section.settings.content_s6 }}</div>
+        {%- else -%}
+          <p style="color:#bbb;font-style:italic;font-family:Poppins,Arial,sans-serif;font-size:13px;">[Section 6 body — product name, description, features — edit in theme customizer]</p>
+        {%- endif -%}
+
+        <!-- ─── SECTION 7: How It Works ─── -->
+        <h2>{{ section.settings.s7_title | default: "HERE'S EXACTLY HOW IT DESTROYS SHOULDER PAIN IN 12 MINUTES" | escape }}</h2>
+
+        <div class="advrj-ba">
+          <div class="advrj-ba-item">
+            {%- if section.settings.img_s7_left != blank -%}
+              {{ section.settings.img_s7_left | image_url: width: 600 | image_tag: loading: 'lazy' }}
+            {%- else -%}
+              <div class="advrj-ba-placeholder">Left Image<br>(person using device)</div>
+            {%- endif -%}
+          </div>
+          <div class="advrj-ba-item">
+            {%- if section.settings.img_s7_right != blank -%}
+              {{ section.settings.img_s7_right | image_url: width: 600 | image_tag: loading: 'lazy' }}
+            {%- else -%}
+              <div class="advrj-ba-placeholder">Right Image<br>(blood flow diagram)</div>
+            {%- endif -%}
+          </div>
+        </div>
+
+        {%- if section.settings.content_s7 != blank -%}
+          <div class="advrj-body-text">{{ section.settings.content_s7 }}</div>
+        {%- else -%}
+          <p style="color:#bbb;font-style:italic;font-family:Poppins,Arial,sans-serif;font-size:13px;">[Section 7 body — 3 phases: Opening (0-4 min), Flooding (4-8 min), Reset (8-12 min) — edit in theme customizer]</p>
+        {%- endif -%}
+
+        <!-- CTA #1 -->
+        <div class="advrj-cta-wrap">
+          <a href="{{ section.settings.cta_url | default: '#' }}" class="advrj-cta">{{ section.settings.cta_text | default: 'Check Availability Now →' | escape }}</a>
+          {%- if section.settings.cta_sub_1 != blank -%}
+            <div class="advrj-cta-sub">{{ section.settings.cta_sub_1 | escape }}</div>
+          {%- endif -%}
+        </div>
+
+        <!-- ─── SECTION 8: Results ─── -->
+        <h2>{{ section.settings.s8_title | default: 'THE RESULTS THAT HAVE SURGEONS SCRAMBLING' | escape }}</h2>
+
+        <div class="advrj-img">
+          {%- if section.settings.img_results != blank -%}
+            {{ section.settings.img_results | image_url: width: 1200 | image_tag: loading: 'lazy' }}
+          {%- else -%}
+            <div class="advrj-placeholder">
+              <div class="ph-lbl">Results Evidence Image</div>
+              <div class="ph-desc">Medical paperwork / stethoscope / clinical results photo</div>
+            </div>
+          {%- endif -%}
+        </div>
+
+        {%- if section.settings.content_s8 != blank -%}
+          <div class="advrj-body-text">{{ section.settings.content_s8 }}</div>
+        {%- else -%}
+          <p style="color:#bbb;font-style:italic;font-family:Poppins,Arial,sans-serif;font-size:13px;">[Section 8 body — stats + results intro — edit in theme customizer]</p>
+        {%- endif -%}
+
+        <!-- ─── TESTIMONIALS ─── -->
+        {%- for i in (1..4) -%}
+          {%- liquid
+            assign t_name = 'testimonial_' | append: i | append: '_name'
+            assign t_loc  = 'testimonial_' | append: i | append: '_location'
+            assign t_text = 'testimonial_' | append: i | append: '_text'
+          -%}
+          {%- if section.settings[t_name] != blank -%}
+            <div class="advrj-review">
+              <div class="stars">★★★★★</div>
+              <div class="r-name">{{ section.settings[t_name] | escape }}</div>
+              <div class="r-loc">{{ section.settings[t_loc] | escape }}</div>
+              <p>{{ section.settings[t_text] | escape }}</p>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+
+        <!-- CTA #2 -->
+        <div class="advrj-cta-wrap">
+          <a href="{{ section.settings.cta_url | default: '#' }}" class="advrj-cta">{{ section.settings.cta_text | default: 'Check Availability Now →' | escape }}</a>
+          {%- if section.settings.cta_sub_2 != blank -%}
+            <div class="advrj-cta-sub">{{ section.settings.cta_sub_2 | escape }}</div>
+          {%- endif -%}
+        </div>
+
+        <!-- ─── PRICING ─── -->
+        <h2>{{ section.settings.pricing_title | default: "THE PRICE THAT'S CAUSING MEDICAL INDUSTRY PANIC" | escape }}</h2>
+
+        {%- if section.settings.content_pricing != blank -%}
+          <div class="advrj-body-text">{{ section.settings.content_pricing }}</div>
+        {%- else -%}
+          <p style="color:#bbb;font-style:italic;font-family:Poppins,Arial,sans-serif;font-size:13px;">[Pricing comparison — Clinical Care vs Pain Management vs Invasive Procedure vs product price — edit in theme customizer]</p>
+        {%- endif -%}
+
+        <!-- ─── DISCOUNT ─── -->
+        <h2>{{ section.settings.discount_title | default: 'THE 60% OFF "IN YOUR FACE" TO THE MEDICAL ESTABLISHMENT' | escape }}</h2>
+
+        <div class="advrj-img">
+          {%- if section.settings.img_discount != blank -%}
+            {{ section.settings.img_discount | image_url: width: 1200 | image_tag: loading: 'lazy' }}
+          {%- else -%}
+            <div class="advrj-placeholder" style="min-height:200px;">
+              <div class="ph-lbl">Discount Banner Image</div>
+              <div class="ph-desc">60% OFF badge with product box</div>
+            </div>
+          {%- endif -%}
+        </div>
+
+        {%- if section.settings.content_discount != blank -%}
+          <div class="advrj-body-text">{{ section.settings.content_discount }}</div>
+        {%- else -%}
+          <p style="color:#bbb;font-style:italic;font-family:Poppins,Arial,sans-serif;font-size:13px;">[Discount section body — edit in theme customizer]</p>
+        {%- endif -%}
+
+        {%- if section.settings.urgency_text != blank -%}
+          <div class="advrj-urgency">{{ section.settings.urgency_text | escape }}</div>
+        {%- endif -%}
+
+        <!-- CTA #3 -->
+        <div class="advrj-cta-wrap">
+          <a href="{{ section.settings.cta_url | default: '#' }}" class="advrj-cta">{{ section.settings.cta_text | default: 'Check Availability Now →' | escape }}</a>
+          {%- if section.settings.cta_sub_3 != blank -%}
+            <div class="advrj-cta-sub">{{ section.settings.cta_sub_3 | escape }}</div>
+          {%- endif -%}
+        </div>
+
+        <!-- ─── GUARANTEE ─── -->
+        <h2>{{ section.settings.guarantee_title | default: 'MY PERSONAL 90-DAY "PAIN-FREE" GUARANTEE' | escape }}</h2>
+
+        <div class="advrj-guarantee">
+          {%- if section.settings.img_guarantee != blank -%}
+            {{ section.settings.img_guarantee | image_url: width: 700 | image_tag: loading: 'lazy', alt: 'Guarantee badge' }}
+          {%- else -%}
+            <div class="advrj-placeholder" style="min-height:220px;max-width:340px;margin:0 auto;">
+              <div class="ph-lbl">Guarantee Badge</div>
+              <div class="ph-desc">90-Day Money Back Guarantee image</div>
+            </div>
+          {%- endif -%}
+        </div>
+
+        {%- if section.settings.content_guarantee != blank -%}
+          <div class="advrj-body-text">{{ section.settings.content_guarantee }}</div>
+        {%- else -%}
+          <p style="color:#bbb;font-style:italic;font-family:Poppins,Arial,sans-serif;font-size:13px;">[Guarantee body — edit in theme customizer]</p>
+        {%- endif -%}
+
+        <!-- ─── CATCH / SCARCITY ─── -->
+        <h2>{{ section.settings.catch_title | default: "BUT HERE'S THE CATCH (AND IT'S A BIG ONE)" | escape }}</h2>
+
+        {%- if section.settings.content_catch != blank -%}
+          <div class="advrj-body-text">{{ section.settings.content_catch }}</div>
+        {%- else -%}
+          <p style="color:#bbb;font-style:italic;font-family:Poppins,Arial,sans-serif;font-size:13px;">[Scarcity / urgency copy — limited units, 72-hour discount — edit in theme customizer]</p>
+        {%- endif -%}
+
+        <!-- Crossroads / Path Choice Image -->
+        <div class="advrj-img">
+          {%- if section.settings.img_crossroads != blank -%}
+            {{ section.settings.img_crossroads | image_url: width: 1200 | image_tag: loading: 'lazy' }}
+          {%- else -%}
+            <div class="advrj-placeholder">
+              <div class="ph-lbl">Path 1 vs Path 2 Image</div>
+              <div class="ph-desc">Fork-in-the-road crossroads image</div>
+            </div>
+          {%- endif -%}
+        </div>
+
+        <!-- ─── WHAT TO DO NEXT ─── -->
+        <h2>{{ section.settings.next_title | default: "HERE'S EXACTLY WHAT TO DO NEXT" | escape }}</h2>
+
+        {%- if section.settings.content_next != blank -%}
+          <div class="advrj-body-text">{{ section.settings.content_next }}</div>
+        {%- else -%}
+          <ol style="font-family:'Bitter',Georgia,serif;font-size:16px;line-height:1.7;color:#303030;padding-left:22px;margin-bottom:16px;">
+            <li><strong>Click the button below</strong> that says "Check Availability Now →"</li>
+            <li><strong>Choose your package</strong></li>
+            <li><strong>Fill out your shipping info</strong></li>
+            <li><strong>Wait 3-5 days</strong> for your shoulder's salvation to arrive</li>
+            <li><strong>Use it for 12 minutes</strong> the moment it arrives</li>
+            <li><strong>Text us your success story</strong></li>
+          </ol>
+        {%- endif -%}
+
+        <!-- Final Product / Collage Image -->
+        <div class="advrj-img">
+          {%- if section.settings.img_final_product != blank -%}
+            {{ section.settings.img_final_product | image_url: width: 1200 | image_tag: loading: 'lazy' }}
+          {%- else -%}
+            <div class="advrj-placeholder">
+              <div class="ph-lbl">Final Product / Customer Collage</div>
+            </div>
+          {%- endif -%}
+        </div>
+
+        <!-- CTA #4 (Final) -->
+        <div class="advrj-cta-wrap">
+          <a href="{{ section.settings.cta_url | default: '#' }}" class="advrj-cta">{{ section.settings.cta_text | default: 'Check Availability Now →' | escape }}</a>
+          {%- if section.settings.cta_sub_final != blank -%}
+            <div class="advrj-cta-sub">{{ section.settings.cta_sub_final | escape }}</div>
+          {%- endif -%}
+        </div>
+
+        <!-- Internet Only Offer Box -->
+        {%- if section.settings.offer_box_text != blank or section.settings.img_offer_box != blank -%}
+          <div class="advrj-finalbox">
+            {%- if section.settings.img_offer_box != blank -%}
+              {{ section.settings.img_offer_box | image_url: width: 600 | image_tag: loading: 'lazy', style: 'max-width:280px;margin:0 auto 12px;display:block;' }}
+            {%- endif -%}
+            {%- if section.settings.offer_box_text != blank -%}
+              <p style="font-family:Poppins,Arial,sans-serif;font-size:14px;color:#333;font-weight:700;margin-bottom:4px;">{{ section.settings.offer_box_text | escape }}</p>
+            {%- endif -%}
+            {%- if section.settings.offer_box_sub != blank -%}
+              <p style="font-family:Poppins,Arial,sans-serif;font-size:13px;color:#666;margin-bottom:10px;">{{ section.settings.offer_box_sub | escape }}</p>
+            {%- endif -%}
+            <a href="{{ section.settings.cta_url | default: '#' }}" class="advrj-cta" style="max-width:320px;margin:8px auto 0;display:block;">{{ section.settings.cta_text | default: 'Check Availability Now →' | escape }}</a>
+          </div>
+        {%- endif -%}
+
+        <!-- Sign-off / PS Text -->
+        {%- if section.settings.content_signoff != blank -%}
+          <div class="advrj-body-text" style="margin-top:20px;">{{ section.settings.content_signoff }}</div>
+        {%- endif -%}
+
+      </article>
+      <!-- END ARTICLE -->
+
+      <!-- ═══════════════════════════════════════════ -->
+      <!--                SIDEBAR COLUMN               -->
+      <!-- ═══════════════════════════════════════════ -->
+      <aside class="advrj-sidebar">
+
+        <div class="advrj-sb-headline">{{ section.settings.sb_headline | default: 'A revolutionary device is making headlines for reducing 99.8% of Shoulder pain in just minutes.' | escape }}</div>
+
+        <div class="advrj-sb-imgwrap">
+          {%- if section.settings.sb_product_image != blank -%}
+            {{ section.settings.sb_product_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: 'Product' }}
+          {%- else -%}
+            <div class="advrj-placeholder" style="min-height:200px;">
+              <div class="ph-lbl">Sidebar Product Box</div>
+            </div>
+          {%- endif -%}
+        </div>
+
+        <div class="advrj-sb-desc">{{ section.settings.sb_desc | default: 'After 24 months of research and over 2,400 patients studied, experts finally created a non-invasive method to alleviate Shoulder pain all packed into one powerful at-home device.' | escape }}</div>
+
+        <div class="advrj-sb-results-headline">{{ section.settings.sb_results_headline | default: 'Here are the life-changing results people over 50 have experienced:' | escape }}</div>
+
+        {%- for i in (1..3) -%}
+          {%- liquid
+            assign sb_img   = 'sb_testimonial_' | append: i | append: '_image'
+            assign sb_name  = 'sb_testimonial_' | append: i | append: '_name'
+            assign sb_quote = 'sb_testimonial_' | append: i | append: '_quote'
+          -%}
+          <div class="advrj-sb-item">
+            {%- if section.settings[sb_img] != blank -%}
+              {{ section.settings[sb_img] | image_url: width: 500 | image_tag: loading: 'lazy' }}
+            {%- else -%}
+              <div class="sb-placeholder">Testimonial Photo {{ i }}</div>
+            {%- endif -%}
+            <div class="sb-caption">Individual results may vary</div>
+            {%- if section.settings[sb_name] != blank -%}
+              <div class="sb-name">{{ section.settings[sb_name] | escape }}</div>
+            {%- endif -%}
+            {%- if section.settings[sb_quote] != blank -%}
+              <div class="sb-quote">{{ section.settings[sb_quote] | escape }}</div>
+            {%- endif -%}
+            <a href="{{ section.settings.cta_url | default: '#' }}" class="advrj-sb-btn">{{ section.settings.sb_btn_text | default: 'Learn more' | escape }}</a>
+          </div>
+        {%- endfor -%}
+
+      </aside>
+      <!-- END SIDEBAR -->
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="advrj-footer">
+    <div class="inner">
+      {%- if section.settings.footer_disclaimer != blank -%}
+        {{ section.settings.footer_disclaimer }}
+      {%- else -%}
+        <p>THIS IS AN ADVERTISEMENT AND NOT AN ACTUAL NEWS ARTICLE, BLOG, OR CONSUMER PROTECTION UPDATE. The information presented on this website is not intended as specific medical advice and is not a substitute for professional treatment or diagnosis. These statements have not been evaluated by the Food and Drug Administration. Results in the Testimonials and Representations may not be typical and individual results may vary. This website is a marketing piece. The story depicted on this website is fictional unless stated otherwise. Please consult with your health care practitioner for all your health care needs.</p>
+      {%- endif -%}
+    </div>
+  </footer>
+
+</div>
+
+{% schema %}
+{
+  "name": "Advertorial RJ",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Top Bar"
+    },
+    {
+      "type": "text",
+      "id": "topbar_text",
+      "label": "Site Name",
+      "default": "Health Insights Magazine"
+    },
+    {
+      "type": "color",
+      "id": "topbar_bg",
+      "label": "Top Bar Background",
+      "default": "#00465A"
+    },
+    {
+      "type": "color",
+      "id": "topbar_color",
+      "label": "Top Bar Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Breadcrumb"
+    },
+    {
+      "type": "text",
+      "id": "bc1_text",
+      "label": "Level 1 Text",
+      "default": "Home"
+    },
+    {
+      "type": "url",
+      "id": "bc1_url",
+      "label": "Level 1 URL"
+    },
+    {
+      "type": "text",
+      "id": "bc2_text",
+      "label": "Level 2 Text",
+      "default": "Health"
+    },
+    {
+      "type": "url",
+      "id": "bc2_url",
+      "label": "Level 2 URL"
+    },
+    {
+      "type": "text",
+      "id": "bc3_text",
+      "label": "Level 3 Text (current)",
+      "default": "Shoulder Health"
+    },
+    {
+      "type": "header",
+      "content": "Article Header"
+    },
+    {
+      "type": "textarea",
+      "id": "article_title",
+      "label": "Article Title",
+      "default": "Top Orthopedic Surgeons: \"This Is the Fastest Way to Relieve Shoulder Pain for Good\""
+    },
+    {
+      "type": "text",
+      "id": "author_name",
+      "label": "Author Name",
+      "default": "Dr. Schilling"
+    },
+    {
+      "type": "text",
+      "id": "author_title",
+      "label": "Author Title",
+      "default": "Orthopedic Surgeon, MD"
+    },
+    {
+      "type": "text",
+      "id": "author_initials",
+      "label": "Author Initials (avatar fallback)",
+      "default": "BS"
+    },
+    {
+      "type": "image_picker",
+      "id": "author_image",
+      "label": "Author Photo"
+    },
+    {
+      "type": "text",
+      "id": "article_date",
+      "label": "Publication Date",
+      "default": "Wed. Oct. 29th, 2025 | 3:09 pm EDT"
+    },
+    {
+      "type": "text",
+      "id": "reading_time",
+      "label": "Reading Time",
+      "default": "29 MIN"
+    },
+    {
+      "type": "header",
+      "content": "Hero Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "text",
+      "id": "hero_caption",
+      "label": "Hero Caption (optional)"
+    },
+    {
+      "type": "header",
+      "content": "Opening Paragraphs"
+    },
+    {
+      "type": "richtext",
+      "id": "content_opening",
+      "label": "Opening Body Text"
+    },
+    {
+      "type": "header",
+      "content": "Section 1 — The Night Everything Changed"
+    },
+    {
+      "type": "text",
+      "id": "s1_title",
+      "label": "Section 1 Heading",
+      "default": "THE NIGHT EVERYTHING CHANGED..."
+    },
+    {
+      "type": "image_picker",
+      "id": "img_s1_left",
+      "label": "Section 1 — Left Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_s1_right",
+      "label": "Section 1 — Right Image"
+    },
+    {
+      "type": "richtext",
+      "id": "content_s1",
+      "label": "Section 1 Body"
+    },
+    {
+      "type": "header",
+      "content": "Section 2 — The Mind Blowing Discovery"
+    },
+    {
+      "type": "text",
+      "id": "s2_title",
+      "label": "Section 2 Heading",
+      "default": "THE MIND BLOWING DISCOVERY"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_s2_left",
+      "label": "Section 2 — Left Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_s2_right",
+      "label": "Section 2 — Right Image"
+    },
+    {
+      "type": "richtext",
+      "id": "content_s2",
+      "label": "Section 2 Body"
+    },
+    {
+      "type": "header",
+      "content": "Section 3 — The Real Root Cause"
+    },
+    {
+      "type": "text",
+      "id": "s3_title",
+      "label": "Section 3 Heading",
+      "default": "THE REAL ROOT CAUSE OF ROTATOR CUFF PAIN"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_s3_left",
+      "label": "Section 3 — Left Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_s3_right",
+      "label": "Section 3 — Right Image"
+    },
+    {
+      "type": "richtext",
+      "id": "content_s3",
+      "label": "Section 3 Body"
+    },
+    {
+      "type": "header",
+      "content": "Section 4 — The 12-Minute Miracle"
+    },
+    {
+      "type": "text",
+      "id": "s4_title",
+      "label": "Section 4 Heading",
+      "default": "THE 12-MINUTE MIRACLE HIDING IN PLAIN SIGHT"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_s4_before",
+      "label": "Section 4 — Before Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_s4_after",
+      "label": "Section 4 — After Image"
+    },
+    {
+      "type": "richtext",
+      "id": "content_s4",
+      "label": "Section 4 Body"
+    },
+    {
+      "type": "header",
+      "content": "Feature List (Heat / Compress / Vibrate)"
+    },
+    {
+      "type": "text",
+      "id": "feature_1_title",
+      "label": "Feature 1 Title",
+      "default": "HEAT"
+    },
+    {
+      "type": "text",
+      "id": "feature_1_desc",
+      "label": "Feature 1 Description",
+      "default": "Open the blood vessels so circulation can reach starved tissue"
+    },
+    {
+      "type": "text",
+      "id": "feature_2_title",
+      "label": "Feature 2 Title",
+      "default": "COMPRESS"
+    },
+    {
+      "type": "text",
+      "id": "feature_2_desc",
+      "label": "Feature 2 Description",
+      "default": "Force fresh blood and nutrients through the joint"
+    },
+    {
+      "type": "text",
+      "id": "feature_3_title",
+      "label": "Feature 3 Title",
+      "default": "VIBRATE"
+    },
+    {
+      "type": "text",
+      "id": "feature_3_desc",
+      "label": "Feature 3 Description",
+      "default": "Stimulate cellular regeneration and muscle reset"
+    },
+    {
+      "type": "header",
+      "content": "Section 5 — The Breakthrough"
+    },
+    {
+      "type": "text",
+      "id": "s5_title",
+      "label": "Section 5 Heading",
+      "default": "THIS BREAKTHROUGH IS PISSING OFF AN ENTIRE INDUSTRY"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_s5_before",
+      "label": "Section 5 — Before Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_s5_after",
+      "label": "Section 5 — After Image"
+    },
+    {
+      "type": "richtext",
+      "id": "content_s5",
+      "label": "Section 5 Body"
+    },
+    {
+      "type": "header",
+      "content": "Section 6 — Introducing the Device"
+    },
+    {
+      "type": "text",
+      "id": "s6_title",
+      "label": "Section 6 Heading",
+      "default": "INTRODUCING THE DEVICE THAT ACTUALLY RELIEVES SHOULDER PAIN"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_product_1",
+      "label": "Product Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_product_2",
+      "label": "Product Image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_product_3",
+      "label": "Product Image 3"
+    },
+    {
+      "type": "richtext",
+      "id": "content_s6",
+      "label": "Section 6 Body"
+    },
+    {
+      "type": "header",
+      "content": "Section 7 — How It Works"
+    },
+    {
+      "type": "text",
+      "id": "s7_title",
+      "label": "Section 7 Heading",
+      "default": "HERE'S EXACTLY HOW IT DESTROYS SHOULDER PAIN IN 12 MINUTES"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_s7_left",
+      "label": "Section 7 — Left Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_s7_right",
+      "label": "Section 7 — Right Image"
+    },
+    {
+      "type": "richtext",
+      "id": "content_s7",
+      "label": "Section 7 Body (3 phases)"
+    },
+    {
+      "type": "text",
+      "id": "cta_sub_1",
+      "label": "CTA #1 Subtext (after How It Works)"
+    },
+    {
+      "type": "header",
+      "content": "Section 8 — The Results"
+    },
+    {
+      "type": "text",
+      "id": "s8_title",
+      "label": "Section 8 Heading",
+      "default": "THE RESULTS THAT HAVE SURGEONS SCRAMBLING"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_results",
+      "label": "Results Evidence Image"
+    },
+    {
+      "type": "richtext",
+      "id": "content_s8",
+      "label": "Section 8 Body (stats + intro)"
+    },
+    {
+      "type": "header",
+      "content": "Testimonial 1"
+    },
+    {
+      "type": "text",
+      "id": "testimonial_1_name",
+      "label": "Name",
+      "default": "Donna K."
+    },
+    {
+      "type": "text",
+      "id": "testimonial_1_location",
+      "label": "Location",
+      "default": "Phoenix, AZ"
+    },
+    {
+      "type": "textarea",
+      "id": "testimonial_1_text",
+      "label": "Quote"
+    },
+    {
+      "type": "header",
+      "content": "Testimonial 2"
+    },
+    {
+      "type": "text",
+      "id": "testimonial_2_name",
+      "label": "Name",
+      "default": "Marcus T."
+    },
+    {
+      "type": "text",
+      "id": "testimonial_2_location",
+      "label": "Location",
+      "default": "Detroit, MI"
+    },
+    {
+      "type": "textarea",
+      "id": "testimonial_2_text",
+      "label": "Quote"
+    },
+    {
+      "type": "header",
+      "content": "Testimonial 3"
+    },
+    {
+      "type": "text",
+      "id": "testimonial_3_name",
+      "label": "Name",
+      "default": "Jennifer R."
+    },
+    {
+      "type": "text",
+      "id": "testimonial_3_location",
+      "label": "Location",
+      "default": "Tampa, FL"
+    },
+    {
+      "type": "textarea",
+      "id": "testimonial_3_text",
+      "label": "Quote"
+    },
+    {
+      "type": "header",
+      "content": "Testimonial 4"
+    },
+    {
+      "type": "text",
+      "id": "testimonial_4_name",
+      "label": "Name",
+      "default": "Dr. Patricia Vance"
+    },
+    {
+      "type": "text",
+      "id": "testimonial_4_location",
+      "label": "Title / Location",
+      "default": "Physical Medicine & Rehabilitation Physician"
+    },
+    {
+      "type": "textarea",
+      "id": "testimonial_4_text",
+      "label": "Quote"
+    },
+    {
+      "type": "text",
+      "id": "cta_sub_2",
+      "label": "CTA #2 Subtext (after Testimonials)"
+    },
+    {
+      "type": "header",
+      "content": "Pricing Section"
+    },
+    {
+      "type": "text",
+      "id": "pricing_title",
+      "label": "Pricing Heading",
+      "default": "THE PRICE THAT'S CAUSING MEDICAL INDUSTRY PANIC"
+    },
+    {
+      "type": "richtext",
+      "id": "content_pricing",
+      "label": "Pricing Body"
+    },
+    {
+      "type": "header",
+      "content": "Discount Section"
+    },
+    {
+      "type": "text",
+      "id": "discount_title",
+      "label": "Discount Heading",
+      "default": "THE 60% OFF \"IN YOUR FACE\" TO THE MEDICAL ESTABLISHMENT"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_discount",
+      "label": "Discount Banner Image"
+    },
+    {
+      "type": "richtext",
+      "id": "content_discount",
+      "label": "Discount Body"
+    },
+    {
+      "type": "text",
+      "id": "urgency_text",
+      "label": "Urgency Box Text",
+      "default": "This 60% discount dies in 72 hours."
+    },
+    {
+      "type": "text",
+      "id": "cta_sub_3",
+      "label": "CTA #3 Subtext (after Discount)"
+    },
+    {
+      "type": "header",
+      "content": "Guarantee Section"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_title",
+      "label": "Guarantee Heading",
+      "default": "MY PERSONAL 90-DAY \"PAIN-FREE\" GUARANTEE"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_guarantee",
+      "label": "Guarantee Badge Image"
+    },
+    {
+      "type": "richtext",
+      "id": "content_guarantee",
+      "label": "Guarantee Body"
+    },
+    {
+      "type": "header",
+      "content": "Catch / Scarcity Section"
+    },
+    {
+      "type": "text",
+      "id": "catch_title",
+      "label": "Catch Heading",
+      "default": "BUT HERE'S THE CATCH (AND IT'S A BIG ONE)"
+    },
+    {
+      "type": "richtext",
+      "id": "content_catch",
+      "label": "Catch Body"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_crossroads",
+      "label": "Path 1 vs Path 2 Fork Image"
+    },
+    {
+      "type": "header",
+      "content": "What To Do Next"
+    },
+    {
+      "type": "text",
+      "id": "next_title",
+      "label": "Next Steps Heading",
+      "default": "HERE'S EXACTLY WHAT TO DO NEXT"
+    },
+    {
+      "type": "richtext",
+      "id": "content_next",
+      "label": "Next Steps Body (use numbered list)"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_final_product",
+      "label": "Final Product / Customer Collage Image"
+    },
+    {
+      "type": "header",
+      "content": "Final CTA & Offer Box"
+    },
+    {
+      "type": "text",
+      "id": "cta_sub_final",
+      "label": "Final CTA Subtext"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_offer_box",
+      "label": "Offer Box Product Image"
+    },
+    {
+      "type": "text",
+      "id": "offer_box_text",
+      "label": "Offer Box Headline",
+      "default": "FOR A LIMITED TIME:"
+    },
+    {
+      "type": "text",
+      "id": "offer_box_sub",
+      "label": "Offer Box Sub-headline",
+      "default": "60% OFF + THEY PAY FOR SHIPPING"
+    },
+    {
+      "type": "richtext",
+      "id": "content_signoff",
+      "label": "Sign-off / P.S. Text"
+    },
+    {
+      "type": "header",
+      "content": "CTA Buttons (all)"
+    },
+    {
+      "type": "color",
+      "id": "cta_color",
+      "label": "Button Color",
+      "default": "#47901a"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button Text",
+      "default": "Check Availability Now \u2192"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "header",
+      "content": "Sidebar"
+    },
+    {
+      "type": "text",
+      "id": "sb_headline",
+      "label": "Sidebar Headline",
+      "default": "A revolutionary device is making headlines for reducing 99.8% of Shoulder pain in just minutes."
+    },
+    {
+      "type": "image_picker",
+      "id": "sb_product_image",
+      "label": "Sidebar Product Box Image"
+    },
+    {
+      "type": "textarea",
+      "id": "sb_desc",
+      "label": "Sidebar Research Description",
+      "default": "After 24 months of research and over 2,400 patients studied, experts finally created a non-invasive method to alleviate Shoulder pain all packed into one powerful at-home device."
+    },
+    {
+      "type": "text",
+      "id": "sb_results_headline",
+      "label": "Sidebar Results Headline",
+      "default": "Here are the life-changing results people over 50 have experienced:"
+    },
+    {
+      "type": "text",
+      "id": "sb_btn_text",
+      "label": "Sidebar Button Text",
+      "default": "Learn more"
+    },
+    {
+      "type": "header",
+      "content": "Sidebar Testimonial 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "sb_testimonial_1_image",
+      "label": "Photo 1"
+    },
+    {
+      "type": "text",
+      "id": "sb_testimonial_1_name",
+      "label": "Name 1",
+      "default": "Jessica Miller  \u2014  Boise, Idaho"
+    },
+    {
+      "type": "textarea",
+      "id": "sb_testimonial_1_quote",
+      "label": "Quote 1"
+    },
+    {
+      "type": "header",
+      "content": "Sidebar Testimonial 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "sb_testimonial_2_image",
+      "label": "Photo 2"
+    },
+    {
+      "type": "text",
+      "id": "sb_testimonial_2_name",
+      "label": "Name 2",
+      "default": "Brad Jenkins  \u2014  Sarasota, Florida"
+    },
+    {
+      "type": "textarea",
+      "id": "sb_testimonial_2_quote",
+      "label": "Quote 2"
+    },
+    {
+      "type": "header",
+      "content": "Sidebar Testimonial 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "sb_testimonial_3_image",
+      "label": "Photo 3"
+    },
+    {
+      "type": "text",
+      "id": "sb_testimonial_3_name",
+      "label": "Name 3",
+      "default": "Linda Peterson  \u2014  Tucson, Arizona"
+    },
+    {
+      "type": "textarea",
+      "id": "sb_testimonial_3_quote",
+      "label": "Quote 3"
+    },
+    {
+      "type": "header",
+      "content": "Footer"
+    },
+    {
+      "type": "richtext",
+      "id": "footer_disclaimer",
+      "label": "Footer Disclaimer Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Advertorial RJ"
+    }
+  ]
+}
+{% endschema %}
