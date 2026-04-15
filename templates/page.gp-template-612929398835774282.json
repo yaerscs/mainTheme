@@ -11,17 +11,16 @@
   "sections": {
     "gp_section_612929398852551498": {
       "settings": {
-        "checksum": "0b946a25a60c27bdf1bd3836e8d7ba71c1d3d1b1111c6cebbb050cfbd4f04101_0_1_1_0__1",
+        "checksum": "6327a8f3dac4fcbf98ca925fb6a60ee7d47478659463d6ec708bb724c6b01bd4_0_1_1_0__1",
         "gg2h8wnAhnX_background_desktop_videoHtml5": "https://media.w3.org/2010/05/sintel/trailer.mp4",
         "gg2h8wnAhnX_background_mobile_videoHtml5": "https://media.w3.org/2010/05/sintel/trailer.mp4",
-        "gg4VAlXhgJj_text": "<p>&nbsp;</p><p>The information provided is not medical advice and should not replace consultation with a qualified healthcare provider. Always consult your physician before starting any new supplement regimen, especially if you have existing medical conditions or take prescription medications.</p><p>&nbsp;</p><p>These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>",
-        "section_preload": "true"
+        "gg4VAlXhgJj_text": "<p>&nbsp;</p><p>The information provided is not medical advice and should not replace consultation with a qualified healthcare provider. Always consult your physician before starting any new supplement regimen, especially if you have existing medical conditions or take prescription medications.</p><p>&nbsp;</p><p>These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>"
       },
       "type": "gp-section-612929398852551498"
     },
     "gp_section_612929398869328714": {
       "settings": {
-        "checksum": "5fd09ba17144843ee6a64c3f27d3e0ff57e42a378df20d3614831a2fa52015c9_0_1_1_0__1",
+        "checksum": "f37eaaa0d74220ba280ef587aae6426f79dfdf24fd00c2c060f93b1eb3412127_0_1_1_0__1",
         "gg0xBVISNIu_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0809/8739/0192/files/hf_20260306_110622_b91e79d5-46ea-473f-b7fa-9c0614e78dec.png",
         "gg4_hAqfcUI_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0809/8739/0192/files/istockphoto-121546719-612x612.jpg",
         "gg4_hAqfcUI_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0809/8739/0192/files/istockphoto-121546719-612x612.jpg",
@@ -79,12 +78,20 @@
         "section_preload": "true"
       },
       "type": "gp-section-612929398869394250"
+    },
+    "gp_section_615262319189951177": {
+      "settings": {
+        "checksum": "80b5101cdab9d3230a992324cb5b4637520059c3b8adabd9d2191bcbf464ae82_0_1_1_0__1",
+        "ggK5IWvdv5__label": "<p>Buy Now</p>"
+      },
+      "type": "gp-section-615262319189951177"
     }
   },
   "order": [
     "gp_section_612929398869394250",
     "gp_section_612929398869328714",
-    "gp_section_612929398852551498"
+    "gp_section_612929398852551498",
+    "gp_section_615262319189951177"
   ],
   "layout": "theme.gempages.blank"
 }
