@@ -1,0 +1,226 @@
+
+    
+    
+    <style>.gps-615264230333088582 .gp-g-paragraph-1{font-family:var(--g-p1-ff);font-size:var(--g-p1-size);font-style:var(--g-p1-fs);font-weight:var(--g-p1-weight);letter-spacing:var(--g-p1-ls);line-height:var(--g-p1-lh)}.gps-615264230333088582 .gp-relative{position:relative}.gps-615264230333088582 .gp-sticky{position:sticky}.gps-615264230333088582 .gp-mx-auto{margin-left:auto;margin-right:auto}.gps-615264230333088582 .gp-mb-0{margin-bottom:0}.gps-615264230333088582 .gp-flex{display:flex}.gps-615264230333088582 .gp-inline-flex{display:inline-flex}.gps-615264230333088582 .gp-grid{display:grid}.gps-615264230333088582 .\!gp-hidden{display:none!important}.gps-615264230333088582 .gp-hidden{display:none}.gps-615264230333088582 .gp-h-full{height:100%}.gps-615264230333088582 .gp-max-w-full{max-width:100%}.gps-615264230333088582 .gp-grid-rows-\[1fr\]{grid-template-rows:1fr}.gps-615264230333088582 .gp-flex-col{flex-direction:column}.gps-615264230333088582 .gp-items-center{align-items:center}.gps-615264230333088582 .gp-justify-center{justify-content:center}.gps-615264230333088582 .gp-overflow-hidden{overflow:hidden}.gps-615264230333088582 .gp-break-words{overflow-wrap:break-word}.gps-615264230333088582 .gp-text-center{text-align:center}.gps-615264230333088582 .gp-text-g-text-3{color:var(--g-c-text-3)}.gps-615264230333088582 .gp-no-underline{text-decoration-line:none}.gps-615264230333088582 .gp-transition-colors{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-615264230333088582 .gp-duration-200{transition-duration:.2s}.gps-615264230333088582 .gp-ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-615264230333088582 .disabled\:gp-btn-disabled:disabled{cursor:default}.gps-615264230333088582 .disabled\:gp-opacity-30:disabled{opacity:.3}.gps-615264230333088582 .gp-group\/button:active .group-active\/button\:\!gp-text-inherit{color:inherit!important}.gps-615264230333088582 .gp-group[data-state=loading] .group-data-\[state\=loading\]\:gp-invisible{visibility:hidden}@media (max-width:1024px){.gps-615264230333088582 .tablet\:\!gp-hidden{display:none!important}.gps-615264230333088582 .tablet\:gp-hidden{display:none}}@media (max-width:767px){.gps-615264230333088582 .mobile\:\!gp-hidden{display:none!important}.gps-615264230333088582 .mobile\:gp-hidden{display:none}}.gps-615264230333088582 .\[\&_\*\]\:gp-max-w-full *{max-width:100%}.gps-615264230333088582 .\[\&_p\]\:gp-whitespace-pre-line p{white-space:pre-line}</style>
+    
+  
+    
+    
+    
+    <gp-sticky
+    data-id="gCgMX8OQ7n"
+      gp-data='{"uid":"gCgMX8OQ7n","setting":{"display":{"desktop":"always","tablet":"always","mobile":"always"}},"advanced":{"d":{"desktop":true,"mobile":true,"tablet":true}}}'
+      id="gCgMX8OQ7n"
+      data-id="gCgMX8OQ7n"
+      class="sticky-wrapper  gCgMX8OQ7n undefined {% if section.settings.section_preload == "false" %}gps-lazy {% endif %}"
+      style="--w:100%;margin:0 auto;--left:50%;--t:translateX(-50%);--left-tablet:50%;--t-tablet:translateX(-50%);--left-mobile:50%;--t-mobile:translateX(-50%);--top:auto;--bottom:0;--pos:fixed;--d:block;--top-tablet:auto;--bottom-tablet:0;--pos-tablet:fixed;--d-tablet:block;--top-mobile:auto;--bottom-mobile:0;--pos-mobile:fixed;--d-mobile:block;z-index:999"
+    >
+      <style>.drawer-page-content {
+       transform: none !important;
+      -webkit-transform: none !important;
+  }</style>
+      <div  style="--m:0 auto;--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--shadow:8.485281374238571px 8.48528137423857px 12px 0px rgba(18, 18, 18, 0.2);--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--bgc:#FFFFFF;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll">
+        <div
+      data-same-height-display-contents
+      
+      class="gmrDeKslLC gp-relative gp-flex gp-flex-col"
+    >
+      
+    
+      {%- assign gpBkProduct = product -%}
+      
+      {%- liquid
+        if request.page_type == 'product'
+          if 'static' == 'static'
+            if '9971144327408' == 'latest'
+              paginate collections.all.products by 100000
+                assign product = collections.all.products | sort: 'created_at' | reverse | first
+              endpaginate
+            else
+              assign product = all_products['pumpkin-seed-oil-and-saw-palmetto-softgels']
+              assign productId = '9971144327408' | times: 1
+              if product == empty or product == null
+                paginate collections.all.products by 100000
+                  for item in collections.all.products
+                    if item.id == productId
+                      assign product = item
+                    endif
+                  endfor
+                endpaginate
+              endif
+            endif
+          endif
+        else
+          if '9971144327408' == 'latest'
+            paginate collections.all.products by 100000
+              assign product = collections.all.products | sort: 'created_at'| reverse | first
+            endpaginate
+          else
+            assign product = all_products['pumpkin-seed-oil-and-saw-palmetto-softgels']
+            assign productId = '9971144327408' | times: 1
+            if product == empty or product == null
+              paginate collections.all.products by 100000
+                for item in collections.all.products
+                  if item.id == productId
+                    assign product = item
+                  endif
+                endfor
+              endpaginate
+            endif
+          endif
+        endif
+      -%}
+    
+    
+    {% if product != empty and product != null %}
+      
+      {%- assign initVariantId =  -%}
+      {%- assign product_form_id = 'product-form-' | append: "gNcgHpnbs7" -%}
+      {%- assign variant = product.selected_or_first_available_variant -%}
+      {%- assign productSelectedVariant = product.selected_or_first_available_variant -%}
+      {%-if productSelectedVariant == empty or productSelectedVariant == null -%}
+        {%- assign productSelectedVariant = product.selected_or_first_available_variant -%}
+      {%- endif -%}
+      {%-if variant == empty or variant == null -%}
+        {%- assign variant = product.selected_or_first_available_variant -%}
+      {%- endif -%}
+    
+      <gp-product
+        data-uid="gNcgHpnbs7"
+        data-id="gNcgHpnbs7"
+        
+        
+        gp-context='{"productId": {{ product.id }}, "preSelectedOptionIds": [], "isSyncProduct": "true", "hasPreSelected": true, "variantSelected": {{ variant | json | escape }},  "inventory_management": {{ variant.inventory_management | json | escape  }}, "inventory_policy": {{ variant.inventory_policy | json | escape }}, "inventoryQuantity": {{ variant.inventory_quantity | default: 0 }}, "quantity": 1, "formId": "{{ product_form_id }}" }'
+        gp-data='{"variantSelected": {{ variant | json | escape }}, "quantity": 1, "productUrl":{{ product.url | json | escape }}, "productHandle":{{ product.handle | json | escape }}, "collectionUrl": {{ collection.url | json | escape }}, "collectionHandle": {{ collection.handle | json | escape }}}'
+      >
+        <product-form class="product-form">
+          {%- form 'product', product, id: product_form_id, class: 'form contents', data-type: 'add-to-cart-form', autocomplete: 'off'  -%}
+            <input type="hidden" name="id" value="{{ variant.id }}" />
+            <input type="hidden" name="quantity" value="{{ quantity }}" />
+            <button type="submit" onclick="return false;" style="display:none;"></button>
+            
+    
+
+    
+
+    
+    <gp-row gp-data='{"background":{"desktop":{"color":"transparent","type":"color"}},"uid":"gNcgHpnbs7"}' data-id="gNcgHpnbs7-row" id="gNcgHpnbs7" data-same-height-subgrid-container class="gNcgHpnbs7 gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--pt:4px;--pl:4px;--pb:4px;--pr:4px;--cg:8px;--rg:0px;--gtc:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--bgc:transparent;--bgi:url();--pc:start">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:center"
+      class="gUNq6VIpHQ gp-relative gp-flex gp-flex-col"
+    >
+      
+    
+
+    
+
+    
+    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"transparent","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"repeat":"no-repeat","size":"cover","type":"color"}},"uid":"grVOZz_Dix"}' data-id="grVOZz_Dix" id="grVOZz_Dix" data-same-height-subgrid-container class="grVOZz_Dix gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:0px;--mb-mobile:0px;--mb-tablet:0px;--cg:8px;--cg-tablet:8px;--rg:0px;--gtc:minmax(0, 12fr);--gtc-mobile:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--h:auto;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:start">
+      
+
+      <div
+      data-same-height-display-contents
+      style="--jc:center"
+      class="g_b75sMK1l gp-relative gp-flex gp-flex-col"
+    >
+      
+    <gp-button
+      gp-data='{"btnLink":{"link":"https://merideaselabs.com/products/pumpkin-seed-oil-softgels","target":"_self","type":"open-page"}}'
+      
+      class="gp-flex gp-flex-col"
+    >
+      <div style="--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:left" >
+        <style>[data-id="gK5IWvdv5_"].gp-button-base::before, [data-id="gK5IWvdv5_-interaction"].gp-button-base::before {
+      
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    border-style: none;
+  border-width: 1px 1px 1px 1px;
+  border-color: var(--g-c-line-3, line-3);
+  
+    
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      
+  
+    }
+  
+      
+  [data-id="gK5IWvdv5_"]:hover::before, [data-id="gK5IWvdv5_-interaction"]:hover::before {
+    
+    
+  }</style>
+        
+        <a
+          data-id="gK5IWvdv5_" dataId="gK5IWvdv5_" data-state="idle" aria-label="<p>Buy Now</p>"
+          
+          href="https://merideaselabs.com/products/pumpkin-seed-oil-softgels" target="_self"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:24px;--pr:24px;--pt:12px;--pb:12px;--pl-mobile:24px;--pr-mobile:24px;--pt-mobile:12px;--pb-mobile:12px;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--hvr-bblr:0px;--hvr-bbrr:0px;--hvr-btlr:0px;--hvr-btrr:0px;--bgi:;--hvr-bgi:;--hvr-bg:var(--g-c-highlight, highlight);--bg:var(--g-c-brand, brand);--c:var(--g-c-text-3, text-3)"
+          class="gK5IWvdv5_ gp-text-center gp-button-base gp-group gp-relative gp-inline-flex gp-max-w-full gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-200 disabled:gp-btn-disabled disabled:gp-opacity-30 gp-text-g-text-3 gp-g-paragraph-1"
+        >
+        
+        <div class="gp-inline-flex">
+          
+          
+    <span
+      data-gp-text
+      style="word-break:break-word"
+      class="gp-content-product-button group-active/button:!gp-text-inherit gp-relative gp-flex gp-h-full gp-items-center gp-overflow-hidden gp-break-words group-data-[state=loading]:gp-invisible [&_p]:gp-whitespace-pre-line gp-text button-text"
+    >
+      {{ section.settings.ggK5IWvdv5__label }}
+    </span>
+        </div>
+        
+        </a>
+      </div>
+      <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-button-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+    </gp-button>
+  
+    </div>
+
+      
+    </gp-row>
+  
+  
+    </div>
+
+      
+    </gp-row>
+  
+  
+          {%- endform -%}
+        </product-form>
+      </gp-product>
+      {%- assign product = gpBkProduct -%}
+    {% else %}
+      <div class="gp-text-center">{{ 'gempages.Product.product_not_found' | t }}</div>
+    {% endif %}
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-product-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  
+    </div>
+      </div>
+    </gp-sticky>
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-sticky-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  
+    
+{% schema %}
+  {
+    
+    "name": "Section 1",
+    "tag": "section",
+    "class": "gps-615264230333088582 gps gpsi",
+    "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/s3x280-0x/apps/gempages-cro/app/shopify/edit?pageType=GP_STATIC&editorId=615264230282625862&sectionId=615264230333088582)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"},{"type":"html","id":"ggK5IWvdv5__label","label":"ggK5IWvdv5__label","default":"<p>Buy Now</p>"}],
+    "blocks": [{"type": "@app"}],
+    "locales": {}
+  }
+{% endschema %}
