@@ -22,21 +22,8 @@
             "menu": "footer",
             "font_size": 14,
             "menu_items_font": "body",
-            "width_desktop": 4,
+            "width_desktop": 6,
             "width_mobile": "1"
-          }
-        },
-        "email_signup_a8CiTE": {
-          "type": "email_signup",
-          "settings": {
-            "heading": "Subscribe to our emails",
-            "block_headings_font_size": 1,
-            "subtext": "<p>Be tuned it for discounts and news </p>",
-            "button_type": "solid",
-            "button_label": "Sign up",
-            "button_style_secondary": false,
-            "width_desktop": 3,
-            "width_mobile": "2"
           }
         },
         "text_8QkTiW": {
@@ -52,14 +39,13 @@
       },
       "block_order": [
         "1c647602-cc00-4009-a058-976435c8ee9e",
-        "email_signup_a8CiTE",
         "text_8QkTiW"
       ],
       "settings": {
         "color_scheme": "accent-1",
         "enable_follow_on_shop": false,
         "show_social": false,
-        "enable_country_selector": false,
+        "enable_country_selector": true,
         "enable_language_selector": true,
         "payment_enable": true,
         "enabled_payment_types": "",
