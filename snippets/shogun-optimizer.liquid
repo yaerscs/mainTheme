@@ -1526,14 +1526,9 @@ This file can be re-written at any time.
 {%- endcomment -%}
 <script type="text/javascript">
   ;(function() {
-    if (typeof ShogunOptimizer === 'undefined') {
-      console.error("ShogunOptimizer is not defined. Please ensure the optimizer script is properly loaded.");
-      return;
-    }
-
     const designMode = {{ request.design_mode | default: false }};
     if (designMode) {
-      console.debug("Design mode is enabled, skipping optimizer initialization");
+      console.debug("shogun: Design mode is enabled, skipping optimizer initialization");
       return;
     }
 
@@ -1542,7 +1537,7 @@ This file can be re-written at any time.
     const referrer = document.referrer
     const merchantDomains = ['admin.shopify.com', 'ab.shgapi.com', 'abc.shogun.dev']
     if (!localStorage.getItem('_shg_is_merchant') && merchantDomains.some(domain => referrer.includes(domain))) {
-      console.debug('Setting shg_is_merchant to true')
+      console.debug('shogun: Setting shg_is_merchant to true')
       localStorage.setItem('_shg_is_merchant', 'true')
     }
 
@@ -1551,7 +1546,7 @@ This file can be re-written at any time.
     const optimizationDisabled = urlParams.get('shg') === "false" || window.location.hostname.includes('shopifypreview');
 
     if (optimizationDisabled) {
-      console.debug("Optimization is disabled, skipping optimizer initialization");
+      console.debug("shogun: Optimization is disabled, skipping optimizer initialization");
       return;
     }
 
@@ -1562,7 +1557,7 @@ This file can be re-written at any time.
     const shopMetafieldConfig = null;
     {% endif %}
     if (!shopMetafieldConfig) {
-      console.debug("Shop metafield configuration for optimizations is missing. Skipping optimizer initialization.");
+      console.debug("shogun: Shop metafield configuration for optimizations is missing. Skipping optimizer initialization.");
       return;
     }
 
@@ -1572,37 +1567,45 @@ This file can be re-written at any time.
     const intendedShopifyId = "80987390192"; // The hard coded shopify ID when this snippet was pushed to the theme.
     const currentShopifyId = "{{ shop.id }}"; // The current shopify ID that this theme is rendered in.
     if (intendedShopifyId !== currentShopifyId) {
-      console.debug(`Shopify ID mismatch: intendedShopifyId=${intendedShopifyId} currentShopifyId=${currentShopifyId}. This may indicate the theme was copied from another shop and not properly set up. Skipping optimizer initialization to avoid potential issues.`);
+      console.debug(`shogun: Shopify ID mismatch: intendedShopifyId=${intendedShopifyId} currentShopifyId=${currentShopifyId}. This may indicate the theme was copied from another shop and not properly set up. Skipping optimizer initialization to avoid potential issues.`);
       return;
     } else {
-      console.debug(`Shopify ID verified: ${intendedShopifyId}`);
+      console.debug(`shogun: Shopify ID verified: ${intendedShopifyId}`);
     }
 
-    // Build optimizer configuration
-    const optimizerConfig = {
-      shopId: "f1b541be-0c6c-484c-ac5e-536c88dd344f",
-      optimizations: optimizationsData,
-      distributionMethod: urlParams.get('shgMethod') || shopMetafieldConfig.method,
-      defaultThemeId: shopMetafieldConfig.default_theme_id ? shopMetafieldConfig.default_theme_id.toString() : null,
-      currentThemeId: "160758595824",
-      pageId: "{{ content.id }}",
-      pageType: "{% if template.name == 'list-collections' %}list-collections{% elsif article %}article{% elsif blog %}blog{% elsif page %}page{% elsif product %}product{% elsif collection %}collection{% elsif metaobject %}metaobject{% else %}homepage{% endif %}",
-      templateName: "{{ template.name }}",
-      templateSuffix: "{{ template.suffix }}",
-      customerId: "{{ customer.id }}",
-      isB2B: {{ customer.b2b? | default: false }},
-      sessionIdOverride: urlParams.get('shgSessionId'),
-      geoLocationApi: "https://ipinfo.io/json?token=f2ae3a557d807b",
-      currentCartVariantId: {% if cart.attributes.shogun_variant_id %}"{{ cart.attributes.shogun_variant_id }}"{% else %}null{% endif %},
-      languageRootUrl: "{{ localization.language.root_url }}",
-      analyticsUrl: "https://shogun-abc-production.global.ssl.fastly.net",
-      storefrontAccessToken: null,
-      shopDomain: "s3x280-0x.myshopify.com",
-      storewideEventCollection: false
-    };
+    
+      if (typeof ShogunOptimizer === 'undefined') {
+        console.error("shogun: ShogunOptimizer is not defined. Please ensure the shogun optimizer script is properly loaded.");
+        return;
+      }
 
-    console.debug("Initializing ShogunOptimizer with config:", optimizerConfig);
-    const optimizer = new ShogunOptimizer(optimizerConfig);
-    optimizer.run();
+      // Build optimizer configuration
+      const optimizerConfig = {
+        shopId: "f1b541be-0c6c-484c-ac5e-536c88dd344f",
+        optimizations: optimizationsData,
+        distributionMethod: urlParams.get('shgMethod') || shopMetafieldConfig.method,
+        defaultThemeId: shopMetafieldConfig.default_theme_id ? shopMetafieldConfig.default_theme_id.toString() : null,
+        currentThemeId: "160758595824",
+        pageId: "{{ content.id }}",
+        pageType: "{% if template.name == 'list-collections' %}list-collections{% elsif article %}article{% elsif blog %}blog{% elsif page %}page{% elsif product %}product{% elsif collection %}collection{% elsif metaobject %}metaobject{% else %}homepage{% endif %}",
+        templateName: "{{ template.name }}",
+        templateSuffix: "{{ template.suffix }}",
+        customerId: "{{ customer.id }}",
+        isB2B: {{ customer.b2b? | default: false }},
+        sessionIdOverride: urlParams.get('shgSessionId'),
+        geoLocationApi: "https://ipinfo.io/json?token=f2ae3a557d807b",
+        currentCartVariantId: {% if cart.attributes.shogun_variant_id %}"{{ cart.attributes.shogun_variant_id }}"{% else %}null{% endif %},
+        languageRootUrl: "{{ localization.language.root_url }}",
+        analyticsUrl: "https://shogun-abc-production.global.ssl.fastly.net",
+        storefrontAccessToken: null,
+        shopDomain: "s3x280-0x.myshopify.com",
+        storewideEventCollection: false
+      };
+
+      console.debug("shogun: Initializing ShogunOptimizer v1 with config:", optimizerConfig);
+      const optimizer = new ShogunOptimizer(optimizerConfig);
+      optimizer.run();
+    
   })();
+
 </script>
