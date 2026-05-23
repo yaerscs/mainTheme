@@ -62,7 +62,7 @@
             "text_1": "Anti-Inflammatory and Anti Oxidative Support",
             "icon_1": "check_circle",
             "filled_icon_1": true,
-            "text_2": "Regulates DHT naturally",
+            "text_2": "Supports DHT naturally",
             "icon_2": "check_circle",
             "filled_icon_2": true,
             "text_3": "Made With Highly Concentrated Extracts",
@@ -149,37 +149,6 @@
             "margin_bottom": 15
           }
         },
-        "reviews_LPRLU8": {
-          "type": "reviews",
-          "settings": {
-            "color_scheme": "background-1",
-            "show_custom_bg": false,
-            "custom_bg_color": "#f2f2f2",
-            "corner_radius": 12,
-            "border_width": 0,
-            "border_color": "#b7b7b7",
-            "avatar_alignment": "top",
-            "avatar_corner_radius": 40,
-            "star_color": "#ffcc00",
-            "stars_translate": 0,
-            "checkmark_color": "#6d388b",
-            "checkmark_icon_color": "#ffffff",
-            "slider_type": "slide",
-            "autoplay": false,
-            "autoplay_speed": 5,
-            "display_arrows": false,
-            "display_dots": false,
-            "author_1": "Robert L. [stars]",
-            "image_1": "shopify://shop_images/email_popup_male_portrait_1766754535993.jpg",
-            "text_1": "<p>I had an inflammatory and oxidative issue with my body, which affected me for many years. Upon finding MeridEase, their Pumpkin Seed Oil and Saw Palmetto Softgels have really revitalised me, bringing me back to my old self. </p>",
-            "author_2": "",
-            "text_2": "",
-            "author_3": "",
-            "text_3": "",
-            "margin_top": 24,
-            "margin_bottom": 24
-          }
-        },
         "stock_warning_CKpqhM": {
           "type": "stock_warning",
           "settings": {
@@ -261,7 +230,6 @@
         "description",
         "text_iBA3k9",
         "payment_badges_JwQHnw",
-        "reviews_LPRLU8",
         "stock_warning_CKpqhM",
         "product_faq_wztQ3W",
         "image_pQkgxF"
@@ -339,98 +307,6 @@
         "columns_mobile": "2",
         "padding_top": 36,
         "padding_bottom": 24
-      }
-    },
-    "review_slider_3_cabtXH": {
-      "type": "review-slider-3",
-      "blocks": {
-        "review_mthnEy": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/e946cd41-c9ae-4615-b849-a61603ab5750.png",
-            "stars": 5,
-            "quote": "This product definitely works for my inflammation and oxidation, feel so much better now.",
-            "name": "Michael L.",
-            "verified_text": "Verified Customer",
-            "tag_1": "Finally Free",
-            "tag_2": "No Regrets",
-            "tag_3": ""
-          }
-        },
-        "review_gc9ze9": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/ca0bd45d-dd2e-4d9b-a36c-c4d4c5c41ff5.png",
-            "stars": 5,
-            "quote": "I was a little concerned at first, I've been disappointed by so many supplements before. However, I'm happy I took the change and pulled the trigger on MeridEase.",
-            "name": "Messari I.",
-            "verified_text": "Verified Customer",
-            "tag_1": "Revitalised",
-            "tag_2": "Loving It!",
-            "tag_3": ""
-          }
-        },
-        "review_UTHei6": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/4ec24937-c8e4-49f5-88d3-1d45e346b376_db56333f-5c09-4c25-abc8-2a8c141c840c.png",
-            "stars": 5,
-            "quote": "\"Heard of the hype, but was skeptical of the ads. Tried to give it a go and wow, not regrets\"",
-            "name": "Mike L.",
-            "verified_text": "Verified Customer",
-            "tag_1": "Will Buy Again",
-            "tag_2": "No Regrets",
-            "tag_3": ""
-          }
-        },
-        "review_QHJncD": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_npdxppnpdxppnpdx.png",
-            "stars": 5,
-            "quote": "\"I tried everything. I swear. But MeridEase changed my mind... this is crazy.",
-            "name": "Lee M.",
-            "verified_text": "Verified Customer",
-            "tag_1": "Finally Free",
-            "tag_2": "Found A Solution!",
-            "tag_3": ""
-          }
-        }
-      },
-      "block_order": [
-        "review_mthnEy",
-        "review_gc9ze9",
-        "review_UTHei6",
-        "review_QHJncD"
-      ],
-      "name": "Review Slider 3",
-      "settings": {
-        "title": "Stopped waking up - Now you can't go back.",
-        "subtitle": "See what our customers love about us:",
-        "title_size_desktop": 46,
-        "title_size_mobile": 28,
-        "subtitle_size": 20,
-        "bg_color_top": "#d58f26",
-        "bg_color_bottom": "#000000",
-        "text_color": "#ffffff",
-        "card_bg_color": "#ffffff",
-        "card_text_color": "#2b2b2b",
-        "accent_color": "#d58f26",
-        "slides_desktop": 4,
-        "show_arrows_desktop": false,
-        "show_arrows_mobile": true,
-        "slides_mobile": "1",
-        "mobile_teaser": 24,
-        "slide_gap": 16,
-        "card_radius": 10,
-        "image_radius": 0,
-        "image_ratio": "4 / 5",
-        "quote_size": 18,
-        "author_size": 14,
-        "padding_top_desktop": 60,
-        "padding_bottom_desktop": 62,
-        "padding_top_mobile": 30,
-        "padding_bottom_mobile": 30
       }
     },
     "custom_columns_icons_image_LM9k84": {
@@ -834,7 +710,6 @@
   "order": [
     "main",
     "related-products",
-    "review_slider_3_cabtXH",
     "custom_columns_icons_image_LM9k84",
     "rr_new_table_hz3Mbd",
     "clinical_proven_stats_t6y4kN",
