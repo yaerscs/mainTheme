@@ -126,21 +126,6 @@
     },
     "17793341255defe4ad": {
       "type": "apps",
-      "blocks": {
-        "track123_edd_kAYUXE": {
-          "type": "shopify://apps/track123/blocks/edd/60c49c11-a7c0-49a0-861e-2f84d2f294e6",
-          "settings": {
-            "text_color": "",
-            "icon_color": "",
-            "border_color": "",
-            "top_padding": 10,
-            "bottom_padding": 10
-          }
-        }
-      },
-      "block_order": [
-        "track123_edd_kAYUXE"
-      ],
       "settings": {
         "display_id": false,
         "include_margins": true
