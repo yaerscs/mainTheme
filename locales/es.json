@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "password_page": {
@@ -42,7 +51,8 @@
     "cart": {
       "view": "Ver mi carrito ({{ count }})",
       "item_added": "Artículo agregado a tu carrito",
-      "view_empty_cart": "Ver mi carrito"
+      "view_empty_cart": "Ver mi carrito",
+      "recurring_subtotal": "Garantía de devolución de dinero de 60 días"
     },
     "share": {
       "copy_to_clipboard": "Copiar enlace",
@@ -296,7 +306,8 @@
       "login": {
         "title": "¿Tienes una cuenta?",
         "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Inicia sesión</a> para finalizar tus compras con mayor rapidez."
-      }
+      },
+      "recurring_subtotal": "Garantía de devolución del dinero de 60 días"
     },
     "footer": {
       "payment": "Formas de pago"
@@ -447,7 +458,8 @@
       "tracking_number": "Número de seguimiento",
       "subtotal": "Subtotal",
       "total_duties": "Aranceles",
-      "total_refunded": "Reembolsado"
+      "total_refunded": "Reembolsado",
+      "recurring_subtotal": "Garantía de devolución de dinero de 60 días"
     }
   },
   "gift_cards": {
@@ -463,6 +475,110 @@
       "expired": "Vencido",
       "copy_code_success": "El código se copió correctamente",
       "print_gift_card": "Imprimir"
+    }
+  },
+  "gempages": {
+    "Carousel": {
+      "no_slider": "Sin deslizador"
+    },
+    "CarouselV3": {
+      "no_slider": "Sin deslizador"
+    },
+    "Newsletter": {
+      "err_msg_default": "No se puede enviar el correo electrónico. Inténtelo de nuevo más tarde.",
+      "success_msg_default": "Gracias por suscribirte"
+    },
+    "IconListV2": {
+      "icons_not_found": "Íconos no encontrados"
+    },
+    "IconList": {
+      "icons_not_found": "Íconos no encontrados"
+    },
+    "IconListHoz": {
+      "icons_not_found": "Íconos no encontrados"
+    },
+    "Product": {
+      "product_not_found": "Producto no encontrado"
+    },
+    "ProductList": {
+      "product_not_found": "¡Producto no encontrado!",
+      "no_products_found": "¡No se encontraron productos!",
+      "no_related_products": "¡No hay productos relacionados!"
+    },
+    "ProductListV3": {
+      "product_not_found": "¡Producto no encontrado!",
+      "no_products_found": "¡No se encontraron productos!",
+      "no_related_products": "¡No hay productos relacionados!"
+    },
+    "ProductTitle": {
+      "product_not_found": "Producto no encontrado"
+    },
+    "ProductVariants": {
+      "please_select": "Por favor, seleccione una opción"
+    },
+    "StockCounter": {
+      "let_buy_now": "<mark>¡DATE PRISA!</mark> COMPRAR AHORA"
+    },
+    "Breadcrumb": {
+      "home": "Inicio"
+    }
+  },
+  "pagefly": {
+    "products": {
+      "product": {
+        "regular_price": "Precio regular",
+        "sold_out": "Agotado",
+        "unavailable": "No disponible",
+        "on_sale": "Rebajas",
+        "quantity": "Cantidad",
+        "add_to_cart": "Añadir al carrito",
+        "back_to_collection": "Volver a {{ title }}",
+        "view_details": "Ver detalles"
+      }
+    },
+    "article": {
+      "tags": "Etiquetas:",
+      "all_topics": "Todos los temas",
+      "by_author": "de {{ author }}",
+      "posted_in": "Publicado en",
+      "read_more": "Leer más",
+      "back_to_blog": "Volver a {{ title }}"
+    },
+    "comments": {
+      "title": "Deje un comentario",
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "message": "Mensaje",
+      "post": "Publicar comentario",
+      "moderated": "Tenga en cuenta que los comentarios deben ser aprobados antes de su publicación.",
+      "success_moderated": "Tu comentario fue enviado con éxito. Lo publicaremos en un rato, ya que nuestro blog es moderado.",
+      "success": "¡Tu comentario fue publicado con éxito! ¡Gracias!",
+      "comments_with_count": {
+        "one": "{{ count }} comentario",
+        "other": "{{ count }} comentarios"
+      }
+    },
+    "password_page": {
+      "login_form_message": "Entrar a la tienda usando la contraseña:",
+      "login_form_password_label": "Contraseña",
+      "login_form_password_placeholder": "Tu contraseña",
+      "login_form_submit": "Introducir",
+      "signup_form_email_label": "Correo electrónico",
+      "signup_form_success": "¡Te enviaremos un correo electrónico justo antes de que abramos!",
+      "password_link": "Ingresar con contraseña"
+    }
+  },
+  "shopify": {
+    "checkout": {
+      "general": {
+        "recurring_subtotal": "Garantía de devolución de dinero de 60 días"
+      },
+      "order_summary": {
+        "recurring_subtotal": "Se envía cada {{ interval }}"
+      },
+      "review": {
+        "recurring_subtotal": "Garantía de devolución de dinero de 60 días"
+      }
     }
   }
 }
